@@ -1,0 +1,17 @@
+@layer components {
+  .sph-menu { @apply relative inline-flex font-sph-sans; }
+  .sph-menu__trigger { @apply inline-flex items-center justify-center rounded-sph-sm border-0 bg-transparent p-0 text-sph-text; cursor: pointer; font: inherit; }
+  .sph-menu__trigger:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+  .sph-menu__trigger:disabled { @apply opacity-45; cursor: not-allowed; }
+  .sph-menu__content { @apply absolute top-[calc(100%+4px)] z-[110] grid min-w-44 gap-0.5 rounded-sph-md border border-sph-border bg-sph-surface p-1 shadow-sph-popover; }
+  .sph-menu__content[data-align="end"] { @apply right-0; }
+  .sph-menu__item { @apply flex min-h-8 w-full items-center justify-between gap-4 rounded-sph-sm border-0 bg-transparent px-2.5 text-left text-xs text-sph-text-muted; cursor: pointer; font-family: var(--sph-font-sans); }
+  .sph-menu__item:hover:not(:disabled) { @apply bg-sph-raised text-sph-text; }
+  .sph-menu__item:active:not(:disabled) { @apply bg-sph-accent-soft; }
+  .sph-menu__item:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: -2px; }
+  .sph-menu__item[data-danger="true"] { color: var(--sph-danger); }
+  .sph-menu__item:disabled { @apply opacity-40; cursor: not-allowed; }
+  .sph-menu__item-label { @apply inline-flex min-w-0 items-center gap-2; }
+  .sph-menu__shortcut { @apply text-[11px] text-sph-text-muted; }
+  .sph-menu__separator { @apply my-1 h-px bg-sph-border; }
+}
