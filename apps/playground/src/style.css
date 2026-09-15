@@ -44,9 +44,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .wordmark__name { display: inline-block; }
 .brand-mark { display: grid; place-items: center; width: 26px; height: 26px; }
 .sephiro-mark { display: block; width: 100%; height: 100%; overflow: visible; }
-.sephiro-mark__orbit, .sephiro-mark__letter { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.sephiro-mark__orbit { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 .sephiro-mark__orbit { stroke: var(--sph-accent); stroke-width: 1.45; opacity: 0.72; }
-.sephiro-mark__letter { stroke: var(--sph-text); stroke-width: 2.25; }
+.sephiro-mark__core { fill: var(--sph-text); }
 .sephiro-mark__node { fill: var(--sph-accent); }
 .topbar__context { justify-self: end; display: inline-flex; align-items: center; gap: 10px; color: var(--sph-text-muted); font-size: 12px; }
 
