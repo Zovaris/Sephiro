@@ -1,0 +1,13 @@
+@layer components {
+  .sph-popover { @apply relative inline-flex min-w-0 font-sph-sans; }
+  .sph-popover__trigger { @apply inline-flex min-w-0 items-center justify-center border-0 bg-transparent p-0 text-sph-text; cursor: pointer; font: inherit; }
+  .sph-popover__trigger:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+  .sph-popover__trigger:disabled { @apply opacity-45; cursor: not-allowed; }
+  .sph-popover__content { @apply absolute top-[calc(100%+6px)] z-[105] min-w-48 max-w-[min(26rem,calc(100vw-2rem))] rounded-sph-md border border-sph-border bg-sph-surface p-4 text-sm text-sph-text shadow-sph-popover; animation: sph-popover-in var(--sph-motion-fast) var(--sph-ease-emphasis) both; }
+  .sph-popover__content[data-placement="end"] { @apply right-0; }
+  @keyframes sph-popover-in { from { opacity: 0; transform: translateY(-3px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-popover__content { animation: none; }
+  }
+}

@@ -18,3 +18,4 @@ export { Select, type SelectOption, type SelectProps } from "./molecules/Select"
 export { RadioGroup, type RadioGroupProps, type RadioOption } from "./molecules/RadioGroup";
 export { Tabs, type TabItem, type TabsProps } from "./molecules/Tabs";
 export { Menu, type MenuItem, type MenuProps } from "./molecules/Menu";
+export { Popover, type PopoverProps } from "./molecules/Popover";

@@ -22,6 +22,7 @@
 @import "./molecules/RadioGroup/style.css";
 @import "./molecules/Tabs/style.css";
 @import "./molecules/Menu/style.css";
+@import "./molecules/Popover/style.css";
 
 @theme {
   --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
