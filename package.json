@@ -22,7 +22,7 @@
     "build:css": "tailwindcss --input src/styles.css --output dist/index.css",
     "check": "tsc --noEmit",
     "dev": "bun run --parallel dev:js dev:css",
-    "dev:js": "tsup --watch --ignore-watch src/styles.css",
+    "dev:js": "tsup --watch",
     "dev:css": "tailwindcss --input src/styles.css --output dist/index.css --watch",
     "test": "bun test"
   },
