@@ -6,6 +6,7 @@ export { IconButton, type IconButtonProps } from "./atoms/IconButton";
 export { Input, type InputProps } from "./atoms/Input";
 export { Skeleton, type SkeletonProps } from "./atoms/Skeleton";
 export { Spinner, type SpinnerProps } from "./atoms/Spinner";
+export { Separator, type SeparatorProps } from "./atoms/Separator";
 export { Surface, type SurfaceProps } from "./atoms/Surface";
 export { Textarea, type TextareaProps } from "./atoms/Textarea";
 export { Toggle, type ToggleProps } from "./atoms/Toggle";

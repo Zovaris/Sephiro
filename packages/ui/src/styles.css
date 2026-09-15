@@ -9,6 +9,7 @@
 @import "./atoms/IconButton/style.css";
 @import "./atoms/Input/style.css";
 @import "./atoms/Skeleton/style.css";
+@import "./atoms/Separator/style.css";
 @import "./atoms/Spinner/style.css";
 @import "./atoms/Surface/style.css";
 @import "./atoms/Textarea/style.css";
