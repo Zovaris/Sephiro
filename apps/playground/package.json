@@ -1,0 +1,22 @@
+{
+  "name": "@sephiro/playground",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "bun --cwd ../../packages/ui build",
+    "dev": "vite",
+    "build": "vite build",
+    "precheck": "bun --cwd ../../packages/ui build",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sephiro/ui": "workspace:*",
+    "preact": "^10.26.4"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.1",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.5"
+  }
+}

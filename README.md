@@ -1,69 +1,71 @@
 # Sephiro
 
-Reusable, restrained UI primitives for desktop apps built with React or Preact.
+Sephiro is a lightweight UI monorepo for desktop applications built with React or Preact. The package is intentionally small: it provides composable primitives, semantic tokens, and scoped themes without installing a global reset.
 
-## First release
+## Workspace
 
-- `Button`
-- `Input`
-- `Select`
-- `Toggle`
-- CSS tokens with dark and light themes
-
-Application-specific shells, Tauri window controls, charts, and page skeletons intentionally stay outside this package.
-
-## Install locally
-
-```json
-{
-  "dependencies": {
-    "@sephiro/ui": "file:../Sephiro"
-  }
-}
+```text
+packages/ui       @sephiro/ui — publishable component package
+apps/playground   @sephiro/playground — visual catalog and theme preview
 ```
 
-```tsx
-import { Button, Input, Select, Toggle } from "@sephiro/ui";
-import "@sephiro/ui/styles.css";
-```
+The UI source is organized by composition level. Every component owns an `index.tsx`, `style.css`, and colocated test:
 
-Override any `--sph-*` custom property at the application root to brand an app. Add `data-sephiro-theme="light"` to a parent element to enable the bundled light theme.
+- `atoms`: `Button`, `Input`, `Textarea`, `Checkbox`, `Toggle`, `Badge`, `Spinner`, `Skeleton`
+- `molecules`: `Field`, `FieldMessage`, `Select`
 
-Interactive controls use one size contract: `sm` (32px), `md` (36px, default), and `lg` (40px). The Input and Select use a deliberately subtle 0.5px outlined treatment by default; their focus state remains visible for keyboard users.
+The existing `Button`, `Input`, `Select`, and `Toggle` APIs remain available from the package root. New props such as `Button.loading` and `Input.invalid` are additive.
 
-## Tailwind CSS v4
-
-Sephiro compiles its component classes with Tailwind v4 `@apply`. Its published stylesheet is self-contained: consumers only need to import `@sephiro/ui/styles.css` and do not need Tailwind in their application.
-
-The build imports Tailwind's theme and utilities layers but deliberately omits Preflight, so installing Sephiro never resets a Tauri or web application's existing styles. The `sph-*` CSS variables remain the stable customization surface.
-
-## Preact
-
-Sephiro uses the React-compatible component contract. In Preact projects, alias React to `preact/compat` in Vite:
-
-```ts
-import { defineConfig } from "vite";
-import preact from "@preact/preset-vite";
-
-export default defineConfig({
-  plugins: [preact()],
-  resolve: {
-    alias: {
-      react: "preact/compat",
-      "react-dom": "preact/compat",
-      "react-dom/test-utils": "preact/test-utils",
-      "react/jsx-runtime": "preact/jsx-runtime",
-    },
-  },
-});
-```
-
-## Development
+## Run locally
 
 ```bash
 bun install
+bun run dev
+```
+
+The playground opens a catalog with interactive states and three scoped themes: `default`, `Asterism`, and `Soffy`. To build or validate everything:
+
+```bash
 bun run check
+bun run test
 bun run build
 ```
 
-The package is private while its API settles. Remove `private: true` only when naming, licensing, and publishing are decided.
+You can run the package and app separately with `bun run dev:ui`, `bun run dev:playground`, `bun run build:ui`, and `bun run build:playground`.
+
+## Use the package
+
+```tsx
+import { Button, Field, Input, Select, Toggle } from "@sephiro/ui";
+import "@sephiro/ui/styles.css";
+```
+
+Sephiro uses one control size contract: `sm` (32px), `md` (36px, default), and `lg` (40px). It compiles component classes with Tailwind CSS v4 `@apply`, but deliberately omits Preflight. Importing `@sephiro/ui/styles.css` therefore does not reset a Tauri or web application.
+
+## Themes and tokens
+
+Theme variables are scoped to a parent element, so multiple themes can coexist on a page:
+
+```tsx
+<div data-sephiro-theme="asterism">
+  <Button variant="primary">Open workspace</Button>
+</div>
+```
+
+Available scopes are `default`, `light`, `asterism`, and `soffy`. Override the semantic `--sph-*` custom properties on an application root to brand a surface. Motion uses `--sph-motion-fast`, `--sph-motion-normal`, and `--sph-motion-slow`, and automatically collapses under `prefers-reduced-motion: reduce`.
+
+## Preact
+
+The package exposes React-compatible contracts and can be consumed by Preact through the usual compatibility aliases. The playground is a working Preact example using Vite:
+
+```ts
+resolve: {
+  alias: {
+    react: "preact/compat",
+    "react-dom": "preact/compat",
+    "react/jsx-runtime": "preact/jsx-runtime",
+  },
+}
+```
+
+The package remains private while its API settles. Remove `private: true` only when naming, licensing, and publishing are decided.
