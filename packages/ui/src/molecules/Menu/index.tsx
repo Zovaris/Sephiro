@@ -27,6 +27,7 @@ export function Menu({ trigger, items, onSelect, label = "Open menu", align = "s
   const [open, setOpen] = useState(false);
   const enabledIndexes = items.flatMap((item, index) => (!item.separator && !item.disabled ? [index] : []));
   const close = () => setOpen(false);
+  const focusItem = (index: number) => document.getElementById(`${menuId}-${index}`)?.focus();
 
   useEffect(() => {
     if (!open) return;
@@ -49,8 +50,28 @@ export function Menu({ trigger, items, onSelect, label = "Open menu", align = "s
       event.preventDefault();
       setOpen(true);
       const index = enabledIndexes[event.key === "ArrowDown" ? 0 : enabledIndexes.length - 1];
-      if (index !== undefined) requestAnimationFrame(() => document.getElementById(`${rootRef.current?.id}-${index}`)?.focus());
+      if (index !== undefined) requestAnimationFrame(() => focusItem(index));
     }
+  };
+
+  const handleItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      close();
+      rootRef.current?.querySelector<HTMLButtonElement>(".sph-menu__trigger")?.focus();
+      return;
+    }
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      choose(items[index]);
+      return;
+    }
+    if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const current = enabledIndexes.indexOf(index);
+    const nextPosition = event.key === "Home" ? 0 : event.key === "End" ? enabledIndexes.length - 1 : (current + (event.key === "ArrowDown" ? 1 : -1) + enabledIndexes.length) % enabledIndexes.length;
+    const nextIndex = enabledIndexes[nextPosition];
+    if (nextIndex !== undefined) focusItem(nextIndex);
   };
 
   return (
@@ -72,6 +93,7 @@ export function Menu({ trigger, items, onSelect, label = "Open menu", align = "s
               data-danger={item.danger || undefined}
               disabled={item.disabled}
               onClick={() => choose(item)}
+              onKeyDown={(event) => handleItemKeyDown(event, index)}
             >
               <span className="sph-menu__item-label">{item.icon}<span>{item.label}</span></span>
               {item.shortcut !== undefined && <span className="sph-menu__shortcut">{item.shortcut}</span>}
