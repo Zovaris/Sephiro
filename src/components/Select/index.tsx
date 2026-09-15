@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { classes } from "../../lib/classes";
+import { cn } from "cn";
 
 export type SelectOption = {
   value: string;
@@ -114,7 +114,7 @@ export function Select({
   const selected = selectedIndex >= 0 ? options[selectedIndex] : undefined;
 
   return (
-    <div ref={rootRef} className={classes("sph-select", className)}>
+    <div ref={rootRef} className={cn("sph-select", className)}>
       <button
         id={triggerId}
         type="button"

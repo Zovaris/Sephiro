@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
-import { classes } from "../../lib/classes";
+import { cn } from "cn";
 
 export type ToggleProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -26,7 +26,7 @@ export function Toggle({
       aria-checked={checked}
       aria-label={label}
       disabled={disabled}
-      className={classes("sph-toggle", className)}
+      className={cn("sph-toggle", className)}
       data-state={checked ? "checked" : "unchecked"}
       onClick={(event) => {
         onClick?.(event);

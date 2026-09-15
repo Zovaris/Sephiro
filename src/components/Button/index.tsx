@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
-import { classes } from "../../lib/classes";
+import { cn } from "cn";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "quiet";
@@ -16,7 +16,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={classes("sph-button", className)}
+      className={cn("sph-button", className)}
       data-variant={variant}
       data-size={size}
       {...props}

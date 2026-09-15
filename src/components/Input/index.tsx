@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from "react";
-import { classes } from "../../lib/classes";
+import { cn } from "cn";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   invalid?: boolean;
@@ -15,7 +15,7 @@ export function Input({
   return (
     <input
       {...props}
-      className={classes("sph-input", className)}
+      className={cn("sph-input", className)}
       data-density={density}
       aria-invalid={invalid || props["aria-invalid"]}
     />
