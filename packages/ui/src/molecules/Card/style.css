@@ -1,0 +1,21 @@
+@layer components {
+  .sph-card {
+    @apply min-w-0 overflow-hidden rounded-sph-md border border-sph-border bg-sph-surface text-sph-text;
+    font-family: var(--sph-font-sans);
+    transition: border-color var(--sph-motion-fast) var(--sph-ease-standard), background-color var(--sph-motion-fast) var(--sph-ease-standard), transform var(--sph-motion-fast) var(--sph-ease-emphasis);
+  }
+  .sph-card[data-interactive="true"] { cursor: pointer; }
+  .sph-card[data-interactive="true"]:hover { border-color: var(--sph-border-strong); background: var(--sph-surface-elevated); }
+  .sph-card[data-interactive="true"]:active { transform: translateY(1px); }
+  .sph-card[data-selected="true"] { border-color: var(--sph-accent); box-shadow: 0 0 0 1px var(--sph-accent-soft); }
+  .sph-card:focus-within { border-color: var(--sph-focus); }
+  .sph-card__header { @apply grid gap-1 border-b border-sph-border px-4 py-3.5; }
+  .sph-card__title { @apply m-0 text-sm font-semibold text-sph-text; line-height: 1.3; }
+  .sph-card__description { @apply m-0 text-xs text-sph-text-muted; line-height: 1.45; }
+  .sph-card__content { @apply min-w-0 px-4 py-4; }
+  .sph-card__footer { @apply flex flex-wrap items-center justify-end gap-2 border-t border-sph-border px-4 py-3; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-card { transition: none; }
+  }
+}
