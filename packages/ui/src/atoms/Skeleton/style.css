@@ -1,0 +1,17 @@
+@layer components {
+  .sph-skeleton {
+    @apply inline-block min-h-3 rounded-sph-sm bg-sph-raised;
+    background-image: linear-gradient(90deg, transparent, color-mix(in srgb, var(--sph-text) 8%, transparent), transparent);
+    background-size: 200% 100%;
+    animation: sph-skeleton-shimmer 1.4s var(--sph-ease-standard) infinite;
+  }
+
+  @keyframes sph-skeleton-shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-skeleton { animation: none; }
+  }
+}

@@ -1,0 +1,28 @@
+@layer components {
+  .sph-button {
+    @apply inline-flex h-9 items-center justify-center gap-1.5 rounded-sph-sm border-0 bg-transparent px-3 text-[12.5px] font-medium text-sph-text;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: var(--sph-font-sans);
+    font-weight: 550;
+    transition: background-color var(--sph-motion-fast) var(--sph-ease-standard), color var(--sph-motion-fast) var(--sph-ease-standard), transform var(--sph-motion-fast) var(--sph-ease-emphasis);
+  }
+  .sph-button[data-size="sm"] { @apply h-8; }
+  .sph-button[data-size="md"] { @apply h-9 text-sm; }
+  .sph-button[data-size="lg"] { @apply h-10 text-sm; }
+  .sph-button[data-variant="primary"] { @apply bg-sph-accent text-white; }
+  .sph-button[data-variant="primary"]:hover { @apply bg-sph-accent-hover; }
+  .sph-button[data-variant="primary"]:active { @apply bg-sph-accent-pressed; transform: translateY(1px); }
+  .sph-button[data-variant="secondary"] { @apply border border-sph-border bg-sph-surface; }
+  .sph-button[data-variant="secondary"]:hover,
+  .sph-button[data-variant="quiet"]:hover { @apply bg-sph-raised; }
+  .sph-button[data-variant="quiet"] { @apply text-sph-text-muted; }
+  .sph-button:disabled { @apply opacity-45; cursor: not-allowed; transform: none; }
+  .sph-button:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+  .sph-button[data-loading="true"] { cursor: wait; }
+  .sph-button__label { @apply inline-flex items-center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-button { transition: none; }
+  }
+}

@@ -1,0 +1,154 @@
+@layer theme, components, utilities;
+
+/* A component package must not reset the host application. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@import "./atoms/Badge/style.css";
+@import "./atoms/Button/style.css";
+@import "./atoms/Checkbox/style.css";
+@import "./atoms/Input/style.css";
+@import "./atoms/Skeleton/style.css";
+@import "./atoms/Spinner/style.css";
+@import "./atoms/Textarea/style.css";
+@import "./atoms/Toggle/style.css";
+@import "./molecules/Field/style.css";
+@import "./molecules/FieldMessage/style.css";
+@import "./molecules/Select/style.css";
+
+@theme {
+  --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-sph-bg: var(--sph-bg);
+  --color-sph-surface: var(--sph-surface);
+  --color-sph-raised: var(--sph-raised);
+  --color-sph-border: var(--sph-border);
+  --color-sph-text: var(--sph-text);
+  --color-sph-text-muted: var(--sph-text-muted);
+  --color-sph-accent: var(--sph-accent);
+  --color-sph-accent-hover: var(--sph-accent-hover);
+  --color-sph-accent-pressed: var(--sph-accent-pressed);
+  --color-sph-accent-soft: var(--sph-accent-soft);
+  --radius-sph-sm: var(--sph-radius-sm);
+  --radius-sph-md: var(--sph-radius-md);
+  --shadow-sph-popover: var(--sph-shadow-popover);
+}
+
+:where(:root, [data-sephiro-theme="default"]) {
+  --sph-font-sans: var(--font-sph-sans);
+  --sph-bg: #111111;
+  --sph-surface: #191919;
+  --sph-surface-elevated: #1d1d1d;
+  --sph-raised: #242424;
+  --sph-border: #303030;
+  --sph-border-strong: #4a4a4a;
+  --sph-text: #eeeeee;
+  --sph-text-muted: #a4a4a4;
+  --sph-accent: #d71921;
+  --sph-accent-hover: #ea343c;
+  --sph-accent-pressed: #b9151c;
+  --sph-accent-soft: color-mix(in srgb, var(--sph-accent) 16%, transparent);
+  --sph-accent-strong: #ff6670;
+  --sph-success: #5fd29a;
+  --sph-success-soft: color-mix(in srgb, var(--sph-success) 15%, transparent);
+  --sph-warning: #f2bc68;
+  --sph-warning-soft: color-mix(in srgb, var(--sph-warning) 15%, transparent);
+  --sph-danger: #ff7278;
+  --sph-danger-soft: color-mix(in srgb, var(--sph-danger) 15%, transparent);
+  --sph-focus: color-mix(in srgb, var(--sph-accent) 42%, transparent);
+  --sph-focus-ring: color-mix(in srgb, var(--sph-accent) 16%, transparent);
+  --sph-radius-sm: 6px;
+  --sph-radius-md: 10px;
+  --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.38);
+  --sph-motion-fast: 120ms;
+  --sph-motion-normal: 180ms;
+  --sph-motion-slow: 280ms;
+  --sph-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --sph-ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+  --sph-control-height-sm: 32px;
+  --sph-control-height-md: 36px;
+  --sph-control-height-lg: 40px;
+  color-scheme: dark;
+}
+
+[data-sephiro-theme="light"] {
+  --sph-bg: #f3f3f3;
+  --sph-surface: #ffffff;
+  --sph-surface-elevated: #ffffff;
+  --sph-raised: #ebebeb;
+  --sph-border: #d6d6d6;
+  --sph-border-strong: #a9a9a9;
+  --sph-text: #171717;
+  --sph-text-muted: #5b5b5b;
+  --sph-accent: #c01820;
+  --sph-accent-hover: #a7141b;
+  --sph-accent-pressed: #8c1117;
+  --sph-accent-strong: #a7141b;
+  --sph-success: #14784b;
+  --sph-warning: #8a5a08;
+  --sph-danger: #a5141b;
+  --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.14);
+  color-scheme: light;
+}
+
+[data-sephiro-theme="asterism"] {
+  --sph-bg: #10121f;
+  --sph-surface: #171a2d;
+  --sph-surface-elevated: #1d2140;
+  --sph-raised: #252b4b;
+  --sph-border: #353c64;
+  --sph-border-strong: #56619a;
+  --sph-text: #f1f3ff;
+  --sph-text-muted: #a9b2d6;
+  --sph-accent: #7c82ff;
+  --sph-accent-hover: #969aff;
+  --sph-accent-pressed: #5f66eb;
+  --sph-accent-strong: #b9bdff;
+  --sph-success: #63d8be;
+  --sph-warning: #f6c56d;
+  --sph-danger: #ff8f9b;
+  color-scheme: dark;
+}
+
+[data-sephiro-theme="soffy"] {
+  --sph-bg: #f8f3ec;
+  --sph-surface: #fffdf9;
+  --sph-surface-elevated: #ffffff;
+  --sph-raised: #f0e7dc;
+  --sph-border: #ddcfc0;
+  --sph-border-strong: #bda996;
+  --sph-text: #302b2a;
+  --sph-text-muted: #756967;
+  --sph-accent: #e36b54;
+  --sph-accent-hover: #c95440;
+  --sph-accent-pressed: #ad4534;
+  --sph-accent-strong: #b74d3b;
+  --sph-success: #3d8062;
+  --sph-warning: #986518;
+  --sph-danger: #bd473b;
+  --sph-shadow-popover: 0 14px 36px rgb(82 55 33 / 0.16);
+  color-scheme: light;
+}
+
+/* Rebind Tailwind's generated utilities at each theme boundary. */
+:where(:root, [data-sephiro-theme]) {
+  --color-sph-bg: var(--sph-bg);
+  --color-sph-surface: var(--sph-surface);
+  --color-sph-raised: var(--sph-raised);
+  --color-sph-border: var(--sph-border);
+  --color-sph-text: var(--sph-text);
+  --color-sph-text-muted: var(--sph-text-muted);
+  --color-sph-accent: var(--sph-accent);
+  --color-sph-accent-hover: var(--sph-accent-hover);
+  --color-sph-accent-pressed: var(--sph-accent-pressed);
+  --color-sph-accent-soft: var(--sph-accent-soft);
+  --radius-sph-sm: var(--sph-radius-sm);
+  --radius-sph-md: var(--sph-radius-md);
+  --shadow-sph-popover: var(--sph-shadow-popover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(:root, [data-sephiro-theme]) {
+    --sph-motion-fast: 0ms;
+    --sph-motion-normal: 0ms;
+    --sph-motion-slow: 0ms;
+  }
+}
