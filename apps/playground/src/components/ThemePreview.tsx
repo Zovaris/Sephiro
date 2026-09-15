@@ -1,9 +1,10 @@
 import { Select } from "@sephiro/ui";
 
-export type ThemeName = "default" | "asterism" | "soffy";
+export type ThemeName = "default" | "light" | "asterism" | "soffy";
 
 export const themes: { value: ThemeName; label: string; description: string }[] = [
   { value: "default", label: "Default / Night", description: "Quiet contrast for desktop work" },
+  { value: "light", label: "Light", description: "Neutral surfaces for everyday product work" },
   { value: "asterism", label: "Asterism", description: "Indigo space for focused surfaces" },
   { value: "soffy", label: "Soffy", description: "Warm clarity for friendly tools" },
 ];

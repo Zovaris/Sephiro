@@ -52,7 +52,7 @@ export function App() {
             <span className="catalog-meta__rule" aria-hidden="true" />
             <span>Interactive examples</span>
             <span className="catalog-meta__rule" aria-hidden="true" />
-            <span>Three themes</span>
+            <span>Four themes</span>
           </div>
 
           <CatalogSection
