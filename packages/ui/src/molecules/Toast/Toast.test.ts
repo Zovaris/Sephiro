@@ -15,5 +15,6 @@ test("renders a status toast with optional action and close control", () => {
 test("provides a live region viewport", () => {
   const markup = renderToStaticMarkup(createElement(ToastViewport, { children: "Updates" }));
   expect(markup).toContain('class="sph-toast-viewport"');
+  expect(markup).toContain('role="region"');
   expect(markup).toContain('aria-live="polite"');
 });

@@ -41,5 +41,5 @@ export type ToastViewportProps = {
 };
 
 export function ToastViewport({ children, label = "Notifications", className }: ToastViewportProps) {
-  return <div className={cn("sph-toast-viewport", className)} aria-label={label} aria-live="polite">{children}</div>;
+  return <div className={cn("sph-toast-viewport", className)} role="region" aria-label={label} aria-live="polite">{children}</div>;
 }
