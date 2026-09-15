@@ -15,7 +15,7 @@
   .sph-icon-button[data-variant="solid"]:hover:not(:disabled) { @apply bg-sph-accent-hover text-white; }
   .sph-icon-button[data-variant="solid"]:active:not(:disabled) { @apply bg-sph-accent-pressed; }
   .sph-icon-button[data-variant="outline"] { @apply border border-sph-border bg-sph-surface text-sph-text; }
-  .sph-icon-button[data-variant="outline"]:hover:not(:disabled) { @apply border-sph-border-strong bg-sph-raised; }
+  .sph-icon-button[data-variant="outline"]:hover:not(:disabled) { @apply bg-sph-raised; border-color: var(--sph-border-strong); }
   .sph-icon-button:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; box-shadow: 0 0 0 4px var(--sph-focus-ring); }
   .sph-icon-button:disabled { @apply opacity-45; cursor: not-allowed; transform: none; }
   .sph-icon-button[data-loading="true"] { cursor: wait; }
