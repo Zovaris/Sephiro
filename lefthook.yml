@@ -1,0 +1,14 @@
+commit-msg:
+  commands:
+    validate-message:
+      run: bun run validate:commit {1}
+
+pre-commit:
+  commands:
+    lint:
+      run: bun run lint
+
+pre-push:
+  commands:
+    quality:
+      run: bun run lint && bun run check && bun test
