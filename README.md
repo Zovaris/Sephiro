@@ -29,6 +29,8 @@ import "@sephiro/ui/styles.css";
 
 Override any `--sph-*` custom property at the application root to brand an app. Add `data-sephiro-theme="light"` to a parent element to enable the bundled light theme.
 
+Interactive controls use one size contract: `sm` (32px), `md` (36px, default), and `lg` (40px). The Input and Select use a deliberately subtle 0.5px outlined treatment by default; their focus state remains visible for keyboard users.
+
 ## Tailwind CSS v4
 
 Sephiro compiles its component classes with Tailwind v4 `@apply`. Its published stylesheet is self-contained: consumers only need to import `@sephiro/ui/styles.css` and do not need Tailwind in their application.

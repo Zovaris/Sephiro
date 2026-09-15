@@ -4,10 +4,13 @@
   }
 
   .sph-select__trigger {
-    @apply flex h-9 w-full items-center justify-between gap-3 rounded-sph-sm border border-sph-border bg-sph-surface px-3 text-left text-sph-text;
+    @apply flex h-9 w-full items-center justify-between gap-3 rounded-sph-sm bg-sph-surface px-3 text-left text-sph-text;
+    border: 0.5px solid color-mix(in srgb, var(--sph-border) 86%, transparent);
     cursor: pointer;
     font: 13px var(--sph-font-sans);
   }
+  .sph-select[data-size="sm"] .sph-select__trigger { @apply h-8; }
+  .sph-select[data-size="lg"] .sph-select__trigger { @apply h-10; }
   .sph-select__value { @apply overflow-hidden text-ellipsis whitespace-nowrap; }
   .sph-select__caret {
     width: 7px;

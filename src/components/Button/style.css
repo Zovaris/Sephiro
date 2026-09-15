@@ -1,13 +1,15 @@
 @layer components {
   .sph-button {
-    @apply inline-flex h-8 items-center justify-center gap-1.5 rounded-sph-sm border-0 bg-transparent px-3 text-[12.5px] font-medium text-sph-text transition-[background-color,border-color] duration-150;
+    @apply inline-flex h-9 items-center justify-center gap-1.5 rounded-sph-sm border-0 bg-transparent px-3 text-[12.5px] font-medium text-sph-text transition-[background-color,border-color] duration-150;
     box-sizing: border-box;
     cursor: pointer;
     font-family: var(--sph-font-sans);
     font-weight: 550;
   }
 
+  .sph-button[data-size="sm"] { @apply h-8; }
   .sph-button[data-size="md"] { @apply h-9 text-sm; }
+  .sph-button[data-size="lg"] { @apply h-10 text-sm; }
   .sph-button[data-variant="primary"] { @apply bg-sph-accent text-white; }
   .sph-button[data-variant="primary"]:hover { @apply bg-sph-accent-hover; }
   .sph-button[data-variant="primary"]:active { @apply bg-sph-accent-pressed; }

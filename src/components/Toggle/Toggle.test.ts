@@ -9,10 +9,13 @@ test("renders the switch semantic and checked state", () => {
       checked: true,
       label: "Enable notifications",
       onCheckedChange: () => undefined,
+      size: "sm",
     }),
   );
 
   expect(markup).toContain('role="switch"');
   expect(markup).toContain('aria-checked="true"');
   expect(markup).toContain('data-state="checked"');
+  expect(markup).toContain('data-size="sm"');
+  expect(markup).toContain('class="sph-toggle__track"');
 });

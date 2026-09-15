@@ -1,14 +1,15 @@
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { ControlSize } from "../../lib/control";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "quiet";
-  size?: "sm" | "md";
+  size?: ControlSize;
 };
 
 export function Button({
   variant = "secondary",
-  size = "sm",
+  size = "md",
   className,
   type = "button",
   ...props

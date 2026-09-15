@@ -1,21 +1,28 @@
 import type { InputHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { ControlSize } from "../../lib/control";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   invalid?: boolean;
+  size?: ControlSize;
+  /** @deprecated Use `size`; comfortable maps to md and compact maps to sm. */
   density?: "comfortable" | "compact";
 };
 
 export function Input({
   invalid = false,
-  density = "comfortable",
+  size,
+  density,
   className,
   ...props
 }: InputProps) {
+  const resolvedSize = size ?? (density === "compact" ? "sm" : "md");
+
   return (
     <input
       {...props}
       className={cn("sph-input", className)}
+      data-size={resolvedSize}
       data-density={density}
       aria-invalid={invalid || props["aria-invalid"]}
     />

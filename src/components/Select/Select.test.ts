@@ -9,11 +9,13 @@ test("renders a labelled closed listbox trigger", () => {
       ariaLabel: "Workspace",
       onValueChange: () => undefined,
       options: [{ label: "Asterism", value: "asterism" }],
+      size: "lg",
       value: "asterism",
     }),
   );
 
   expect(markup).toContain('class="sph-select__trigger"');
+  expect(markup).toContain('data-size="lg"');
   expect(markup).toContain('aria-label="Workspace"');
   expect(markup).toContain('aria-haspopup="listbox"');
   expect(markup).toContain('aria-expanded="false"');

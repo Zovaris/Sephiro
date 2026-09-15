@@ -1,10 +1,15 @@
 @layer components {
   .sph-toggle {
-    @apply relative box-border h-5 w-9 rounded-full border-0 bg-sph-border p-0.5 font-sph-sans;
+    @apply inline-flex box-border h-9 w-11 items-center justify-center border-0 bg-transparent p-0 font-sph-sans;
     cursor: pointer;
+  }
+  .sph-toggle[data-size="sm"] { @apply h-8 w-10; }
+  .sph-toggle[data-size="lg"] { @apply h-10 w-12; }
+  .sph-toggle__track {
+    @apply relative block h-5 w-9 rounded-full bg-sph-border p-0.5;
     transition: background-color 150ms ease;
   }
-  .sph-toggle[data-state="checked"] { @apply bg-sph-accent; }
+  .sph-toggle[data-state="checked"] .sph-toggle__track { @apply bg-sph-accent; }
   .sph-toggle__thumb {
     @apply block size-4 rounded-full bg-white;
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
@@ -15,7 +20,7 @@
   .sph-toggle:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
 
   @media (prefers-reduced-motion: reduce) {
-    .sph-toggle,
+  .sph-toggle__track,
     .sph-toggle__thumb { transition: none; }
   }
 }

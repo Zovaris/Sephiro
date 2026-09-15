@@ -39,6 +39,9 @@
   --sph-radius-sm: var(--radius-sph-sm);
   --sph-radius-md: var(--radius-sph-md);
   --sph-shadow-popover: var(--shadow-sph-popover);
+  --sph-control-height-sm: 32px;
+  --sph-control-height-md: 36px;
+  --sph-control-height-lg: 40px;
   color-scheme: dark;
 }
 

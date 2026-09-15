@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 import { cn } from "cn";
-
+import type { ControlSize } from "../../lib/control";
 export type SelectOption = {
   value: string;
   label: ReactNode;
@@ -24,6 +24,7 @@ export type SelectProps = {
   ariaLabel?: string;
   ariaLabelledBy?: string;
   disabled?: boolean;
+  size?: ControlSize;
 };
 
 function nextEnabled(
@@ -49,6 +50,7 @@ export function Select({
   ariaLabel,
   ariaLabelledBy,
   disabled = false,
+  size = "md",
 }: SelectProps) {
   const generatedId = useId();
   const triggerId = id ?? `sph-select-${generatedId}`;
@@ -110,11 +112,10 @@ export function Select({
       else setOpen(true);
     }
   }
-
   const selected = selectedIndex >= 0 ? options[selectedIndex] : undefined;
 
   return (
-    <div ref={rootRef} className={cn("sph-select", className)}>
+    <div ref={rootRef} className={cn("sph-select", className)} data-size={size}>
       <button
         id={triggerId}
         type="button"
