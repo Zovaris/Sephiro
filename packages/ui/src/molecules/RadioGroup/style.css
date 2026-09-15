@@ -1,0 +1,31 @@
+@layer components {
+  .sph-radio-group {
+    @apply grid min-w-0 gap-2 border-0 p-0 font-sph-sans;
+  }
+  .sph-radio-group__legend { @apply p-0 text-sm font-medium text-sph-text; }
+  .sph-radio-group__description { @apply m-0 text-xs text-sph-text-muted; line-height: 1.4; }
+  .sph-radio-group__options { @apply grid gap-1; }
+  .sph-radio-group[data-orientation="horizontal"] .sph-radio-group__options { @apply flex flex-wrap gap-x-5 gap-y-2; }
+  .sph-radio-group__option { @apply inline-flex min-h-9 min-w-0 cursor-pointer items-start gap-2 text-sm text-sph-text; }
+  .sph-radio-group[data-size="sm"] .sph-radio-group__option { @apply min-h-8 text-xs; }
+  .sph-radio-group[data-size="lg"] .sph-radio-group__option { @apply min-h-10; }
+  .sph-radio-group__option input { position: absolute; opacity: 0; pointer-events: none; }
+  .sph-radio-group__control {
+    @apply mt-0.5 inline-flex size-4 shrink-0 items-center justify-center rounded-full border border-sph-border bg-sph-surface;
+    transition: border-color var(--sph-motion-fast) var(--sph-ease-standard), background-color var(--sph-motion-fast) var(--sph-ease-standard), transform var(--sph-motion-fast) var(--sph-ease-emphasis);
+  }
+  .sph-radio-group[data-size="sm"] .sph-radio-group__control { @apply size-3.5; }
+  .sph-radio-group[data-size="lg"] .sph-radio-group__control { @apply size-5; }
+  .sph-radio-group__option input:checked + .sph-radio-group__control { @apply border-sph-accent; box-shadow: inset 0 0 0 3.5px var(--sph-surface), inset 0 0 0 8px var(--sph-accent); }
+  .sph-radio-group__option:hover:not([data-disabled="true"]) .sph-radio-group__control { border-color: var(--sph-border-strong); }
+  .sph-radio-group__option input:focus-visible + .sph-radio-group__control { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+  .sph-radio-group__option input:active + .sph-radio-group__control { transform: scale(0.92); }
+  .sph-radio-group__option[data-disabled="true"], .sph-radio-group[disabled] .sph-radio-group__option { @apply cursor-not-allowed opacity-50; }
+  .sph-radio-group__content { @apply grid min-w-0 gap-0.5; }
+  .sph-radio-group__label { @apply leading-5; }
+  .sph-radio-group__option-description { @apply text-xs text-sph-text-muted; line-height: 1.35; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-radio-group__control { transition: none; }
+  }
+}

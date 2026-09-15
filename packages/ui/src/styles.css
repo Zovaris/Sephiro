@@ -15,6 +15,7 @@
 @import "./molecules/Field/style.css";
 @import "./molecules/FieldMessage/style.css";
 @import "./molecules/Select/style.css";
+@import "./molecules/RadioGroup/style.css";
 
 @theme {
   --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
