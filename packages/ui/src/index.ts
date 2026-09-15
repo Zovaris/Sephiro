@@ -19,3 +19,4 @@ export { RadioGroup, type RadioGroupProps, type RadioOption } from "./molecules/
 export { Tabs, type TabItem, type TabsProps } from "./molecules/Tabs";
 export { Menu, type MenuItem, type MenuProps } from "./molecules/Menu";
 export { Popover, type PopoverProps } from "./molecules/Popover";
+export { Tooltip, type TooltipProps } from "./molecules/Tooltip";
