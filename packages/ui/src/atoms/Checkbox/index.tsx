@@ -1,14 +1,23 @@
-import type { InputHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { InputHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
-export type CheckboxProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+export type CheckboxProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "size"
+> & {
   label?: unknown;
   size?: ControlSize;
   invalid?: boolean;
 };
 
-export function Checkbox({ label, size = "md", invalid = false, className, ...props }: CheckboxProps) {
+export function Checkbox({
+  label,
+  size = "md",
+  invalid = false,
+  className,
+  ...props
+}: CheckboxProps) {
   const control = (
     <input
       {...props}

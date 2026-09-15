@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from "react";
 import { cn } from "cn";
+import type { HTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type BadgeProps = Omit<HTMLAttributes<HTMLSpanElement>, "children"> & {
@@ -8,7 +8,13 @@ export type BadgeProps = Omit<HTMLAttributes<HTMLSpanElement>, "children"> & {
   children?: unknown;
 };
 
-export function Badge({ variant = "neutral", size = "sm", className, children, ...props }: BadgeProps) {
+export function Badge({
+  variant = "neutral",
+  size = "sm",
+  className,
+  children,
+  ...props
+}: BadgeProps) {
   return (
     <span
       {...props}

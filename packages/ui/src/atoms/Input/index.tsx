@@ -1,5 +1,5 @@
-import type { InputHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { InputHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
@@ -9,7 +9,13 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   density?: "comfortable" | "compact";
 };
 
-export function Input({ invalid = false, size, density, className, ...props }: InputProps) {
+export function Input({
+  invalid = false,
+  size,
+  density,
+  className,
+  ...props
+}: InputProps) {
   const resolvedSize = size ?? (density === "compact" ? "sm" : "md");
 
   return (

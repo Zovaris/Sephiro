@@ -1,15 +1,27 @@
-import type { ButtonHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { ButtonHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
-export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange"> & {
+export type ToggleProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "onChange"
+> & {
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
   label: string;
   size?: ControlSize;
 };
 
-export function Toggle({ checked, onCheckedChange, label, className, disabled, onClick, size = "md", ...props }: ToggleProps) {
+export function Toggle({
+  checked,
+  onCheckedChange,
+  label,
+  className,
+  disabled,
+  onClick,
+  size = "md",
+  ...props
+}: ToggleProps) {
   return (
     <button
       type="button"

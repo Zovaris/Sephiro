@@ -5,7 +5,11 @@ import { Textarea } from "./index";
 
 test("renders an invalid textarea with the shared size token", () => {
   const markup = renderToStaticMarkup(
-    createElement(Textarea, { invalid: true, size: "lg", placeholder: "Notes" }),
+    createElement(Textarea, {
+      invalid: true,
+      size: "lg",
+      placeholder: "Notes",
+    }),
   );
 
   expect(markup).toContain('class="sph-textarea"');

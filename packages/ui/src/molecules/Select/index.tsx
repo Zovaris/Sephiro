@@ -1,11 +1,5 @@
-import {
-  type KeyboardEvent,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from "react";
 import { cn } from "cn";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type SelectOption = {
@@ -27,7 +21,11 @@ export type SelectProps = {
   size?: ControlSize;
 };
 
-function nextEnabled(options: SelectOption[], start: number, direction: 1 | -1) {
+function nextEnabled(
+  options: SelectOption[],
+  start: number,
+  direction: 1 | -1,
+) {
   if (options.length === 0) return -1;
   for (let step = 1; step <= options.length; step += 1) {
     const index = (start + step * direction + options.length) % options.length;
@@ -55,7 +53,9 @@ export function Select({
   const selectedIndex = options.findIndex((option) => option.value === value);
   const firstEnabled = options.findIndex((option) => !option.disabled);
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(selectedIndex >= 0 ? selectedIndex : firstEnabled);
+  const [activeIndex, setActiveIndex] = useState(
+    selectedIndex >= 0 ? selectedIndex : firstEnabled,
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -67,7 +67,8 @@ export function Select({
   }, [open]);
 
   useEffect(() => {
-    if (!open) setActiveIndex(selectedIndex >= 0 ? selectedIndex : firstEnabled);
+    if (!open)
+      setActiveIndex(selectedIndex >= 0 ? selectedIndex : firstEnabled);
   }, [firstEnabled, open, selectedIndex]);
 
   function choose(index: number) {
@@ -78,24 +79,33 @@ export function Select({
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
-    if (event.key === "Escape") { setOpen(false); return; }
+    if (event.key === "Escape") {
+      setOpen(false);
+      return;
+    }
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
       event.preventDefault();
-      const next = nextEnabled(options, activeIndex, event.key === "ArrowDown" ? 1 : -1);
+      const next = nextEnabled(
+        options,
+        activeIndex,
+        event.key === "ArrowDown" ? 1 : -1,
+      );
       setOpen(true);
       if (next >= 0) setActiveIndex(next);
       return;
     }
     if (event.key === "Home" || event.key === "End") {
       event.preventDefault();
-      const edge = event.key === "Home" ? firstEnabled : nextEnabled(options, 0, -1);
+      const edge =
+        event.key === "Home" ? firstEnabled : nextEnabled(options, 0, -1);
       setOpen(true);
       if (edge >= 0) setActiveIndex(edge);
       return;
     }
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      if (open) choose(activeIndex); else setOpen(true);
+      if (open) choose(activeIndex);
+      else setOpen(true);
     }
   }
 
@@ -112,12 +122,16 @@ export function Select({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-controls={open ? listboxId : undefined}
-        aria-activedescendant={open && activeIndex >= 0 ? `${listboxId}-${activeIndex}` : undefined}
+        aria-activedescendant={
+          open && activeIndex >= 0 ? `${listboxId}-${activeIndex}` : undefined
+        }
         disabled={disabled || firstEnabled < 0}
         onClick={() => setOpen((current) => !current)}
         onKeyDown={handleKeyDown}
       >
-        <span className="sph-select__value">{(selected?.label ?? placeholder) as any}</span>
+        <span className="sph-select__value">
+          {(selected?.label ?? placeholder) as any}
+        </span>
         <span className="sph-select__caret" aria-hidden="true" />
       </button>
 
@@ -137,7 +151,9 @@ export function Select({
               onClick={() => choose(index)}
             >
               <span>{option.label as any}</span>
-              {index === selectedIndex && <span className="sph-select__check" aria-hidden="true" />}
+              {index === selectedIndex && (
+                <span className="sph-select__check" aria-hidden="true" />
+              )}
             </button>
           ))}
         </div>

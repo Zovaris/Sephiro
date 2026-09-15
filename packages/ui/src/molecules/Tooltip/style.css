@@ -1,15 +1,51 @@
 @layer components {
-  .sph-tooltip { @apply relative inline-flex font-sph-sans; }
-  .sph-tooltip__trigger { @apply inline-flex min-w-0; }
-  .sph-tooltip__content { @apply pointer-events-none absolute z-[140] max-w-56 rounded-sph-sm border border-sph-border bg-sph-raised px-2.5 py-1.5 text-xs text-sph-text shadow-sph-popover; white-space: normal; animation: sph-tooltip-in var(--sph-motion-fast) var(--sph-ease-emphasis) both; }
-  .sph-tooltip__content[hidden] { display: none; }
-  .sph-tooltip__content[data-side="top"] { bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); }
-  .sph-tooltip__content[data-side="bottom"] { left: 50%; top: calc(100% + 6px); transform: translateX(-50%); }
-  .sph-tooltip__content[data-side="left"] { right: calc(100% + 6px); top: 50%; transform: translateY(-50%); }
-  .sph-tooltip__content[data-side="right"] { left: calc(100% + 6px); top: 50%; transform: translateY(-50%); }
-  @keyframes sph-tooltip-in { from { opacity: 0; } to { opacity: 1; } }
+  .sph-tooltip {
+    @apply relative inline-flex font-sph-sans;
+  }
+  .sph-tooltip__trigger {
+    @apply inline-flex min-w-0;
+  }
+  .sph-tooltip__content {
+    @apply pointer-events-none absolute z-[140] max-w-56 rounded-sph-sm border border-sph-border bg-sph-raised px-2.5 py-1.5 text-xs text-sph-text shadow-sph-popover;
+    white-space: normal;
+    animation: sph-tooltip-in var(--sph-motion-fast) var(--sph-ease-emphasis)
+      both;
+  }
+  .sph-tooltip__content[hidden] {
+    display: none;
+  }
+  .sph-tooltip__content[data-side="top"] {
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .sph-tooltip__content[data-side="bottom"] {
+    left: 50%;
+    top: calc(100% + 6px);
+    transform: translateX(-50%);
+  }
+  .sph-tooltip__content[data-side="left"] {
+    right: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .sph-tooltip__content[data-side="right"] {
+    left: calc(100% + 6px);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @keyframes sph-tooltip-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .sph-tooltip__content { animation: none; }
+    .sph-tooltip__content {
+      animation: none;
+    }
   }
 }

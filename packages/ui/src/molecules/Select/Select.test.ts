@@ -5,7 +5,13 @@ import { Select } from "./index";
 
 test("renders a labelled closed listbox trigger", () => {
   const markup = renderToStaticMarkup(
-    createElement(Select, { ariaLabel: "Workspace", onValueChange: () => undefined, options: [{ label: "Asterism", value: "asterism" }], size: "lg", value: "asterism" }),
+    createElement(Select, {
+      ariaLabel: "Workspace",
+      onValueChange: () => undefined,
+      options: [{ label: "Asterism", value: "asterism" }],
+      size: "lg",
+      value: "asterism",
+    }),
   );
 
   expect(markup).toContain('class="sph-select__trigger"');

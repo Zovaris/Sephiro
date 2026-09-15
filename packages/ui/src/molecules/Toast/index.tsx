@@ -1,15 +1,44 @@
-import { Toaster as SonnerToaster, toast, type ExternalToast, type ToasterProps as SonnerToasterProps } from "sonner";
-import { useEffect, type ReactNode } from "react";
 import { cn } from "cn";
+import { type ReactNode, useEffect } from "react";
+import {
+  type ExternalToast,
+  Toaster as SonnerToaster,
+  type ToasterProps as SonnerToasterProps,
+  toast,
+} from "sonner";
 
-export { toast };
 export type { ExternalToast } from "sonner";
+export { toast };
 
 const toastIcons = {
-  success: <span className="sph-toast__status-icon" data-icon-state="success" aria-hidden="true" />,
-  info: <span className="sph-toast__status-icon" data-icon-state="info" aria-hidden="true" />,
-  warning: <span className="sph-toast__status-icon" data-icon-state="warning" aria-hidden="true" />,
-  error: <span className="sph-toast__status-icon" data-icon-state="error" aria-hidden="true" />,
+  success: (
+    <span
+      className="sph-toast__status-icon"
+      data-icon-state="success"
+      aria-hidden="true"
+    />
+  ),
+  info: (
+    <span
+      className="sph-toast__status-icon"
+      data-icon-state="info"
+      aria-hidden="true"
+    />
+  ),
+  warning: (
+    <span
+      className="sph-toast__status-icon"
+      data-icon-state="warning"
+      aria-hidden="true"
+    />
+  ),
+  error: (
+    <span
+      className="sph-toast__status-icon"
+      data-icon-state="error"
+      aria-hidden="true"
+    />
+  ),
 };
 
 export type ToastProps = {
@@ -24,7 +53,17 @@ export type ToastProps = {
   className?: string;
 };
 
-export function Toast({ open = true, id, title, description, variant = "neutral", action, duration, closeButton = true, className }: ToastProps) {
+export function Toast({
+  open = true,
+  id,
+  title,
+  description,
+  variant = "neutral",
+  action,
+  duration,
+  closeButton = true,
+  className,
+}: ToastProps) {
   useEffect(() => {
     if (!open) return;
     const options: ExternalToast = {
@@ -36,13 +75,14 @@ export function Toast({ open = true, id, title, description, variant = "neutral"
       className: cn("sph-toast", className),
       unstyled: true,
     };
-    const toastId = variant === "success"
-      ? toast.success(title, options)
-      : variant === "warning"
-        ? toast.warning(title, options)
-        : variant === "danger"
-          ? toast.error(title, options)
-          : toast(title, options);
+    const toastId =
+      variant === "success"
+        ? toast.success(title, options)
+        : variant === "warning"
+          ? toast.warning(title, options)
+          : variant === "danger"
+            ? toast.error(title, options)
+            : toast(title, options);
 
     return () => {
       toast.dismiss(toastId);
@@ -52,13 +92,24 @@ export function Toast({ open = true, id, title, description, variant = "neutral"
   return null;
 }
 
-export type ToastViewportProps = Omit<SonnerToasterProps, "className" | "containerAriaLabel" | "icons" | "toastOptions"> & {
+export type ToastViewportProps = Omit<
+  SonnerToasterProps,
+  "className" | "containerAriaLabel" | "icons" | "toastOptions"
+> & {
   label?: string;
   className?: string;
   toastOptions?: SonnerToasterProps["toastOptions"];
 };
 
-export function ToastViewport({ label = "Notifications", className, toastOptions, theme = "system", position = "bottom-right", closeButton = true, ...props }: ToastViewportProps) {
+export function ToastViewport({
+  label = "Notifications",
+  className,
+  toastOptions,
+  theme = "system",
+  position = "bottom-right",
+  closeButton = true,
+  ...props
+}: ToastViewportProps) {
   return (
     <SonnerToaster
       {...props}
@@ -71,7 +122,8 @@ export function ToastViewport({ label = "Notifications", className, toastOptions
       toastOptions={{
         ...toastOptions,
         closeButton: toastOptions?.closeButton ?? closeButton,
-        closeButtonAriaLabel: toastOptions?.closeButtonAriaLabel ?? "Dismiss notification",
+        closeButtonAriaLabel:
+          toastOptions?.closeButtonAriaLabel ?? "Dismiss notification",
         className: cn("sph-toast", toastOptions?.className),
         unstyled: true,
       }}

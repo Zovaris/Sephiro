@@ -5,7 +5,11 @@ import { Input } from "./index";
 
 test("uses the shared size contract and preserves compact density", () => {
   const markup = renderToStaticMarkup(
-    createElement(Input, { density: "compact", invalid: true, placeholder: "Name" }),
+    createElement(Input, {
+      density: "compact",
+      invalid: true,
+      placeholder: "Name",
+    }),
   );
 
   expect(markup).toContain('class="sph-input"');

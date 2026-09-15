@@ -10,9 +10,21 @@ type CatalogSectionProps = {
   children: ComponentChildren;
 };
 
-export function CatalogSection({ id, index, title, description, count, className, children }: CatalogSectionProps) {
+export function CatalogSection({
+  id,
+  index,
+  title,
+  description,
+  count,
+  className,
+  children,
+}: CatalogSectionProps) {
   return (
-    <section className={`catalog-section${className ? ` ${className}` : ""}`} id={id} aria-labelledby={`${id}-title`}>
+    <section
+      className={`catalog-section${className ? ` ${className}` : ""}`}
+      id={id}
+      aria-labelledby={`${id}-title`}
+    >
       <header className="section-heading">
         <div>
           <span className="section-index">{index}</span>

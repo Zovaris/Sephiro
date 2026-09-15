@@ -1,5 +1,5 @@
-import { useId, useState, type KeyboardEvent, type ReactNode } from "react";
 import { cn } from "cn";
+import { type KeyboardEvent, type ReactNode, useId, useState } from "react";
 
 export type TabItem = {
   value: string;
@@ -34,17 +34,32 @@ export function Tabs({
   className,
 }: TabsProps) {
   const generatedId = useId();
-  const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue ?? firstEnabled(items) ?? "");
+  const [uncontrolledValue, setUncontrolledValue] = useState(
+    defaultValue ?? firstEnabled(items) ?? "",
+  );
   const activeValue = value ?? uncontrolledValue;
-  const activeIndex = Math.max(0, items.findIndex((item) => item.value === activeValue));
+  const activeIndex = Math.max(
+    0,
+    items.findIndex((item) => item.value === activeValue),
+  );
   const activeItem = items[activeIndex];
   const setValue = (nextValue: string) => {
     setUncontrolledValue(nextValue);
     onValueChange?.(nextValue);
   };
   const move = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    const direction = orientation === "vertical" ? (event.key === "ArrowDown" ? 1 : -1) : (event.key === "ArrowRight" ? 1 : -1);
-    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+    const direction =
+      orientation === "vertical"
+        ? event.key === "ArrowDown"
+          ? 1
+          : -1
+        : event.key === "ArrowRight"
+          ? 1
+          : -1;
+    if (
+      !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)
+    )
+      return;
     event.preventDefault();
     for (let step = 1; step <= items.length; step += 1) {
       const next = (index + step * direction + items.length) % items.length;
@@ -59,7 +74,12 @@ export function Tabs({
 
   return (
     <div className={cn("sph-tabs", className)} data-orientation={orientation}>
-      <div className="sph-tabs__list" role="tablist" aria-label={ariaLabel} aria-orientation={orientation}>
+      <div
+        className="sph-tabs__list"
+        role="tablist"
+        aria-label={ariaLabel}
+        aria-orientation={orientation}
+      >
         {items.map((item, index) => {
           const selected = item.value === activeValue;
           return (
@@ -82,11 +102,17 @@ export function Tabs({
           );
         })}
       </div>
-      {activeItem && (activeItem.content !== undefined || children !== undefined) && (
-        <div id={panelId} className="sph-tabs__panel" role="tabpanel" aria-labelledby={`${generatedId}-${activeIndex}`}>
-          {activeItem.content ?? children}
-        </div>
-      )}
+      {activeItem &&
+        (activeItem.content !== undefined || children !== undefined) && (
+          <div
+            id={panelId}
+            className="sph-tabs__panel"
+            role="tabpanel"
+            aria-labelledby={`${generatedId}-${activeIndex}`}
+          >
+            {activeItem.content ?? children}
+          </div>
+        )}
     </div>
   );
 }

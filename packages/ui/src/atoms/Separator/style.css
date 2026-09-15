@@ -1,5 +1,13 @@
 @layer components {
-  .sph-separator { @apply m-0 border-0 bg-sph-border; flex: 0 0 auto; }
-  .sph-separator[data-orientation="horizontal"] { @apply h-px w-full; }
-  .sph-separator[data-orientation="vertical"] { @apply h-full w-px; min-height: 18px; }
+  .sph-separator {
+    @apply m-0 border-0 bg-sph-border;
+    flex: 0 0 auto;
+  }
+  .sph-separator[data-orientation="horizontal"] {
+    @apply h-px w-full;
+  }
+  .sph-separator[data-orientation="vertical"] {
+    @apply h-full w-px;
+    min-height: 18px;
+  }
 }

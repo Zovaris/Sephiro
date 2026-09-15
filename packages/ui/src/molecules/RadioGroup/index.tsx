@@ -1,5 +1,5 @@
-import { useId, type ReactNode } from "react";
 import { cn } from "cn";
+import { type ReactNode, useId } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type RadioOption = {
@@ -45,15 +45,27 @@ export function RadioGroup({
       disabled={disabled}
       aria-describedby={descriptionId}
     >
-      {label !== undefined && <legend className="sph-radio-group__legend">{label}</legend>}
-      {description !== undefined && <p id={descriptionId} className="sph-radio-group__description">{description}</p>}
+      {label !== undefined && (
+        <legend className="sph-radio-group__legend">{label}</legend>
+      )}
+      {description !== undefined && (
+        <p id={descriptionId} className="sph-radio-group__description">
+          {description}
+        </p>
+      )}
       <div className="sph-radio-group__options">
         {options.map((option, index) => {
           const optionId = `${groupId}-${index}`;
-          const optionDescriptionId = option.description ? `${optionId}-description` : undefined;
+          const optionDescriptionId = option.description
+            ? `${optionId}-description`
+            : undefined;
 
           return (
-            <label key={option.value} className="sph-radio-group__option" data-disabled={option.disabled || undefined}>
+            <label
+              key={option.value}
+              className="sph-radio-group__option"
+              data-disabled={option.disabled || undefined}
+            >
               <input
                 id={optionId}
                 type="radio"
@@ -68,7 +80,12 @@ export function RadioGroup({
               <span className="sph-radio-group__content">
                 <span className="sph-radio-group__label">{option.label}</span>
                 {option.description !== undefined && (
-                  <span id={optionDescriptionId} className="sph-radio-group__option-description">{option.description}</span>
+                  <span
+                    id={optionDescriptionId}
+                    className="sph-radio-group__option-description"
+                  >
+                    {option.description}
+                  </span>
                 )}
               </span>
             </label>

@@ -9,7 +9,10 @@ test("renders a labelled group with the selected radio", () => {
       label: "Workspace appearance",
       name: "appearance",
       onValueChange: () => undefined,
-      options: [{ label: "Dark", value: "dark" }, { label: "Light", value: "light" }],
+      options: [
+        { label: "Dark", value: "dark" },
+        { label: "Light", value: "light" },
+      ],
       value: "light",
     }),
   );

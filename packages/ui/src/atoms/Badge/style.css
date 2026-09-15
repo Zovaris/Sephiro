@@ -2,20 +2,44 @@
   .sph-badge {
     @apply inline-flex items-center rounded-full px-2 py-0.5 font-medium;
     color: var(--sph-text-muted);
-    font: 550 11px/1.4 var(--sph-font-sans);
+    font: 550 11px / 1.4 var(--sph-font-sans);
     letter-spacing: 0.01em;
-    transition: background-color var(--sph-motion-fast) var(--sph-ease-standard), color var(--sph-motion-fast) var(--sph-ease-standard);
+    transition:
+      background-color var(--sph-motion-fast) var(--sph-ease-standard),
+      color var(--sph-motion-fast) var(--sph-ease-standard);
   }
-  .sph-badge[data-size="sm"] { @apply min-h-5; }
-  .sph-badge[data-size="md"] { @apply min-h-6 px-2.5 text-xs; }
-  .sph-badge[data-size="lg"] { @apply min-h-7 px-3 text-sm; }
-  .sph-badge[data-variant="neutral"] { background: var(--sph-raised); }
-  .sph-badge[data-variant="accent"] { background: var(--sph-accent-soft); color: var(--sph-accent-strong); }
-  .sph-badge[data-variant="success"] { background: var(--sph-success-soft); color: var(--sph-success); }
-  .sph-badge[data-variant="warning"] { background: var(--sph-warning-soft); color: var(--sph-warning); }
-  .sph-badge[data-variant="danger"] { background: var(--sph-danger-soft); color: var(--sph-danger); }
+  .sph-badge[data-size="sm"] {
+    @apply min-h-5;
+  }
+  .sph-badge[data-size="md"] {
+    @apply min-h-6 px-2.5 text-xs;
+  }
+  .sph-badge[data-size="lg"] {
+    @apply min-h-7 px-3 text-sm;
+  }
+  .sph-badge[data-variant="neutral"] {
+    background: var(--sph-raised);
+  }
+  .sph-badge[data-variant="accent"] {
+    background: var(--sph-accent-soft);
+    color: var(--sph-accent-strong);
+  }
+  .sph-badge[data-variant="success"] {
+    background: var(--sph-success-soft);
+    color: var(--sph-success);
+  }
+  .sph-badge[data-variant="warning"] {
+    background: var(--sph-warning-soft);
+    color: var(--sph-warning);
+  }
+  .sph-badge[data-variant="danger"] {
+    background: var(--sph-danger-soft);
+    color: var(--sph-danger);
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .sph-badge { transition: none; }
+    .sph-badge {
+      transition: none;
+    }
   }
 }

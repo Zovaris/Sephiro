@@ -7,7 +7,10 @@ test("renders tabs with one selected tab and its panel", () => {
   const markup = renderToStaticMarkup(
     createElement(Tabs, {
       ariaLabel: "Settings sections",
-      items: [{ label: "General", value: "general", content: "General settings" }, { label: "Team", value: "team", content: "Team settings" }],
+      items: [
+        { label: "General", value: "general", content: "General settings" },
+        { label: "Team", value: "team", content: "Team settings" },
+      ],
       value: "team",
     }),
   );

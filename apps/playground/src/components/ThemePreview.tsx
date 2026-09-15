@@ -2,11 +2,31 @@ import { Select } from "@sephiro/ui";
 
 export type ThemeName = "default" | "light" | "asterism" | "soffy";
 
-export const themes: { value: ThemeName; label: string; description: string }[] = [
-  { value: "default", label: "Default / Night", description: "Quiet contrast for desktop work" },
-  { value: "light", label: "Light", description: "Neutral surfaces for everyday product work" },
-  { value: "asterism", label: "Asterism", description: "Indigo space for focused surfaces" },
-  { value: "soffy", label: "Soffy", description: "Warm clarity for friendly tools" },
+export const themes: {
+  value: ThemeName;
+  label: string;
+  description: string;
+}[] = [
+  {
+    value: "default",
+    label: "Default / Night",
+    description: "Quiet contrast for desktop work",
+  },
+  {
+    value: "light",
+    label: "Light",
+    description: "Neutral surfaces for everyday product work",
+  },
+  {
+    value: "asterism",
+    label: "Asterism",
+    description: "Indigo space for focused surfaces",
+  },
+  {
+    value: "soffy",
+    label: "Soffy",
+    description: "Warm clarity for friendly tools",
+  },
 ];
 
 type ThemePreviewProps = {
@@ -28,7 +48,10 @@ export function ThemePreview({ theme, onThemeChange }: ThemePreviewProps) {
         size="lg"
       />
       <div className="theme-switcher__detail">
-        <span className={`theme-swatch theme-swatch--${theme}`} aria-hidden="true" />
+        <span
+          className={`theme-swatch theme-swatch--${theme}`}
+          aria-hidden="true"
+        />
         <span>{activeTheme.description}</span>
       </div>
     </div>

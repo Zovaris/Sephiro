@@ -7,7 +7,12 @@ test("renders label, description, control and required state", () => {
   const markup = renderToStaticMarkup(
     createElement(
       Field,
-      { description: "Shown in the sidebar", htmlFor: "workspace", label: "Workspace", required: true },
+      {
+        description: "Shown in the sidebar",
+        htmlFor: "workspace",
+        label: "Workspace",
+        required: true,
+      },
       createElement("input", { id: "workspace" }),
     ),
   );

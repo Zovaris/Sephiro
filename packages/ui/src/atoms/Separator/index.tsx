@@ -1,12 +1,17 @@
-import type { HTMLAttributes } from "react";
 import { cn } from "cn";
+import type { HTMLAttributes } from "react";
 
 export type SeparatorProps = Omit<HTMLAttributes<HTMLHRElement>, "children"> & {
   orientation?: "horizontal" | "vertical";
   decorative?: boolean;
 };
 
-export function Separator({ orientation = "horizontal", decorative = true, className, ...props }: SeparatorProps) {
+export function Separator({
+  orientation = "horizontal",
+  decorative = true,
+  className,
+  ...props
+}: SeparatorProps) {
   return (
     <hr
       {...props}

@@ -1,9 +1,12 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "cn";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import type { ControlSize } from "../../lib/control";
 import { Spinner } from "../Spinner";
 
-export type IconButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+export type IconButtonProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
+> & {
   icon: ReactNode;
   label: string;
   size?: ControlSize;

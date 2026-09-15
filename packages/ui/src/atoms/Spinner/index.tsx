@@ -1,5 +1,5 @@
-import type { HTMLAttributes } from "react";
 import { cn } from "cn";
+import type { HTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type SpinnerProps = HTMLAttributes<HTMLSpanElement> & {
@@ -7,7 +7,12 @@ export type SpinnerProps = HTMLAttributes<HTMLSpanElement> & {
   label?: string;
 };
 
-export function Spinner({ size = "md", label, className, ...props }: SpinnerProps) {
+export function Spinner({
+  size = "md",
+  label,
+  className,
+  ...props
+}: SpinnerProps) {
   return (
     <span
       {...props}

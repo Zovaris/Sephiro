@@ -4,6 +4,10 @@
     font-family: var(--sph-font-sans);
     line-height: 1.4;
   }
-  .sph-field-message[data-variant="error"] { color: var(--sph-danger); }
-  .sph-field-message[data-variant="success"] { color: var(--sph-success); }
+  .sph-field-message[data-variant="error"] {
+    color: var(--sph-danger);
+  }
+  .sph-field-message[data-variant="success"] {
+    color: var(--sph-success);
+  }
 }

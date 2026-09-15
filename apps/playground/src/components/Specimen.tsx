@@ -9,8 +9,17 @@ type SpecimenProps = {
   children: ComponentChildren;
 };
 
-export function Specimen({ title, description, api, wide, className, children }: SpecimenProps) {
-  const classes = ["specimen", wide && "specimen--wide", className].filter(Boolean).join(" ");
+export function Specimen({
+  title,
+  description,
+  api,
+  wide,
+  className,
+  children,
+}: SpecimenProps) {
+  const classes = ["specimen", wide && "specimen--wide", className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className={classes}>

@@ -6,22 +6,82 @@
     color: var(--sph-text);
     font-family: var(--sph-font-sans);
   }
-  .sph-alert[data-variant="info"] { background: color-mix(in srgb, var(--sph-accent) 8%, var(--sph-surface)); border-color: color-mix(in srgb, var(--sph-accent) 30%, var(--sph-border)); }
-  .sph-alert[data-variant="success"] { background: var(--sph-success-soft); border-color: color-mix(in srgb, var(--sph-success) 34%, var(--sph-border)); }
-  .sph-alert[data-variant="warning"] { background: var(--sph-warning-soft); border-color: color-mix(in srgb, var(--sph-warning) 34%, var(--sph-border)); }
-  .sph-alert[data-variant="danger"] { background: var(--sph-danger-soft); border-color: color-mix(in srgb, var(--sph-danger) 34%, var(--sph-border)); }
-  .sph-alert__icon { @apply relative mt-0.5 size-4 shrink-0 rounded-full; background: var(--sph-accent); }
-  .sph-alert__icon::after { content: ""; position: absolute; left: 7px; top: 3px; width: 2px; height: 8px; border-radius: 2px; background: var(--sph-surface); }
-  .sph-alert[data-variant="success"] .sph-alert__icon { background: var(--sph-success); }
-  .sph-alert[data-variant="warning"] .sph-alert__icon { background: var(--sph-warning); }
-  .sph-alert[data-variant="danger"] .sph-alert__icon { background: var(--sph-danger); }
-  .sph-alert__body { @apply min-w-0 flex-1; }
-  .sph-alert__title { @apply m-0 font-semibold; line-height: 1.35; }
-  .sph-alert__content { @apply mt-0.5 text-xs text-sph-text-muted; line-height: 1.45; }
-  .sph-alert__dismiss { @apply relative mt-0.5 size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted; cursor: pointer; }
-  .sph-alert__dismiss:hover { @apply bg-sph-raised text-sph-text; }
-  .sph-alert__dismiss:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 1px; }
-  .sph-alert__dismiss span::before, .sph-alert__dismiss span::after { content: ""; position: absolute; left: 7px; top: 11px; width: 11px; height: 1.5px; border-radius: 1px; background: currentColor; }
-  .sph-alert__dismiss span::before { transform: rotate(45deg); }
-  .sph-alert__dismiss span::after { transform: rotate(-45deg); }
+  .sph-alert[data-variant="info"] {
+    background: color-mix(in srgb, var(--sph-accent) 8%, var(--sph-surface));
+    border-color: color-mix(in srgb, var(--sph-accent) 30%, var(--sph-border));
+  }
+  .sph-alert[data-variant="success"] {
+    background: var(--sph-success-soft);
+    border-color: color-mix(in srgb, var(--sph-success) 34%, var(--sph-border));
+  }
+  .sph-alert[data-variant="warning"] {
+    background: var(--sph-warning-soft);
+    border-color: color-mix(in srgb, var(--sph-warning) 34%, var(--sph-border));
+  }
+  .sph-alert[data-variant="danger"] {
+    background: var(--sph-danger-soft);
+    border-color: color-mix(in srgb, var(--sph-danger) 34%, var(--sph-border));
+  }
+  .sph-alert__icon {
+    @apply relative mt-0.5 size-4 shrink-0 rounded-full;
+    background: var(--sph-accent);
+  }
+  .sph-alert__icon::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 2px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--sph-surface);
+  }
+  .sph-alert[data-variant="success"] .sph-alert__icon {
+    background: var(--sph-success);
+  }
+  .sph-alert[data-variant="warning"] .sph-alert__icon {
+    background: var(--sph-warning);
+  }
+  .sph-alert[data-variant="danger"] .sph-alert__icon {
+    background: var(--sph-danger);
+  }
+  .sph-alert__body {
+    @apply min-w-0 flex-1;
+  }
+  .sph-alert__title {
+    @apply m-0 font-semibold;
+    line-height: 1.35;
+  }
+  .sph-alert__content {
+    @apply mt-0.5 text-xs text-sph-text-muted;
+    line-height: 1.45;
+  }
+  .sph-alert__dismiss {
+    @apply relative mt-0.5 size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
+    cursor: pointer;
+  }
+  .sph-alert__dismiss:hover {
+    @apply bg-sph-raised text-sph-text;
+  }
+  .sph-alert__dismiss:focus-visible {
+    outline: 2px solid var(--sph-focus);
+    outline-offset: 1px;
+  }
+  .sph-alert__dismiss span::before,
+  .sph-alert__dismiss span::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 11px;
+    width: 11px;
+    height: 1.5px;
+    border-radius: 1px;
+    background: currentColor;
+  }
+  .sph-alert__dismiss span::before {
+    transform: rotate(45deg);
+  }
+  .sph-alert__dismiss span::after {
+    transform: rotate(-45deg);
+  }
 }

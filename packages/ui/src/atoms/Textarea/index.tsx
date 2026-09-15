@@ -1,5 +1,5 @@
-import type { TextareaHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { TextareaHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
@@ -7,7 +7,12 @@ export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
   size?: ControlSize;
 };
 
-export function Textarea({ invalid = false, size = "md", className, ...props }: TextareaProps) {
+export function Textarea({
+  invalid = false,
+  size = "md",
+  className,
+  ...props
+}: TextareaProps) {
   return (
     <textarea
       {...props}

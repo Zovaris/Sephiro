@@ -5,7 +5,10 @@ import { Checkbox } from "./index";
 
 test("renders a labelled checkbox with checked semantics", () => {
   const markup = renderToStaticMarkup(
-    createElement(Checkbox, { defaultChecked: true, label: "Remember this workspace" }),
+    createElement(Checkbox, {
+      defaultChecked: true,
+      label: "Remember this workspace",
+    }),
   );
 
   expect(markup).toContain('class="sph-checkbox"');

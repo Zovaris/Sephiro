@@ -4,10 +4,22 @@
     background: var(--sph-surface);
     font-family: var(--sph-font-sans);
   }
-  .sph-surface[data-tone="elevated"] { background: var(--sph-surface-elevated); }
-  .sph-surface[data-tone="raised"] { background: var(--sph-raised); }
-  .sph-surface[data-padding="none"] { padding: 0; }
-  .sph-surface[data-padding="sm"] { padding: 10px; }
-  .sph-surface[data-padding="md"] { padding: 16px; }
-  .sph-surface[data-padding="lg"] { padding: 24px; }
+  .sph-surface[data-tone="elevated"] {
+    background: var(--sph-surface-elevated);
+  }
+  .sph-surface[data-tone="raised"] {
+    background: var(--sph-raised);
+  }
+  .sph-surface[data-padding="none"] {
+    padding: 0;
+  }
+  .sph-surface[data-padding="sm"] {
+    padding: 10px;
+  }
+  .sph-surface[data-padding="md"] {
+    padding: 16px;
+  }
+  .sph-surface[data-padding="lg"] {
+    padding: 24px;
+  }
 }

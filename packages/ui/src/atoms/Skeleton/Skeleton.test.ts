@@ -5,7 +5,11 @@ import { Skeleton } from "./index";
 
 test("renders a dimensioned loading placeholder", () => {
   const markup = renderToStaticMarkup(
-    createElement(Skeleton, { width: 180, height: 12, className: "preview-line" }),
+    createElement(Skeleton, {
+      width: 180,
+      height: 12,
+      className: "preview-line",
+    }),
   );
 
   expect(markup).toContain('class="sph-skeleton preview-line"');

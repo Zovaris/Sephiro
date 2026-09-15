@@ -1,5 +1,12 @@
-import { useEffect, useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { cn } from "cn";
+import {
+  type KeyboardEvent,
+  type ReactNode,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 
 export type PopoverProps = {
   trigger: ReactNode;
@@ -50,18 +57,45 @@ export function Popover({
   }, [isOpen]);
 
   const handleTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
-    if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") {
+    if (
+      event.key === "ArrowDown" ||
+      event.key === "Enter" ||
+      event.key === " "
+    ) {
       event.preventDefault();
       setOpen(true);
     }
   };
 
   return (
-    <div ref={rootRef} className={cn("sph-popover", className)} data-open={isOpen || undefined}>
-      <button type="button" className="sph-popover__trigger" aria-haspopup="dialog" aria-expanded={isOpen} aria-controls={isOpen ? id : undefined} disabled={disabled} onClick={() => setOpen(!isOpen)} onKeyDown={handleTriggerKeyDown}>
+    <div
+      ref={rootRef}
+      className={cn("sph-popover", className)}
+      data-open={isOpen || undefined}
+    >
+      <button
+        type="button"
+        className="sph-popover__trigger"
+        aria-haspopup="dialog"
+        aria-expanded={isOpen}
+        aria-controls={isOpen ? id : undefined}
+        disabled={disabled}
+        onClick={() => setOpen(!isOpen)}
+        onKeyDown={handleTriggerKeyDown}
+      >
         {trigger}
       </button>
-      {isOpen && <div id={id} className="sph-popover__content" data-placement={placement} role="dialog" aria-label={ariaLabel}>{children}</div>}
+      {isOpen && (
+        <div
+          id={id}
+          className="sph-popover__content"
+          data-placement={placement}
+          role="dialog"
+          aria-label={ariaLabel}
+        >
+          {children}
+        </div>
+      )}
     </div>
   );
 }

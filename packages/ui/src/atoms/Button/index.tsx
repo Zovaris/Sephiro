@@ -1,9 +1,12 @@
-import type { ButtonHTMLAttributes } from "react";
 import { cn } from "cn";
+import type { ButtonHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 import { Spinner } from "../Spinner";
 
-export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
+export type ButtonProps = Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  "children"
+> & {
   variant?: "primary" | "secondary" | "quiet";
   size?: ControlSize;
   loading?: boolean;

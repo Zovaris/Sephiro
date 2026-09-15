@@ -4,7 +4,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { Tooltip } from "./index";
 
 test("renders an initially hidden tooltip with a semantic role", () => {
-  const markup = renderToStaticMarkup(createElement(Tooltip, { children: "?", content: "Keyboard shortcuts" }));
+  const markup = renderToStaticMarkup(
+    createElement(Tooltip, { children: "?", content: "Keyboard shortcuts" }),
+  );
   expect(markup).toContain('class="sph-tooltip"');
   expect(markup).toContain('role="tooltip"');
   expect(markup).toContain('hidden=""');

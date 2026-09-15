@@ -5,7 +5,11 @@ import { IconButton } from "./index";
 
 test("renders an accessible icon-only button", () => {
   const markup = renderToStaticMarkup(
-    createElement(IconButton, { icon: createElement("span", { "aria-hidden": true }, "x"), label: "Close panel", size: "lg" }),
+    createElement(IconButton, {
+      icon: createElement("span", { "aria-hidden": true }, "x"),
+      label: "Close panel",
+      size: "lg",
+    }),
   );
 
   expect(markup).toContain('class="sph-icon-button"');

@@ -1,5 +1,5 @@
-import { useId } from "react";
 import { cn } from "cn";
+import { useId } from "react";
 import { FieldMessage, type FieldMessageProps } from "../FieldMessage";
 
 export type FieldProps = {
@@ -36,11 +36,17 @@ export function Field({
         </label>
       )}
       {description !== undefined && description !== null && (
-        <p id={descriptionId} className="sph-field__description">{description as any}</p>
+        <p id={descriptionId} className="sph-field__description">
+          {description as any}
+        </p>
       )}
       <div className="sph-field__control">{children as any}</div>
       {message !== undefined && message !== null && (
-        <FieldMessage id={messageId} variant={messageType} children={message as any} />
+        <FieldMessage
+          id={messageId}
+          variant={messageType}
+          children={message as any}
+        />
       )}
     </div>
   );

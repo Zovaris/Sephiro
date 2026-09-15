@@ -10,7 +10,9 @@ test("renders a decorative separator by default", () => {
 });
 
 test("exposes orientation for meaningful separators", () => {
-  const markup = renderToStaticMarkup(createElement(Separator, { decorative: false, orientation: "vertical" }));
+  const markup = renderToStaticMarkup(
+    createElement(Separator, { decorative: false, orientation: "vertical" }),
+  );
   expect(markup).toContain('data-orientation="vertical"');
   expect(markup).toContain('role="separator"');
   expect(markup).toContain('aria-orientation="vertical"');

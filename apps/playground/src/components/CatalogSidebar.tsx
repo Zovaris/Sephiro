@@ -21,8 +21,13 @@ export function CatalogSidebar() {
       </nav>
 
       <div className="sidebar__footer">
-        <div className="live-status"><span aria-hidden="true" /> Live preview</div>
-        <p>Change a theme to inspect the same component in a different environment.</p>
+        <div className="live-status">
+          <span aria-hidden="true" /> Live preview
+        </div>
+        <p>
+          Change a theme to inspect the same component in a different
+          environment.
+        </p>
       </div>
     </aside>
   );

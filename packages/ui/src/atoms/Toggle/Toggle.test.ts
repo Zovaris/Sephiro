@@ -5,7 +5,12 @@ import { Toggle } from "./index";
 
 test("renders the switch semantic and checked state", () => {
   const markup = renderToStaticMarkup(
-    createElement(Toggle, { checked: true, label: "Enable notifications", onCheckedChange: () => undefined, size: "sm" }),
+    createElement(Toggle, {
+      checked: true,
+      label: "Enable notifications",
+      onCheckedChange: () => undefined,
+      size: "sm",
+    }),
   );
 
   expect(markup).toContain('role="switch"');
