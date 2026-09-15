@@ -46,6 +46,7 @@
     "typescript": "^5.9.0"
   },
   "dependencies": {
-    "cn": "^0.3.0"
+    "cn": "^0.3.0",
+    "sonner": "^2.0.5"
   }
 }

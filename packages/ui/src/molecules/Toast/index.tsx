@@ -1,45 +1,80 @@
+import { Toaster as SonnerToaster, toast, type ExternalToast, type ToasterProps as SonnerToasterProps } from "sonner";
 import { useEffect, type ReactNode } from "react";
 import { cn } from "cn";
 
+export { toast };
+export type { ExternalToast } from "sonner";
+
+const toastIcons = {
+  success: <span className="sph-toast__status-icon" data-icon-state="success" aria-hidden="true" />,
+  info: <span className="sph-toast__status-icon" data-icon-state="info" aria-hidden="true" />,
+  warning: <span className="sph-toast__status-icon" data-icon-state="warning" aria-hidden="true" />,
+  error: <span className="sph-toast__status-icon" data-icon-state="error" aria-hidden="true" />,
+};
+
 export type ToastProps = {
   open?: boolean;
+  id?: string | number;
   title: ReactNode;
   description?: ReactNode;
   variant?: "neutral" | "success" | "warning" | "danger";
-  action?: ReactNode;
-  onClose?: () => void;
+  action?: ExternalToast["action"];
   duration?: number;
+  closeButton?: boolean;
   className?: string;
 };
 
-export function Toast({ open = true, title, description, variant = "neutral", action, onClose, duration = 0, className }: ToastProps) {
+export function Toast({ open = true, id, title, description, variant = "neutral", action, duration, closeButton = true, className }: ToastProps) {
   useEffect(() => {
-    if (!open || duration <= 0 || !onClose) return;
-    const timer = setTimeout(onClose, duration);
-    return () => clearTimeout(timer);
-  }, [duration, onClose, open]);
+    if (!open) return;
+    const options: ExternalToast = {
+      id,
+      action,
+      closeButton,
+      description,
+      duration,
+      className: cn("sph-toast", className),
+      unstyled: true,
+    };
+    const toastId = variant === "success"
+      ? toast.success(title, options)
+      : variant === "warning"
+        ? toast.warning(title, options)
+        : variant === "danger"
+          ? toast.error(title, options)
+          : toast(title, options);
 
-  if (!open) return null;
+    return () => {
+      toast.dismiss(toastId);
+    };
+  }, [open]);
 
-  return (
-    <div className={cn("sph-toast", className)} data-variant={variant} role={variant === "danger" ? "alert" : "status"}>
-      <span className="sph-toast__indicator" aria-hidden="true" />
-      <div className="sph-toast__body">
-        <p className="sph-toast__title">{title}</p>
-        {description !== undefined && <p className="sph-toast__description">{description}</p>}
-      </div>
-      {action !== undefined && <div className="sph-toast__action">{action}</div>}
-      {onClose && <button type="button" className="sph-toast__close" aria-label="Dismiss notification" onClick={onClose}><span aria-hidden="true" /></button>}
-    </div>
-  );
+  return null;
 }
 
-export type ToastViewportProps = {
-  children?: ReactNode;
+export type ToastViewportProps = Omit<SonnerToasterProps, "className" | "containerAriaLabel" | "icons" | "toastOptions"> & {
   label?: string;
   className?: string;
+  toastOptions?: SonnerToasterProps["toastOptions"];
 };
 
-export function ToastViewport({ children, label = "Notifications", className }: ToastViewportProps) {
-  return <div className={cn("sph-toast-viewport", className)} role="region" aria-label={label} aria-live="polite">{children}</div>;
+export function ToastViewport({ label = "Notifications", className, toastOptions, theme = "system", position = "bottom-right", closeButton = true, ...props }: ToastViewportProps) {
+  return (
+    <SonnerToaster
+      {...props}
+      theme={theme}
+      position={position}
+      closeButton={closeButton}
+      icons={toastIcons}
+      containerAriaLabel={label}
+      className={cn("sph-toast-viewport", className)}
+      toastOptions={{
+        ...toastOptions,
+        closeButton: toastOptions?.closeButton ?? closeButton,
+        closeButtonAriaLabel: toastOptions?.closeButtonAriaLabel ?? "Dismiss notification",
+        className: cn("sph-toast", toastOptions?.className),
+        unstyled: true,
+      }}
+    />
+  );
 }
