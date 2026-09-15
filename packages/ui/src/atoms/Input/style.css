@@ -28,9 +28,8 @@
     cursor: not-allowed;
   }
   .sph-input:focus-visible {
-    outline: 2px solid var(--sph-focus);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px var(--sph-focus-ring);
+    outline: none;
+    box-shadow: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
