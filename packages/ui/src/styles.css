@@ -28,6 +28,7 @@
 @import "./molecules/Toast/style.css";
 @import "./organisms/EmptyState/style.css";
 @import "./organisms/Table/style.css";
+@import "./molecules/Toolbar/style.css";
 
 @theme {
   --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;

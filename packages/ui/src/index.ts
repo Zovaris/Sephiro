@@ -24,3 +24,4 @@ export { Dialog, type DialogProps } from "./molecules/Dialog";
 export { Toast, ToastViewport, type ToastProps, type ToastViewportProps } from "./molecules/Toast";
 export { EmptyState, type EmptyStateProps } from "./organisms/EmptyState";
 export { Table, type TableColumn, type TableProps } from "./organisms/Table";
+export { Toolbar, type ToolbarProps } from "./molecules/Toolbar";

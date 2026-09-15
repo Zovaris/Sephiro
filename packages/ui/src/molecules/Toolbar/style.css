@@ -1,0 +1,14 @@
+@layer components {
+  .sph-toolbar { @apply flex min-w-0 items-center gap-2 rounded-sph-md border border-sph-border bg-sph-surface p-1.5 font-sph-sans; }
+  .sph-toolbar[data-orientation="vertical"] { @apply flex-col items-stretch; }
+  .sph-toolbar__start, .sph-toolbar__content, .sph-toolbar__end { @apply flex min-w-0 items-center gap-1.5; }
+  .sph-toolbar__start { @apply shrink-0; }
+  .sph-toolbar__content { @apply flex-1; }
+  .sph-toolbar__end { @apply ml-auto shrink-0; }
+  .sph-toolbar[data-orientation="vertical"] .sph-toolbar__end { @apply ml-0; }
+  .sph-toolbar:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+  @media (max-width: 560px) {
+    .sph-toolbar { @apply flex-wrap; }
+    .sph-toolbar__content { @apply order-3 basis-full; }
+  }
+}
