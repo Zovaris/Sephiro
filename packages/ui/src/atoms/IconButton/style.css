@@ -1,0 +1,26 @@
+@layer components {
+  .sph-icon-button {
+    @apply inline-flex shrink-0 items-center justify-center rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: var(--sph-font-sans);
+    transition: background-color var(--sph-motion-fast) var(--sph-ease-standard), color var(--sph-motion-fast) var(--sph-ease-standard), transform var(--sph-motion-fast) var(--sph-ease-emphasis);
+  }
+  .sph-icon-button[data-size="sm"] { @apply size-8; }
+  .sph-icon-button[data-size="md"] { @apply size-9; }
+  .sph-icon-button[data-size="lg"] { @apply size-10; }
+  .sph-icon-button:hover:not(:disabled) { @apply bg-sph-raised text-sph-text; }
+  .sph-icon-button:active:not(:disabled) { @apply bg-sph-accent-soft; transform: scale(0.94); }
+  .sph-icon-button[data-variant="solid"] { @apply bg-sph-accent text-white; }
+  .sph-icon-button[data-variant="solid"]:hover:not(:disabled) { @apply bg-sph-accent-hover text-white; }
+  .sph-icon-button[data-variant="solid"]:active:not(:disabled) { @apply bg-sph-accent-pressed; }
+  .sph-icon-button[data-variant="outline"] { @apply border border-sph-border bg-sph-surface text-sph-text; }
+  .sph-icon-button[data-variant="outline"]:hover:not(:disabled) { @apply border-sph-border-strong bg-sph-raised; }
+  .sph-icon-button:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; box-shadow: 0 0 0 4px var(--sph-focus-ring); }
+  .sph-icon-button:disabled { @apply opacity-45; cursor: not-allowed; transform: none; }
+  .sph-icon-button[data-loading="true"] { cursor: wait; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-icon-button { transition: none; }
+  }
+}

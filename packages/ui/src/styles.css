@@ -6,6 +6,7 @@
 @import "./atoms/Badge/style.css";
 @import "./atoms/Button/style.css";
 @import "./atoms/Checkbox/style.css";
+@import "./atoms/IconButton/style.css";
 @import "./atoms/Input/style.css";
 @import "./atoms/Skeleton/style.css";
 @import "./atoms/Spinner/style.css";

@@ -2,6 +2,7 @@ export type { ControlSize } from "./lib/control";
 export { Badge, type BadgeProps } from "./atoms/Badge";
 export { Button, type ButtonProps } from "./atoms/Button";
 export { Checkbox, type CheckboxProps } from "./atoms/Checkbox";
+export { IconButton, type IconButtonProps } from "./atoms/IconButton";
 export { Input, type InputProps } from "./atoms/Input";
 export { Skeleton, type SkeletonProps } from "./atoms/Skeleton";
 export { Spinner, type SpinnerProps } from "./atoms/Spinner";
