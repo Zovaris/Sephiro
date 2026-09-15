@@ -1,0 +1,23 @@
+@layer components {
+  .sph-button {
+    @apply inline-flex h-8 items-center justify-center gap-1.5 rounded-sph-sm border-0 bg-transparent px-3 text-[12.5px] font-medium text-sph-text transition-[background-color,border-color] duration-150;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: var(--sph-font-sans);
+    font-weight: 550;
+  }
+
+  .sph-button[data-size="md"] { @apply h-9 text-sm; }
+  .sph-button[data-variant="primary"] { @apply bg-sph-accent text-white; }
+  .sph-button[data-variant="primary"]:hover { @apply bg-sph-accent-hover; }
+  .sph-button[data-variant="primary"]:active { @apply bg-sph-accent-pressed; }
+  .sph-button[data-variant="secondary"] { @apply border border-sph-border bg-sph-surface; }
+  .sph-button[data-variant="secondary"]:hover,
+  .sph-button[data-variant="quiet"]:hover { @apply bg-sph-raised; }
+  .sph-button:disabled { @apply opacity-45; cursor: not-allowed; }
+  .sph-button:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-button { transition: none; }
+  }
+}

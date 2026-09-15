@@ -1,0 +1,21 @@
+@layer components {
+  .sph-toggle {
+    @apply relative box-border h-5 w-9 rounded-full border-0 bg-sph-border p-0.5 font-sph-sans;
+    cursor: pointer;
+    transition: background-color 150ms ease;
+  }
+  .sph-toggle[data-state="checked"] { @apply bg-sph-accent; }
+  .sph-toggle__thumb {
+    @apply block size-4 rounded-full bg-white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+    transition: transform 160ms ease;
+  }
+  .sph-toggle[data-state="checked"] .sph-toggle__thumb { transform: translateX(16px); }
+  .sph-toggle:disabled { @apply opacity-50; cursor: not-allowed; }
+  .sph-toggle:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-toggle,
+    .sph-toggle__thumb { transition: none; }
+  }
+}

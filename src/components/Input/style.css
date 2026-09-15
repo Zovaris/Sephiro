@@ -1,0 +1,12 @@
+@layer components {
+  .sph-input {
+    @apply box-border h-9 w-full rounded-sph-sm border border-sph-border bg-sph-surface px-3 text-sph-text outline-none;
+    font: 13px var(--sph-font-sans);
+  }
+
+  .sph-input[data-density="compact"] { @apply h-8; }
+  .sph-input::placeholder { @apply text-sph-text-muted; }
+  .sph-input[aria-invalid="true"] { @apply border-sph-accent; }
+  .sph-input:disabled { @apply opacity-50; cursor: not-allowed; }
+  .sph-input:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 2px; }
+}

@@ -1,0 +1,55 @@
+@layer theme, components, utilities;
+
+/* A component package must not reset the host application. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@import "./components/Button/style.css";
+@import "./components/Input/style.css";
+@import "./components/Select/style.css";
+@import "./components/Toggle/style.css";
+
+@theme {
+  --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-sph-bg: #111111;
+  --color-sph-surface: #191919;
+  --color-sph-raised: #232323;
+  --color-sph-border: #2e2e2e;
+  --color-sph-text: #ececec;
+  --color-sph-text-muted: #a3a3a3;
+  --color-sph-accent: #d71921;
+  --color-sph-accent-hover: #ea343c;
+  --color-sph-accent-pressed: #b9151c;
+  --radius-sph-sm: 6px;
+  --radius-sph-md: 8px;
+  --shadow-sph-popover: 0 14px 36px rgb(0 0 0 / 0.38);
+}
+
+:root {
+  --sph-font-sans: var(--font-sph-sans);
+  --sph-bg: var(--color-sph-bg);
+  --sph-surface: var(--color-sph-surface);
+  --sph-raised: var(--color-sph-raised);
+  --sph-border: var(--color-sph-border);
+  --sph-text: var(--color-sph-text);
+  --sph-text-muted: var(--color-sph-text-muted);
+  --sph-accent: var(--color-sph-accent);
+  --sph-accent-hover: var(--color-sph-accent-hover);
+  --sph-accent-pressed: var(--color-sph-accent-pressed);
+  --sph-focus: color-mix(in srgb, var(--sph-accent) 30%, transparent);
+  --sph-radius-sm: var(--radius-sph-sm);
+  --sph-radius-md: var(--radius-sph-md);
+  --sph-shadow-popover: var(--shadow-sph-popover);
+  color-scheme: dark;
+}
+
+[data-sephiro-theme="light"] {
+  --color-sph-bg: #f3f3f3;
+  --color-sph-surface: #ffffff;
+  --color-sph-raised: #f0f0f0;
+  --color-sph-border: #dcdcdc;
+  --color-sph-text: #161616;
+  --color-sph-text-muted: #5c5c5c;
+  --color-sph-accent-hover: #c1161d;
+  --color-sph-accent-pressed: #a51319;
+  color-scheme: light;
+}
