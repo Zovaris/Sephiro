@@ -1,0 +1,30 @@
+@layer components {
+  .sph-toast-viewport { @apply pointer-events-none fixed inset-x-4 bottom-4 z-[180] grid justify-items-end gap-2 font-sph-sans; }
+  .sph-toast { @apply pointer-events-auto flex w-full max-w-sm items-start gap-3 rounded-sph-md border border-sph-border bg-sph-surface px-3.5 py-3 text-sph-text shadow-sph-popover; animation: sph-toast-in var(--sph-motion-normal) var(--sph-ease-emphasis) both; }
+  .sph-toast[data-variant="success"] { border-color: color-mix(in srgb, var(--sph-success) 34%, var(--sph-border)); }
+  .sph-toast[data-variant="warning"] { border-color: color-mix(in srgb, var(--sph-warning) 34%, var(--sph-border)); }
+  .sph-toast[data-variant="danger"] { border-color: color-mix(in srgb, var(--sph-danger) 34%, var(--sph-border)); }
+  .sph-toast__indicator { @apply mt-1.5 size-2 shrink-0 rounded-full; background: var(--sph-accent); }
+  .sph-toast[data-variant="success"] .sph-toast__indicator { background: var(--sph-success); }
+  .sph-toast[data-variant="warning"] .sph-toast__indicator { background: var(--sph-warning); }
+  .sph-toast[data-variant="danger"] .sph-toast__indicator { background: var(--sph-danger); }
+  .sph-toast__body { @apply min-w-0 flex-1; }
+  .sph-toast__title { @apply m-0 text-sm font-semibold; line-height: 1.35; }
+  .sph-toast__description { @apply m-0.5 mt-1 text-xs text-sph-text-muted; line-height: 1.4; }
+  .sph-toast__action { @apply shrink-0; }
+  .sph-toast__close { @apply relative size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted; cursor: pointer; }
+  .sph-toast__close:hover { @apply bg-sph-raised text-sph-text; }
+  .sph-toast__close:focus-visible { outline: 2px solid var(--sph-focus); outline-offset: 1px; }
+  .sph-toast__close span::before, .sph-toast__close span::after { content: ""; position: absolute; left: 7px; top: 11px; width: 11px; height: 1.5px; border-radius: 1px; background: currentColor; }
+  .sph-toast__close span::before { transform: rotate(45deg); }
+  .sph-toast__close span::after { transform: rotate(-45deg); }
+  @keyframes sph-toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sph-toast { animation: none; }
+  }
+  @media (max-width: 480px) {
+    .sph-toast-viewport { @apply inset-x-3 bottom-3; }
+    .sph-toast { @apply max-w-none; }
+  }
+}
