@@ -29,6 +29,11 @@
   "peerDependencies": {
     "react": ">=18"
   },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.0",
     "@types/bun": "^1.4.2",
