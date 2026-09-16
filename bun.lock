@@ -13,6 +13,7 @@
       "name": "@sephiro/playground",
       "version": "0.2.0",
       "dependencies": {
+        "@phosphor-icons/react": "^2.1.10",
         "@sephiro/ui": "workspace:*",
         "preact": "^10.26.4",
       },

@@ -11,6 +11,7 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
     "@sephiro/ui": "workspace:*",
     "preact": "^10.26.4"
   },

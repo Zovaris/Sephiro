@@ -1,4 +1,11 @@
 import {
+  ArrowsClockwiseIcon,
+  CopyIcon,
+  DotsThreeIcon,
+  GearIcon,
+  ProhibitIcon,
+} from "@phosphor-icons/react";
+import {
   Badge,
   Button,
   Checkbox,
@@ -64,27 +71,27 @@ export function AtomsCatalog() {
           <div className="button-row">
             <IconButton
               label="More actions"
-              icon={<span className="icon-mark" aria-hidden="true" />}
+              icon={<DotsThreeIcon size={16} />}
             />
             <IconButton
               label="Copy identifier"
               variant="solid"
-              icon={<span className="icon-mark" aria-hidden="true" />}
+              icon={<CopyIcon size={16} />}
             />
             <IconButton
               label="Open settings"
               variant="outline"
-              icon={<span className="icon-mark" aria-hidden="true" />}
+              icon={<GearIcon size={16} />}
             />
             <IconButton
               label="Syncing"
               loading
-              icon={<span className="icon-mark" aria-hidden="true" />}
+              icon={<ArrowsClockwiseIcon size={16} />}
             />
             <IconButton
               label="Unavailable"
               disabled
-              icon={<span className="icon-mark" aria-hidden="true" />}
+              icon={<ProhibitIcon size={16} />}
             />
           </div>
         </Specimen>

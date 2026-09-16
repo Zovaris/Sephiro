@@ -1,4 +1,9 @@
 import {
+  CloudSlashIcon,
+  CopyIcon,
+  DotsThreeIcon,
+} from "@phosphor-icons/react";
+import {
   Button,
   Dialog,
   IconButton,
@@ -49,7 +54,7 @@ export function OverlaysCatalog() {
             <div className="button-row">
               <IconButton
                 label="More actions"
-                icon={<span className="icon-mark" aria-hidden="true" />}
+                icon={<DotsThreeIcon size={16} />}
               />
               <Menu
                 label="Open actions"
@@ -97,14 +102,14 @@ export function OverlaysCatalog() {
             <Tooltip content="Copy identifier">
               <IconButton
                 label="Copy identifier"
-                icon={<span className="icon-mark" aria-hidden="true" />}
+                icon={<CopyIcon size={16} />}
               />
             </Tooltip>
             <Tooltip content="Sync is paused while offline">
               <IconButton
                 label="Sync status"
                 variant="outline"
-                icon={<span className="icon-mark" aria-hidden="true" />}
+                icon={<CloudSlashIcon size={16} />}
               />
             </Tooltip>
           </div>
