@@ -3,10 +3,10 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { Input } from "./index";
 
-test("uses the shared size contract and preserves compact density", () => {
+test("uses the shared size contract", () => {
   const markup = renderToStaticMarkup(
     createElement(Input, {
-      density: "compact",
+      size: "sm",
       invalid: true,
       placeholder: "Name",
     }),
@@ -14,6 +14,6 @@ test("uses the shared size contract and preserves compact density", () => {
 
   expect(markup).toContain('class="sph-input"');
   expect(markup).toContain('data-size="sm"');
-  expect(markup).toContain('data-density="compact"');
+  expect(markup).not.toContain("data-density");
   expect(markup).toContain('aria-invalid="true"');
 });
