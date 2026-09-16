@@ -6,5 +6,6 @@ export default defineConfig({
   dts: true,
   clean: true,
   sourcemap: true,
+  alias: { "@": "./src" },
   external: ["react", "react/jsx-runtime", "sonner", "@phosphor-icons/react"],
 });
