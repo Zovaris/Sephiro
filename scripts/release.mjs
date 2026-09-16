@@ -46,13 +46,14 @@ function ask(question) {
 
 if (!bumpArg) {
   fail(
-    'missing bump argument.\nUsage: bun run release <patch|minor|major|x.y.z> [--dry-run] [--no-push] [--yes]',
+    "missing bump argument.\nUsage: bun run release <patch|minor|major|x.y.z> [--dry-run] [--no-push] [--yes]",
   );
 }
 
 const rootPkgPath = resolve(root, "package.json");
 const current = JSON.parse(readFileSync(rootPkgPath, "utf-8")).version;
-if (!/^\d+\.\d+\.\d+$/.test(current)) fail(`invalid semver in package.json: ${current}`);
+if (!/^\d+\.\d+\.\d+$/.test(current))
+  fail(`invalid semver in package.json: ${current}`);
 
 const next = nextVersion(current, bumpArg);
 const tag = `v${next}`;

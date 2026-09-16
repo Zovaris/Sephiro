@@ -1,8 +1,4 @@
-import {
-  CloudSlashIcon,
-  CopyIcon,
-  DotsThreeIcon,
-} from "@phosphor-icons/react";
+import { CloudSlashIcon, CopyIcon, DotsThreeIcon } from "@phosphor-icons/react";
 import {
   Button,
   Dialog,
