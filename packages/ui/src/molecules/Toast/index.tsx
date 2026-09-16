@@ -118,6 +118,7 @@ export function ToastViewport({
       closeButton={closeButton}
       icons={toastIcons}
       containerAriaLabel={label}
+      expand={false}
       className={cn("sph-toast-viewport", className)}
       toastOptions={{
         ...toastOptions,

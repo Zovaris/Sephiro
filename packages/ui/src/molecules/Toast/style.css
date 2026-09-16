@@ -136,7 +136,7 @@
     outline-offset: 2px;
   }
   [data-sonner-toast].sph-toast [data-close-button] {
-    @apply relative rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
+    @apply relative rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted m-auto;
     grid-column: 3;
     grid-row: 1;
     align-self: start;
