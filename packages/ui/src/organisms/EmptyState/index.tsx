@@ -1,3 +1,4 @@
+import { TrayIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
 
@@ -12,10 +13,12 @@ export type EmptyStateProps = Omit<
   compact?: boolean;
 };
 
+const emptyStateDefaultIcon = <TrayIcon size={20} />;
+
 export function EmptyState({
   title,
   description,
-  icon,
+  icon = emptyStateDefaultIcon,
   action,
   compact = false,
   className,
@@ -27,11 +30,9 @@ export function EmptyState({
       className={cn("sph-empty-state", className)}
       data-compact={compact || undefined}
     >
-      {icon !== undefined && (
-        <div className="sph-empty-state__icon" aria-hidden="true">
-          {icon as any}
-        </div>
-      )}
+      <div className="sph-empty-state__icon" aria-hidden="true">
+        {icon as any}
+      </div>
       <h2 className="sph-empty-state__title">{title as any}</h2>
       {description !== undefined && (
         <p className="sph-empty-state__description">{description as any}</p>
