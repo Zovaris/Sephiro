@@ -370,7 +370,7 @@
     @apply grid content-start gap-4;
   }
   .studio__surface {
-    @apply grid content-start justify-items-start gap-3.5 rounded-sph-md border border-sph-border bg-sph-surface p-5;
+    @apply grid content-start justify-items-start gap-3.5 rounded-sph-md border border-sph-border bg-sph-surface p-5 text-sph-text;
   }
   .studio__surface-head {
     @apply flex w-full items-center justify-between gap-3;
