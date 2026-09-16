@@ -1,6 +1,7 @@
 import { cn } from "cn";
-import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { useEffect, useId, useRef, useState } from "react";
+import type { KeyboardActionEvent } from "@/lib/events.js";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type PopoverProps = {
   trigger: Renderable;
@@ -50,7 +51,7 @@ export function Popover({
     };
   }, [isOpen]);
 
-  const handleTriggerKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+  const handleTriggerKeyDown = (event: KeyboardActionEvent) => {
     if (
       event.key === "ArrowDown" ||
       event.key === "Enter" ||

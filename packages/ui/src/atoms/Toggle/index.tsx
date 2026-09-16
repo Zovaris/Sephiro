@@ -1,15 +1,18 @@
 import { cn } from "cn";
 import type { ButtonHTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
 
 export type ToggleProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
-  "onChange"
+  "onChange" | "onClick"
 > & {
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
   label: string;
   size?: ControlSize;
+  /** Structural so it type-checks under both JSX runtimes. */
+  onClick?: (event: { preventDefault(): void }) => void;
 };
 
 export function Toggle({
@@ -38,7 +41,7 @@ export function Toggle({
         onClick?.(event);
         if (!event.defaultPrevented) onCheckedChange(!checked);
       }}
-      {...props}
+      {...node(props)}
     >
       <span className="sph-toggle__track">
         <span className="sph-toggle__thumb" />

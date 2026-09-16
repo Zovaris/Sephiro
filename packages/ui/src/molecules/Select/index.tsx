@@ -1,7 +1,8 @@
 import { cn } from "cn";
-import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import type { KeyboardActionEvent } from "@/lib/events.js";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 
 export type SelectOption = {
   value: string;
@@ -79,7 +80,7 @@ export function Select({
     setOpen(false);
   }
 
-  function handleKeyDown(event: KeyboardEvent<HTMLButtonElement>) {
+  function handleKeyDown(event: KeyboardActionEvent) {
     if (event.key === "Escape") {
       setOpen(false);
       return;

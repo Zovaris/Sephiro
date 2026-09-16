@@ -1,7 +1,7 @@
 import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type AlertProps = Omit<
   HTMLAttributes<HTMLDivElement>,
@@ -35,7 +35,7 @@ export function Alert({
 
   return (
     <div
-      {...props}
+      {...node(props)}
       className={cn("sph-alert", className)}
       data-variant={variant}
       role={role ?? (variant === "danger" ? "alert" : "status")}

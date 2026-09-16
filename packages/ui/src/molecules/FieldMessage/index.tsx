@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type FieldMessageProps = Omit<
   HTMLAttributes<HTMLParagraphElement>,
@@ -20,7 +20,7 @@ export function FieldMessage({
 
   return (
     <p
-      {...props}
+      {...node(props)}
       className={cn("sph-field-message", className)}
       data-variant={variant}
       role={variant === "error" ? "alert" : undefined}

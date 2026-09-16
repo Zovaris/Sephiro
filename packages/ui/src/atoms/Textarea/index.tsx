@@ -1,5 +1,6 @@
 import { cn } from "cn";
 import type { TextareaHTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
 
 export type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
@@ -16,7 +17,7 @@ export function Textarea({
 }: TextareaProps) {
   return (
     <textarea
-      {...props}
+      {...node(props)}
       className={cn("sph-textarea", className)}
       data-size={size}
       aria-invalid={ariaInvalid ?? (invalid || undefined)}

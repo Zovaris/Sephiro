@@ -1,5 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
 
 export type SpinnerProps = HTMLAttributes<HTMLSpanElement> & {
@@ -15,7 +16,7 @@ export function Spinner({
 }: SpinnerProps) {
   return (
     <span
-      {...props}
+      {...node(props)}
       className={cn("sph-spinner", `sph-spinner--${size}`, className)}
       role={label ? "status" : undefined}
       aria-label={label}

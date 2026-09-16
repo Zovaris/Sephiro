@@ -1,7 +1,7 @@
 import { cn } from "cn";
 import type { ButtonHTMLAttributes } from "react";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 import { Spinner } from "../Spinner";
 
 export type IconButtonProps = Omit<
@@ -28,7 +28,7 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <button
-      {...props}
+      {...node(props)}
       type={type}
       className={cn("sph-icon-button", className)}
       data-size={size}

@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import { useEffect, useId, useRef } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type DialogProps = {
   open: boolean;

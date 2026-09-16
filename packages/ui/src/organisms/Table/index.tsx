@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import type { TableHTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type TableColumn<
   Row extends Record<string, unknown> = Record<string, unknown>,
@@ -16,7 +16,7 @@ export type TableProps<
   Row extends Record<string, unknown> = Record<string, unknown>,
 > = Omit<
   TableHTMLAttributes<HTMLTableElement>,
-  "children" | "rows" | "className"
+  "children" | "rows" | "className" | "cellPadding" | "cellSpacing"
 > & {
   columns: TableColumn<Row>[];
   rows: Row[];
@@ -46,7 +46,7 @@ export function Table<
   return (
     <div className={cn("sph-table-wrap", className)}>
       <table
-        {...props}
+        {...node(props)}
         className="sph-table"
         data-density={density}
         data-striped={striped || undefined}

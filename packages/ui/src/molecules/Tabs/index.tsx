@@ -1,6 +1,7 @@
 import { cn } from "cn";
-import { type KeyboardEvent, useId, useState } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { useId, useState } from "react";
+import type { KeyboardActionEvent } from "@/lib/events.js";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type TabItem = {
   value: string;
@@ -48,7 +49,7 @@ export function Tabs({
     setUncontrolledValue(nextValue);
     onValueChange?.(nextValue);
   };
-  const move = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+  const move = (event: KeyboardActionEvent, index: number) => {
     const direction =
       orientation === "vertical"
         ? event.key === "ArrowDown"

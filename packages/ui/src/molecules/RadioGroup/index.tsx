@@ -1,7 +1,7 @@
 import { cn } from "cn";
 import { useId } from "react";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 
 export type RadioOption = {
   value: string;

@@ -1,5 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 
 export type SkeletonProps = HTMLAttributes<HTMLSpanElement> & {
   width?: string | number;
@@ -16,7 +17,7 @@ export function Skeleton({
 }: SkeletonProps) {
   return (
     <span
-      {...props}
+      {...node(props)}
       className={cn("sph-skeleton", className)}
       style={{ ...style, width, height }}
       aria-hidden={ariaLabel ? undefined : true}

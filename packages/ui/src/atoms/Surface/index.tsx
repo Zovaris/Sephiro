@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type SurfaceProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   children?: Renderable;
@@ -17,7 +17,7 @@ export function Surface({
 }: SurfaceProps) {
   return (
     <div
-      {...props}
+      {...node(props)}
       className={cn("sph-surface", className)}
       data-tone={tone}
       data-padding={padding}

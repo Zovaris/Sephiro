@@ -1,5 +1,6 @@
 import { cn } from "cn";
 import type { InputHTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
 
 export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
@@ -16,7 +17,7 @@ export function Input({
 }: InputProps) {
   return (
     <input
-      {...props}
+      {...node(props)}
       className={cn("sph-input", className)}
       data-size={size}
       aria-invalid={ariaInvalid ?? (invalid || undefined)}

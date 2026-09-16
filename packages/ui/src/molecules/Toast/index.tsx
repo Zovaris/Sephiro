@@ -1,13 +1,13 @@
 import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useEffect } from "react";
-import { type Renderable, node } from "@/lib/node";
 import {
   type ExternalToast,
   Toaster as SonnerToaster,
   type ToasterProps as SonnerToasterProps,
   toast,
 } from "sonner";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type { ExternalToast } from "sonner";
 export { toast };
@@ -107,7 +107,7 @@ export function ToastViewport({
 }: ToastViewportProps) {
   return (
     <SonnerToaster
-      {...props}
+      {...node(props)}
       theme={theme}
       position={position}
       closeButton={closeButton}

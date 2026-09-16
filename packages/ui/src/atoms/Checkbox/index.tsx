@@ -1,7 +1,7 @@
 import { cn } from "cn";
 import type { InputHTMLAttributes } from "react";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 
 export type CheckboxProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -21,7 +21,7 @@ export function Checkbox({
 }: CheckboxProps) {
   const control = (
     <input
-      {...props}
+      {...node(props)}
       type="checkbox"
       className="sph-checkbox__input"
       data-size={size}

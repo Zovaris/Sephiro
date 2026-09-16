@@ -1,7 +1,7 @@
 import { cn } from "cn";
 import type { ButtonHTMLAttributes } from "react";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 import { Spinner } from "../Spinner";
 
 export type ButtonProps = Omit<
@@ -33,7 +33,7 @@ export function Button({
       data-size={size}
       data-loading={loading || undefined}
       disabled={disabled || loading}
-      {...props}
+      {...node(props)}
       aria-busy={ariaBusy ?? (loading || undefined)}
     >
       {loading && <Spinner size="sm" />}

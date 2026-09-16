@@ -1,5 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { node } from "@/lib/node.js";
 
 export type SeparatorProps = Omit<HTMLAttributes<HTMLHRElement>, "children"> & {
   orientation?: "horizontal" | "vertical";
@@ -14,7 +15,7 @@ export function Separator({
 }: SeparatorProps) {
   return (
     <hr
-      {...props}
+      {...node(props)}
       className={cn("sph-separator", className)}
       data-orientation={orientation}
       role={decorative ? "presentation" : "separator"}

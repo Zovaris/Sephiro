@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import { useId } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 import { FieldMessage, type FieldMessageProps } from "../FieldMessage";
 
 export type FieldProps = {
@@ -43,10 +43,7 @@ export function Field({
       )}
       <div className="sph-field__control">{node(children)}</div>
       {message !== undefined && message !== null && (
-        <FieldMessage
-          id={messageId}
-          variant={messageType}
-        >
+        <FieldMessage id={messageId} variant={messageType}>
           {node(message)}
         </FieldMessage>
       )}

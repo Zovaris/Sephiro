@@ -1,7 +1,7 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { node, type Renderable } from "@/lib/node.js";
 import type { ControlSize } from "../../lib/control";
-import { type Renderable, node } from "@/lib/node";
 
 export type ToolbarProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   label?: string;
@@ -24,7 +24,7 @@ export function Toolbar({
 }: ToolbarProps) {
   return (
     <div
-      {...props}
+      {...node(props)}
       className={cn("sph-toolbar", className)}
       data-orientation={orientation}
       data-size={size}
@@ -38,9 +38,7 @@ export function Toolbar({
       {children !== undefined && (
         <div className="sph-toolbar__content">{node(children)}</div>
       )}
-      {end !== undefined && (
-        <div className="sph-toolbar__end">{node(end)}</div>
-      )}
+      {end !== undefined && <div className="sph-toolbar__end">{node(end)}</div>}
     </div>
   );
 }

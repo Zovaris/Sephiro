@@ -1,6 +1,7 @@
 import { cn } from "cn";
-import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { useEffect, useId, useRef, useState } from "react";
+import type { KeyboardActionEvent } from "@/lib/events.js";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type MenuItem = {
   value?: string;
@@ -56,7 +57,7 @@ export function Menu({
     close();
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
+  const handleKeyDown = (event: KeyboardActionEvent) => {
     if (event.key === "Escape") {
       event.preventDefault();
       close();
@@ -73,10 +74,7 @@ export function Menu({
     }
   };
 
-  const handleItemKeyDown = (
-    event: KeyboardEvent<HTMLButtonElement>,
-    index: number,
-  ) => {
+  const handleItemKeyDown = (event: KeyboardActionEvent, index: number) => {
     if (event.key === "Escape") {
       event.preventDefault();
       close();

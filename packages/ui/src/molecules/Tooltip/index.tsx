@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import { useId, useRef, useState } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type TooltipProps = {
   content: Renderable;

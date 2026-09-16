@@ -1,7 +1,7 @@
 import { TrayIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type EmptyStateProps = Omit<
   HTMLAttributes<HTMLElement>,
@@ -27,7 +27,7 @@ export function EmptyState({
 }: EmptyStateProps) {
   return (
     <section
-      {...props}
+      {...node(props)}
       className={cn("sph-empty-state", className)}
       data-compact={compact || undefined}
     >

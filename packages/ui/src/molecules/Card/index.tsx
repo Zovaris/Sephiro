@@ -1,6 +1,6 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
-import { type Renderable, node } from "@/lib/node";
+import { node, type Renderable } from "@/lib/node.js";
 
 export type CardProps = Omit<
   HTMLAttributes<HTMLElement>,
@@ -31,7 +31,7 @@ export function Card({
 
   return (
     <article
-      {...props}
+      {...node(props)}
       className={cn("sph-card", className)}
       data-interactive={interactive || undefined}
       data-selected={selected || undefined}
