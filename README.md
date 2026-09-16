@@ -83,7 +83,7 @@ Themed usage:
 ## Components
 
 **Atoms**  
-`Badge` · `Button` · `Checkbox` · `IconButton` · `Input` · `Separator` · `Skeleton` · `Spinner` · `Surface` · `Textarea` · `Toggle`
+`Badge` · `Button` · `Checkbox` · `IconButton` · `Input` · `Separator` · `Skeleton` · `Slider` · `Spinner` · `Surface` · `Textarea` · `Toggle`
 
 **Molecules**  
 `Alert` (+ `Notice`) · `Card` · `Dialog` · `Field` · `FieldMessage` · `Menu` · `Popover` · `RadioGroup` · `Select` · `Tabs` · `Toast` (+ `ToastViewport`, `toast()`) · `Toolbar` · `Tooltip`
