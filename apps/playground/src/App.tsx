@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { Imprint } from "./components/Imprint";
 import { InkRail } from "./components/InkRail";
 import { MixingBench } from "./components/MixingBench";
@@ -49,8 +49,10 @@ export function App() {
   const [custom, setCustom] = useState<InkTokens>(STARTING_INK);
   const [printing, setPrinting] = useState(false);
   const [reprinting, setReprinting] = useState(false);
+  const reprintTimeout = useRef<number>();
 
-  const scheme = isLight(custom.stock) ? "light" : "dark";  const folio = useMemo<Folio[]>(() => {
+  const scheme = isLight(custom.stock) ? "light" : "dark";
+  const folio = useMemo<Folio[]>(() => {
     return groups
       .flatMap((group) =>
         group.specimens.map((specimen) => ({
@@ -76,8 +78,12 @@ export function App() {
     for (const key of Object.keys(inkVars(STARTING_INK, "dark"))) {
       root.style.removeProperty(key);
     }
-    root.dataset.sephiroTheme = ink;
-  }, [ink, printing, custom, scheme]);
+  }, [printing, custom, scheme]);
+
+  useEffect(() => {
+    if (printing) return;
+    document.documentElement.dataset.sephiroTheme = ink;
+  }, [ink, printing]);
 
   useEffect(() => {
     if (printing) return;
@@ -88,8 +94,14 @@ export function App() {
   }, [ink, printing]);
 
   const reprint = () => {
+    if (reprintTimeout.current !== undefined) {
+      window.clearTimeout(reprintTimeout.current);
+    }
     setReprinting(true);
-    window.setTimeout(() => setReprinting(false), 480);
+    reprintTimeout.current = window.setTimeout(() => {
+      setReprinting(false);
+      reprintTimeout.current = undefined;
+    }, 480);
   };
 
   const changeInk = (next: InkName) => {
@@ -163,7 +175,6 @@ export function App() {
           sheetInk={ink}
           onChange={(patch) => {
             setCustom((current) => ({ ...current, ...patch }));
-            reprint();
           }}
           onPrint={() => {
             setPrinting((current) => !current);
