@@ -29,11 +29,12 @@
     content: "";
     position: absolute;
     bottom: -1px;
-    left: 10px;
-    right: 10px;
+    left: 5px;
+    right: 5px;
     height: 2px;
-    border-radius: 2px 2px 0 0;
+    border-radius: 2px;
     background: var(--sph-accent);
+    @apply transition-all duration-200 ease-in-out;
   }
   .sph-tabs[data-orientation="vertical"] .sph-tabs__tab {
     @apply text-left;
