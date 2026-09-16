@@ -6,9 +6,14 @@ commit-msg:
 pre-commit:
   commands:
     lint:
-      run: bun run lint
+      run: bun run lint:fix && bun run lint
+      stage_fixed: true
 
 pre-push:
   commands:
-    quality:
-      run: bun run lint && bun run check && bun test
+    lint:
+      run: bun run lint
+    check:
+      run: bun run check
+    test:
+      run: bun run test
