@@ -6,6 +6,7 @@ import { defineConfig } from "vite";
 const uiSource = resolve(import.meta.dirname, "../../packages/ui");
 
 export default defineConfig({
+  base: "./",
   plugins: [preact(), tailwindcss()],
   resolve: {
     alias: [
