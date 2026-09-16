@@ -13,6 +13,7 @@ import {
   Input,
   Separator,
   Skeleton,
+  Slider,
   Spinner,
   Surface,
   Textarea,
@@ -26,6 +27,8 @@ export function AtomsCatalog() {
   const [saved, setSaved] = useState(false);
   const [remember, setRemember] = useState(false);
   const [notifications, setNotifications] = useState(true);
+  const [radius, setRadius] = useState(6);
+  const [zoom, setZoom] = useState(72);
 
   return (
     <CatalogSection
@@ -33,7 +36,7 @@ export function AtomsCatalog() {
       index="01"
       title="Atoms"
       description="Single-purpose primitives. Every atom ships in sm / md / lg with disabled and loading states."
-      count="10 specimens · 11 components"
+      count="11 specimens · 12 components"
     >
       <Specimen
         title="Button"
@@ -249,6 +252,48 @@ export function AtomsCatalog() {
           </div>
         </Specimen>
       </div>
+
+      <Specimen
+        title="Slider"
+        description="Numeric ranges with a filled track, a live readout and pointer feedback."
+        api="Slider / sm · md · lg"
+        wide
+      >
+        <div className="slider-demo">
+          <Slider
+            label="Corner radius"
+            min={0}
+            max={16}
+            value={radius}
+            valueLabel={`${radius}px`}
+            onValueChange={setRadius}
+          />
+          <Slider
+            label="Zoom"
+            size="sm"
+            value={zoom}
+            valueLabel={`${zoom}%`}
+            onValueChange={setZoom}
+          />
+          <Slider
+            label="Spacing"
+            size="lg"
+            min={0}
+            max={48}
+            step={4}
+            value={24}
+            valueLabel="24px"
+            onValueChange={() => {}}
+          />
+          <Slider
+            label="Threshold"
+            value={86}
+            valueLabel="86%"
+            invalid
+            onValueChange={() => {}}
+          />
+        </div>
+      </Specimen>
 
       <Specimen
         title="Feedback"

@@ -43,7 +43,7 @@ export function App() {
           </section>
           <div className="catalog-meta" aria-label="Catalog metadata">
             <span>
-              <strong>27</strong> components
+              <strong>28</strong> components
             </span>
             <span className="catalog-meta__rule" aria-hidden="true" />
             <span>Interactive examples</span>

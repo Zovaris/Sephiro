@@ -3,6 +3,7 @@ import {
   Button,
   Input,
   Select,
+  Slider,
   toast,
 } from "@sthlabs/sephiro-ui";
 import { useState } from "preact/hooks";
@@ -262,24 +263,14 @@ export function ThemeStudio() {
           </div>
 
           <div className="studio__row">
-            <span className="studio__label" id="studio-radius-label">
-              Radius
-            </span>
-            <div className="studio__radius">
-              <input
-                id="studio-radius"
-                type="range"
-                min={0}
-                max={16}
-                value={tokens.radius}
-                aria-labelledby="studio-radius-label"
-                className="studio__range"
-                onInput={(event) =>
-                  update({ radius: Number(event.currentTarget.value) })
-                }
-              />
-              <span className="studio__range-value">{tokens.radius}px</span>
-            </div>
+            <Slider
+              label="Radius"
+              min={0}
+              max={16}
+              value={tokens.radius}
+              valueLabel={`${tokens.radius}px`}
+              onValueChange={(radius) => update({ radius })}
+            />
           </div>
         </div>
 
