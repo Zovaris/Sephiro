@@ -7,7 +7,7 @@ import {
   Input,
   Slider,
   Toggle,
-} from "@sthlabs/sephiro-ui";
+} from "@zovaris/sephiro";
 import { useState } from "preact/hooks";
 import {
   contrast,

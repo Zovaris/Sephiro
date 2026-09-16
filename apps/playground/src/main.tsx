@@ -1,5 +1,5 @@
 import { render } from "preact";
-import "@sthlabs/sephiro-ui/styles.css";
+import "@zovaris/sephiro/styles.css";
 import "./style.css";
 import { App } from "./App";
 

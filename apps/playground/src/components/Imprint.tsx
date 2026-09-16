@@ -1,9 +1,9 @@
-import pkg from "@sthlabs/sephiro-ui/package.json";
+import pkg from "@zovaris/sephiro/package.json";
 
 const FACTS: Array<[string, string]> = [
   ["package", pkg.name],
   ["version", pkg.version],
-  ["stylesheet", "@sthlabs/sephiro-ui/styles.css"],
+  ["stylesheet", "@zovaris/sephiro/styles.css"],
   ["peer", "react >= 18 (optional)"],
   ["tokens", "28 semantic custom properties"],
   ["themes", "4 presets, unbounded custom"],

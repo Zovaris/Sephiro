@@ -1,11 +1,11 @@
 import { CheckIcon, CopyIcon } from "@phosphor-icons/react";
-import { Button, IconButton, Input, Slider, Toggle } from "@sthlabs/sephiro-ui";
-import pkg from "@sthlabs/sephiro-ui/package.json";
+import { Button, IconButton, Input, Slider, Toggle } from "@zovaris/sephiro";
+import pkg from "@zovaris/sephiro/package.json";
 import { useState } from "preact/hooks";
 import { useMeasurement } from "../lib/measure";
 import { SephiroMark } from "./Brand";
 
-const COMMAND = "bun add @sthlabs/sephiro-ui";
+const COMMAND = "bun add @zovaris/sephiro";
 
 export function SiteHead({ revision }: { revision: string }) {
   const [copied, setCopied] = useState(false);
@@ -30,8 +30,8 @@ export function SiteHead({ revision }: { revision: string }) {
         <span className="masthead__name">Sephiro</span>
         <span>v{pkg.version}</span>
         <span className="masthead__links">
-          <a href="https://www.npmjs.com/package/@sthlabs/sephiro-ui">npm</a>
-          <a href="https://github.com/sthlabs/Sephiro">source</a>
+          <a href="https://www.npmjs.com/package/@zovaris/sephiro">npm</a>
+          <a href="https://github.com/zovaris/sephiro">source</a>
         </span>
       </div>
 

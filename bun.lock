@@ -3,18 +3,18 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@sephiro/ui",
+      "name": "@zovaris/sephiro",
       "devDependencies": {
         "@biomejs/biome": "^2.5.13",
         "lefthook": "^2.1.14",
       },
     },
     "apps/playground": {
-      "name": "@sthlabs/playground",
+      "name": "@zovaris/playground",
       "version": "0.3.0",
       "dependencies": {
         "@phosphor-icons/react": "^2.1.10",
-        "@sthlabs/sephiro-ui": "workspace:*",
+        "@zovaris/sephiro": "workspace:*",
         "preact": "^10.26.4",
       },
       "devDependencies": {
@@ -26,7 +26,7 @@
       },
     },
     "packages/ui": {
-      "name": "@sthlabs/sephiro-ui",
+      "name": "@zovaris/sephiro",
       "version": "0.3.0",
       "dependencies": {
         "@phosphor-icons/react": "^2.1.10",
@@ -269,10 +269,6 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.63.3", "", { "os": "win32", "cpu": "x64" }, "sha512-+lIKX7O0+IGe7WuhATaAMMeT7B76vfhXH/l9wLQL+nvyhbw2ohYCKIdWL56JfDu75CWt5oKRP4QFH/jkMtBquA=="],
 
-    "@sthlabs/playground": ["@sthlabs/playground@workspace:apps/playground"],
-
-    "@sthlabs/sephiro-ui": ["@sthlabs/sephiro-ui@workspace:packages/ui"],
-
     "@tailwindcss/cli": ["@tailwindcss/cli@4.3.3", "", { "dependencies": { "@parcel/watcher": "2.5.1", "@tailwindcss/node": "4.3.3", "@tailwindcss/oxide": "4.3.3", "enhanced-resolve": "^5.24.1", "mri": "^1.2.0", "picocolors": "^1.1.1", "tailwindcss": "4.3.3" }, "bin": { "tailwindcss": "./dist/index.mjs" } }, "sha512-ZvS/n1ZHOBKcVlhkt8l5NNr1EDXk1NboYO5CYDOs6NUmvT9z6bzkwsosaJftY57T/3gWNzWMJzIXLodZC8ssdw=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.3.3", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.24.1", "jiti": "^2.7.0", "lightningcss": "1.32.0", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.3.3" } }, "sha512-/T8IKEsf9VTU6tLjgC7+sv2mOPtQxzE2jMw7u4Tt40Tx+QSZxpzh95/H6cMKoja9XuW7iMdLJYBB0o9G1CaAgg=="],
@@ -314,6 +310,10 @@
     "@types/react": ["@types/react@19.3.0", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg=="],
 
     "@types/react-dom": ["@types/react-dom@19.3.0", "", { "peerDependencies": { "@types/react": "^19.3.0" } }, "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q=="],
+
+    "@zovaris/playground": ["@zovaris/playground@workspace:apps/playground"],
+
+    "@zovaris/sephiro": ["@zovaris/sephiro@workspace:packages/ui"],
 
     "acorn": ["acorn@8.18.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ=="],
 

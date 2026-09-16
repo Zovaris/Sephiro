@@ -8,8 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["../../packages/ui/src/*"],
-      "@sthlabs/sephiro-ui": ["../../packages/ui/src/index.ts"],
-      "@sthlabs/sephiro-ui/*": ["../../packages/ui/*"]
+      "@zovaris/sephiro": ["../../packages/ui/src/index.ts"],
+      "@zovaris/sephiro/*": ["../../packages/ui/*"]
     }
   },
   "include": ["src", "vite.config.ts"]

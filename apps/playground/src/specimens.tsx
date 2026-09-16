@@ -37,7 +37,7 @@ import {
   Toolbar,
   Tooltip,
   toast,
-} from "@sthlabs/sephiro-ui";
+} from "@zovaris/sephiro";
 import type { ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 

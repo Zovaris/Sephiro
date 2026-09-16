@@ -15,15 +15,15 @@ export default defineConfig({
         replacement: `${resolve(uiSource, "src")}/$1.ts`,
       },
       {
-        find: "@sthlabs/sephiro-ui/styles.css",
+        find: "@zovaris/sephiro/styles.css",
         replacement: resolve(uiSource, "src/styles.css"),
       },
       {
-        find: "@sthlabs/sephiro-ui/package.json",
+        find: "@zovaris/sephiro/package.json",
         replacement: resolve(uiSource, "package.json"),
       },
       {
-        find: /^@sthlabs\/sephiro-ui$/,
+        find: /^@zovaris\/sephiro$/,
         replacement: resolve(uiSource, "src/index.ts"),
       },
     ],
