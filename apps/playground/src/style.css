@@ -3,6 +3,60 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 
+@property --sph-bg {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #111111;
+}
+
+@property --sph-surface {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #191919;
+}
+
+@property --sph-surface-elevated {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1d1d1d;
+}
+
+@property --sph-raised {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #242424;
+}
+
+@property --sph-border {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #303030;
+}
+
+@property --sph-border-strong {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #4a4a4a;
+}
+
+@property --sph-text {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #eeeeee;
+}
+
+@property --sph-text-muted {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #a4a4a4;
+}
+
+@property --sph-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #d71921;
+}
+
 @theme {
   --font-sph-sans:
     "Geist", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
@@ -42,6 +96,17 @@
 html {
   background: var(--sph-bg);
   color: var(--sph-text);
+  scroll-behavior: smooth;
+  transition:
+    --sph-bg 320ms var(--sph-ease-standard),
+    --sph-surface 320ms var(--sph-ease-standard),
+    --sph-surface-elevated 320ms var(--sph-ease-standard),
+    --sph-raised 320ms var(--sph-ease-standard),
+    --sph-border 320ms var(--sph-ease-standard),
+    --sph-border-strong 320ms var(--sph-ease-standard),
+    --sph-text 320ms var(--sph-ease-standard),
+    --sph-text-muted 320ms var(--sph-ease-standard),
+    --sph-accent 320ms var(--sph-ease-standard);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -856,21 +921,6 @@ button {
     padding: 22px 0 40px;
   }
 
-  .sheet[data-reprinting="true"] .reprint {
-    animation: reprint 460ms var(--sph-ease-emphasis);
-  }
-
-  @keyframes reprint {
-    from {
-      filter: blur(1.6px) saturate(1.08);
-      opacity: 0.62;
-    }
-    to {
-      filter: none;
-      opacity: 1;
-    }
-  }
-
   @media (max-width: 900px) {
     .band,
     .specimen {
@@ -923,8 +973,9 @@ button {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sheet[data-reprinting="true"] .reprint {
-      animation: none;
+    html {
+      scroll-behavior: auto;
+      transition: none;
     }
     .ink__chip,
     .run,

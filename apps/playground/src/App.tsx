@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { useEffect, useMemo, useState } from "preact/hooks";
 import { Imprint } from "./components/Imprint";
 import { InkRail } from "./components/InkRail";
 import { MixingBench } from "./components/MixingBench";
@@ -48,8 +48,6 @@ export function App() {
   const [ink, setInk] = useState<InkName>(() => inkFromLocation());
   const [custom, setCustom] = useState<InkTokens>(STARTING_INK);
   const [printing, setPrinting] = useState(false);
-  const [reprinting, setReprinting] = useState(false);
-  const reprintTimeout = useRef<number>();
 
   const scheme = isLight(custom.stock) ? "light" : "dark";
   const folio = useMemo<Folio[]>(() => {
@@ -93,32 +91,16 @@ export function App() {
     window.history.replaceState(null, "", url);
   }, [ink, printing]);
 
-  const reprint = () => {
-    if (reprintTimeout.current !== undefined) {
-      window.clearTimeout(reprintTimeout.current);
-    }
-    setReprinting(true);
-    reprintTimeout.current = window.setTimeout(() => {
-      setReprinting(false);
-      reprintTimeout.current = undefined;
-    }, 480);
-  };
-
   const changeInk = (next: InkName) => {
     setPrinting(false);
     setInk(next);
-    reprint();
   };
 
   const revision = printing ? `${ink}-${JSON.stringify(custom)}` : ink;
   let position = 0;
 
   return (
-    <main
-      className="sheet"
-      id="top"
-      data-reprinting={reprinting ? "true" : undefined}
-    >
+    <main className="sheet" id="top">
       <RegistrationMarks />
 
       <div className="reprint">
@@ -178,7 +160,6 @@ export function App() {
           }}
           onPrint={() => {
             setPrinting((current) => !current);
-            reprint();
           }}
         />
 
