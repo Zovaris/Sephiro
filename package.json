@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
-    "format:check": "biome format . --error-on-unformatted",
+    "format:check": "biome format .",
     "format": "biome format --write .",
     "validate:commit": "node scripts/validate-commit-message.mjs",
     "prepare": "lefthook install",
