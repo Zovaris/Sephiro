@@ -11,7 +11,7 @@
     },
     "apps/playground": {
       "name": "@sephiro/playground",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "dependencies": {
         "@phosphor-icons/react": "^2.1.10",
         "@sephiro/ui": "workspace:*",
@@ -27,7 +27,7 @@
     },
     "packages/ui": {
       "name": "@sephiro/ui",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "dependencies": {
         "@phosphor-icons/react": "^2.1.10",
         "cn": "^0.3.0",
