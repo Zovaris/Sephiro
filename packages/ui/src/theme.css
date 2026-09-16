@@ -1,5 +1,5 @@
-@theme {
-  --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+@theme inline {
+  --font-sph-sans: var(--sph-font-sans);
   --color-sph-bg: var(--sph-bg);
   --color-sph-surface: var(--sph-surface);
   --color-sph-raised: var(--sph-raised);
@@ -11,6 +11,7 @@
   --color-sph-accent-hover: var(--sph-accent-hover);
   --color-sph-accent-pressed: var(--sph-accent-pressed);
   --color-sph-accent-soft: var(--sph-accent-soft);
+  --color-sph-on-accent: var(--sph-on-accent);
   --radius-sph-xs: var(--sph-radius-xs);
   --radius-sph-sm: var(--sph-radius-sm);
   --radius-sph-md: var(--sph-radius-md);

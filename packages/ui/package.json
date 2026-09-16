@@ -22,15 +22,17 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/index.css"
+    "./styles.css": "./dist/index.css",
+    "./components.css": "./dist/components.css",
+    "./themes.css": "./dist/themes.css"
   },
   "scripts": {
     "build": "tsup && bun run build:css",
-    "build:css": "tailwindcss --input src/styles.css --output dist/index.css",
+    "build:css": "node scripts/build-css.mjs",
     "check": "tsc --noEmit",
     "dev": "bun run --parallel dev:js dev:css",
     "dev:js": "tsup --watch",
-    "dev:css": "tailwindcss --input src/styles.css --output dist/index.css --watch",
+    "dev:css": "node scripts/build-css.mjs --watch",
     "test": "bun test"
   },
   "peerDependencies": {
@@ -46,6 +48,7 @@
     "@types/bun": "^1.4.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19",
+    "postcss": "^8.5.28",
     "preact": "^10.26.4",
     "react-dom": "^19",
     "tailwindcss": "^4.1.0",

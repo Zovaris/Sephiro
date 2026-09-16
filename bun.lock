@@ -38,6 +38,7 @@
         "@types/bun": "^1.4.2",
         "@types/react": "^19.0.0",
         "@types/react-dom": "^19",
+        "postcss": "^8.5.28",
         "preact": "^10.26.4",
         "react-dom": "^19",
         "tailwindcss": "^4.1.0",

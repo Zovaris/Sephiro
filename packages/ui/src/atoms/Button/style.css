@@ -20,7 +20,7 @@
     @apply h-10 text-sm;
   }
   .sph-button[data-variant="primary"] {
-    @apply bg-sph-accent text-white;
+    @apply bg-sph-accent text-sph-on-accent;
   }
   .sph-button[data-variant="primary"]:hover {
     @apply bg-sph-accent-hover;

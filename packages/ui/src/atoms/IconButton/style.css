@@ -26,10 +26,10 @@
     transform: scale(0.94);
   }
   .sph-icon-button[data-variant="solid"] {
-    @apply bg-sph-accent text-white;
+    @apply bg-sph-accent text-sph-on-accent;
   }
   .sph-icon-button[data-variant="solid"]:hover:not(:disabled) {
-    @apply bg-sph-accent-hover text-white;
+    @apply bg-sph-accent-hover text-sph-on-accent;
   }
   .sph-icon-button[data-variant="solid"]:active:not(:disabled) {
     @apply bg-sph-accent-pressed;
