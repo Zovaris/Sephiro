@@ -11,9 +11,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@sthlabs/sephiro-ui">npm</a>
+  <a href="https://www.npmjs.com/package/@zovaris/sephiro">npm</a>
   ·
-  <a href="https://github.com/sthlabs/Sephiro/releases">Releases</a>
+  <a href="https://github.com/zovaris/sephiro/releases">Releases</a>
   ·
   <a href="#get-it">Install</a>
 </p>
@@ -56,18 +56,18 @@ React is an optional peer dependency (`>=18`). The playground runs everything on
 ## Get it
 
 ```bash
-bun add @sthlabs/sephiro-ui
+bun add @zovaris/sephiro
 ```
 
 ```tsx
-import { Button, Field, Input, Select, Toggle } from "@sthlabs/sephiro-ui";
-import "@sthlabs/sephiro-ui/styles.css";
+import { Button, Field, Input, Select, Toggle } from "@zovaris/sephiro";
+import "@zovaris/sephiro/styles.css";
 ```
 
 | | |
 |---|---|
-| **Package** | [@sthlabs/sephiro-ui on npm](https://www.npmjs.com/package/@sthlabs/sephiro-ui) |
-| **Tarballs** | [GitHub Releases](https://github.com/sthlabs/Sephiro/releases) |
+| **Package** | [@zovaris/sephiro on npm](https://www.npmjs.com/package/@zovaris/sephiro) |
+| **Tarballs** | [GitHub Releases](https://github.com/zovaris/sephiro/releases) |
 | **From source** | `bun install`, then `bun run dev` |
 
 Themed usage:
@@ -108,8 +108,8 @@ Custom presets scope to `data-sephiro-theme` and define the `--sph-*` tokens. Se
 
 ## Architecture
 
-- `packages/ui`: `@sthlabs/sephiro-ui` — the publishable component package. Source organized by composition level (`atoms`, `molecules`, `organisms`).
-- `apps/playground`: `@sthlabs/playground` — visual catalog and theme preview (Preact + Vite).
+- `packages/ui`: `@zovaris/sephiro` — the publishable component package. Source organized by composition level (`atoms`, `molecules`, `organisms`).
+- `apps/playground`: `@zovaris/playground` — visual catalog and theme preview (Preact + Vite).
 - Tokens live in `packages/ui/src/styles.css`; the playground's theme selector is only a preview consumer.
 
 | Command | Does |

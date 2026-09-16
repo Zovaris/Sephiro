@@ -7,7 +7,7 @@ Sephiro themes are CSS custom-property presets. The UI package owns the token co
 Import the package stylesheet once, then put the theme attribute on the app shell or another ancestor of the components:
 
 ```tsx
-import "@sthlabs/sephiro-ui/styles.css";
+import "@zovaris/sephiro/styles.css";
 
 export function App() {
   return (
