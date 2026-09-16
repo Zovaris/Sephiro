@@ -203,7 +203,10 @@ button {
     stroke-linecap: round;
   }
 
-  .mark__core,
+  .mark__core {
+    fill: var(--sph-text);
+  }
+
   .mark__node {
     fill: currentColor;
   }
