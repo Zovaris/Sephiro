@@ -15,7 +15,7 @@
     pointer-events: none;
   }
   .sph-checkbox__box {
-    @apply box-border size-4 rounded border border-sph-border bg-sph-surface;
+    @apply box-border size-4 rounded-sph-xs border border-sph-border bg-sph-surface;
     position: relative;
     flex: 0 0 auto;
     transition:
@@ -32,13 +32,17 @@
   .sph-checkbox__input:checked + .sph-checkbox__box {
     @apply border-sph-accent bg-sph-accent;
   }
-  .sph-checkbox__input:checked + .sph-checkbox__box::after {
-    content: "";
-    position: absolute;
-    inset: 3px 4px 4px 3px;
-    border-right: 1.5px solid white;
-    border-bottom: 1.5px solid white;
-    transform: rotate(40deg);
+  .sph-checkbox__check {
+    @apply block size-full text-white;
+    opacity: 0;
+    transform: scale(0.72);
+    transition:
+      opacity var(--sph-motion-fast) var(--sph-ease-standard),
+      transform var(--sph-motion-fast) var(--sph-ease-emphasis);
+  }
+  .sph-checkbox__input:checked + .sph-checkbox__box .sph-checkbox__check {
+    opacity: 1;
+    transform: scale(1);
   }
   .sph-checkbox__input:focus-visible + .sph-checkbox__box {
     outline: 2px solid var(--sph-focus);
@@ -56,7 +60,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .sph-checkbox__box {
+    .sph-checkbox__box,
+    .sph-checkbox__check {
       transition: none;
     }
   }

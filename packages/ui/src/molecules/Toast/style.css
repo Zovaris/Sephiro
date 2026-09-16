@@ -82,7 +82,7 @@
     outline-offset: 2px;
   }
   [data-sonner-toast].sph-toast [data-close-button] {
-    @apply relative rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted m-auto;
+    @apply inline-flex items-center justify-center rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted m-auto;
     grid-column: 3;
     grid-row: 1;
     align-self: start;
@@ -95,24 +95,9 @@
     @apply bg-sph-raised text-sph-text;
   }
   [data-sonner-toast].sph-toast [data-close-button] svg {
-    display: none;
-  }
-  [data-sonner-toast].sph-toast [data-close-button]::before,
-  [data-sonner-toast].sph-toast [data-close-button]::after {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 13px;
-    width: 12px;
-    height: 1.5px;
-    border-radius: 2px;
-    background: currentColor;
-  }
-  [data-sonner-toast].sph-toast [data-close-button]::before {
-    transform: rotate(45deg);
-  }
-  [data-sonner-toast].sph-toast [data-close-button]::after {
-    transform: rotate(-45deg);
+    width: 13px;
+    height: 13px;
+    stroke-width: 2.5;
   }
   [data-sonner-toast].sph-toast[data-expanded="false"][data-front="false"] > * {
     opacity: 0;

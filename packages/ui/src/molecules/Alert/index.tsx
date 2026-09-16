@@ -61,7 +61,7 @@ export function Alert({
           aria-label="Dismiss notification"
           onClick={onDismiss}
         >
-          <span aria-hidden="true" />
+          <XIcon size={12} aria-hidden="true" />
         </button>
       )}
     </div>

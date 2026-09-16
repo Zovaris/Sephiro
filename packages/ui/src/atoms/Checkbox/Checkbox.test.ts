@@ -15,4 +15,6 @@ test("renders a labelled checkbox with checked semantics", () => {
   expect(markup).toContain('type="checkbox"');
   expect(markup).toContain("checked");
   expect(markup).toContain("Remember this workspace");
+  expect(markup).toContain("<svg");
+  expect(markup).toContain('class="sph-checkbox__check"');
 });

@@ -25,7 +25,7 @@
     line-height: 1.45;
   }
   .sph-dialog__close {
-    @apply relative size-7 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
+    @apply inline-flex size-7 shrink-0 items-center justify-center rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
     cursor: pointer;
   }
   .sph-dialog__close:hover {
@@ -35,23 +35,7 @@
     outline: 2px solid var(--sph-focus);
     outline-offset: 1px;
   }
-  .sph-dialog__close span::before,
-  .sph-dialog__close span::after {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 13px;
-    width: 12px;
-    height: 1.5px;
-    border-radius: 1px;
-    background: currentColor;
-  }
-  .sph-dialog__close span::before {
-    transform: rotate(45deg);
-  }
-  .sph-dialog__close span::after {
-    transform: rotate(-45deg);
-  }
+
   .sph-dialog__content {
     @apply min-w-0 px-5 py-5;
   }

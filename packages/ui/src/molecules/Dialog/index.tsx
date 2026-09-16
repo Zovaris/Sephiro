@@ -1,3 +1,4 @@
+import { XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useEffect, useId, useRef } from "react";
 import { node, type Renderable } from "@/lib/node.js";
@@ -101,7 +102,7 @@ export function Dialog({
             aria-label={closeLabel}
             onClick={onClose}
           >
-            <span aria-hidden="true" />
+            <XIcon size={14} aria-hidden="true" />
           </button>
         </header>
         {children !== undefined && (

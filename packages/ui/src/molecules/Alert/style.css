@@ -54,7 +54,7 @@
     line-height: 1.45;
   }
   .sph-alert__dismiss {
-    @apply relative size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted my-auto;
+    @apply my-auto inline-flex size-6 shrink-0 items-center justify-center rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
     cursor: pointer;
   }
   .sph-alert__dismiss:hover {
@@ -63,22 +63,5 @@
   .sph-alert__dismiss:focus-visible {
     outline: 2px solid var(--sph-focus);
     outline-offset: 1px;
-  }
-  .sph-alert__dismiss span::before,
-  .sph-alert__dismiss span::after {
-    content: "";
-    position: absolute;
-    left: 7px;
-    top: 11px;
-    width: 11px;
-    height: 1.5px;
-    border-radius: 1px;
-    background: currentColor;
-  }
-  .sph-alert__dismiss span::before {
-    transform: rotate(45deg);
-  }
-  .sph-alert__dismiss span::after {
-    transform: rotate(-45deg);
   }
 }

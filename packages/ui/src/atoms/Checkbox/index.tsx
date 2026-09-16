@@ -1,3 +1,4 @@
+import { CheckIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { InputHTMLAttributes } from "react";
 import { node, type Renderable } from "@/lib/node.js";
@@ -34,7 +35,9 @@ export function Checkbox({
   return (
     <label className={cn("sph-checkbox", className)} data-size={size}>
       {control}
-      <span className="sph-checkbox__box" aria-hidden="true" />
+      <span className="sph-checkbox__box" aria-hidden="true">
+        <CheckIcon className="sph-checkbox__check" />
+      </span>
       <span className="sph-checkbox__label">{node(label)}</span>
     </label>
   );
