@@ -1,71 +1,129 @@
-# Sephiro
+<h1 align="center">Sephiro</h1>
 
-Sephiro is a lightweight UI monorepo for desktop applications built with React or Preact. The package is intentionally small: it provides composable primitives, semantic tokens, and scoped themes without installing a global reset.
+<p align="center">
+  <strong>Composable UI primitives for desktop apps.</strong>
+</p>
 
-## Workspace
+<p align="center">
+  Small, themeable React components with semantic tokens.<br />
+  No global reset. No design-system lock-in.<br />
+  Works with React and Preact.
+</p>
 
-```text
-packages/ui       @sephiro/ui — publishable component package
-apps/playground   @sephiro/playground — visual catalog and theme preview
-```
+<p align="center">
+  <a href="https://www.npmjs.com/package/@sephiro/ui">npm</a>
+  ·
+  <a href="https://github.com/sthlabs/Sephiro/releases">Releases</a>
+  ·
+  <a href="#get-it">Install</a>
+</p>
 
-The UI source is organized by composition level. Every component owns an `index.tsx`, `style.css`, and colocated test:
+---
 
-- `atoms`: `Button`, `Input`, `Textarea`, `Checkbox`, `Toggle`, `Badge`, `Spinner`, `Skeleton`
-- `molecules`: `Field`, `FieldMessage`, `Select`
+Sephiro is a lightweight UI monorepo for desktop applications. The package provides composable primitives, semantic tokens, and scoped themes without installing a global reset. Importing the stylesheet does not touch your app's base styles, so it sits cleanly inside Tauri, Electron, or web shells.
 
-The existing `Button`, `Input`, `Select`, and `Toggle` APIs remain available from the package root. New props such as `Button.loading` and `Input.invalid` are additive.
+Component styles compile with Tailwind CSS v4 `@apply`, deliberately omitting Preflight. The playground is a working Preact catalog with interactive states and theme previews.
 
-## Run locally
+---
+
+## What it actually gives you
+
+**Primitives, not pages**  
+Atoms, molecules, and organisms with typed props: buttons, fields, selects, menus, dialogs, toasts, tabs, toolbars, tables, and more. Every component owns its `index.tsx`, `style.css`, and colocated test.
+
+**No global reset**  
+The stylesheet only defines component classes and token variables. Your host app keeps its own base styles.
+
+**Semantic tokens and scoped themes**  
+Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `default`, `light`, `asterism`, and `soffy` presets; custom presets are a CSS block away.
+
+**One control size contract**  
+`sm` (32px), `md` (36px, default), `lg` (40px) across controls. One scale to learn.
+
+**React-first, Preact-compatible**  
+React is an optional peer dependency (`>=18`). The playground runs everything on Preact through the usual compat aliases, proving the components carry no React-only assumptions.
+
+---
+
+## Built for
+
+- Desktop shells (Tauri, Electron) that need product UI without a reset
+- Small teams that want themed primitives instead of a full framework
+- Apps serving React or Preact from one component contract
+
+---
+
+## Get it
 
 ```bash
-bun install
-bun run dev
+bun add @sephiro/ui
 ```
-
-The playground opens a catalog with interactive states and three scoped themes: `default`, `Asterism`, and `Soffy`. To build or validate everything:
-
-```bash
-bun run check
-bun run test
-bun run build
-```
-
-You can run the package and app separately with `bun run dev:ui`, `bun run dev:playground`, `bun run build:ui`, and `bun run build:playground`.
-
-## Use the package
 
 ```tsx
 import { Button, Field, Input, Select, Toggle } from "@sephiro/ui";
 import "@sephiro/ui/styles.css";
 ```
 
-Sephiro uses one control size contract: `sm` (32px), `md` (36px, default), and `lg` (40px). It compiles component classes with Tailwind CSS v4 `@apply`, but deliberately omits Preflight. Importing `@sephiro/ui/styles.css` therefore does not reset a Tauri or web application.
+| | |
+|---|---|
+| **Package** | [@sephiro/ui on npm](https://www.npmjs.com/package/@sephiro/ui) |
+| **Tarballs** | [GitHub Releases](https://github.com/sthlabs/Sephiro/releases) |
+| **From source** | `bun install`, then `bun run dev` |
 
-## Themes and tokens
-
-Theme variables are scoped to a parent element, so multiple themes can coexist on a page:
+Themed usage:
 
 ```tsx
-<div data-sephiro-theme="asterism">
+<main data-sephiro-theme="asterism">
   <Button variant="primary">Open workspace</Button>
-</div>
+</main>
 ```
 
-Available scopes are `default`, `light`, `asterism`, and `soffy`. Override the semantic `--sph-*` custom properties on an application root to brand a surface. Motion uses `--sph-motion-fast`, `--sph-motion-normal`, and `--sph-motion-slow`, and automatically collapses under `prefers-reduced-motion: reduce`.
+---
 
-## Preact
+## Components
 
-The package exposes React-compatible contracts and can be consumed by Preact through the usual compatibility aliases. The playground is a working Preact example using Vite:
+**Atoms**  
+`Badge` · `Button` · `Checkbox` · `IconButton` · `Input` · `Separator` · `Skeleton` · `Spinner` · `Surface` · `Textarea` · `Toggle`
 
-```ts
-resolve: {
-  alias: {
-    react: "preact/compat",
-    "react-dom": "preact/compat",
-    "react/jsx-runtime": "preact/jsx-runtime",
-  },
-}
-```
+**Molecules**  
+`Alert` (+ `Notice`) · `Card` · `Dialog` · `Field` · `FieldMessage` · `Menu` · `Popover` · `RadioGroup` · `Select` · `Tabs` · `Toast` (+ `ToastViewport`, `toast()`) · `Toolbar` · `Tooltip`
 
-The package remains private while its API settles. Remove `private: true` only when naming, licensing, and publishing are decided.
+**Organisms**  
+`EmptyState` · `Table`
+
+---
+
+## Themes
+
+| Preset | Use |
+|---|---|
+| `default` | Dark, high-contrast baseline. Fallback when no theme attribute is present. |
+| `light` | Neutral light surfaces for everyday product work. |
+| `asterism` | Indigo product surfaces for focused, spatial tools. |
+| `soffy` | Warm surfaces for friendlier product contexts. |
+
+Custom presets scope to `data-sephiro-theme` and define the `--sph-*` tokens. See [`packages/ui/THEMING.md`](./packages/ui/THEMING.md).
+
+---
+
+## Architecture
+
+- `packages/ui`: `@sephiro/ui` — the publishable component package. Source organized by composition level (`atoms`, `molecules`, `organisms`).
+- `apps/playground`: `@sephiro/playground` — visual catalog and theme preview (Preact + Vite).
+- Tokens live in `packages/ui/src/styles.css`; the playground's theme selector is only a preview consumer.
+
+| Command | Does |
+|---|---|
+| `bun run dev` | Playground with watcher |
+| `bun run check` | Typecheck UI + playground |
+| `bun run test` | UI tests |
+| `bun run build` | Build UI + playground |
+| `bun run release <patch\|minor\|major\|x.y.z>` | Bump versions, commit, tag, push |
+
+Pushing a `v*` tag runs the release workflow: verify, check, test, build, publish to npm, and attach the tarball to the GitHub Release.
+
+---
+
+<p align="center">
+  <sub>MIT License</sub>
+</p>
