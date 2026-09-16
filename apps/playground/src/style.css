@@ -778,12 +778,21 @@ button {
     gap: 6px;
   }
 
-  .imprint div {
-    display: flex;
-    justify-content: space-between;
+  .imprint dl > div {
+    display: grid;
+    grid-template-columns: minmax(72px, auto) minmax(0, 1fr);
+    align-items: start;
     gap: 14px;
     border-bottom: var(--sheet-measure) solid var(--sph-border);
     padding-bottom: 6px;
+  }
+
+  .imprint__production {
+    min-width: 0;
+  }
+
+  .imprint__release-note {
+    margin-top: 14px;
   }
 
   .imprint dt {
@@ -796,7 +805,7 @@ button {
     font-family: var(--font-sph-mono);
     font-size: 11.5px;
     text-align: right;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 
   .clauses {
@@ -882,6 +891,9 @@ button {
     .imprint {
       grid-template-columns: minmax(0, 1fr);
     }
+    .imprint__production {
+      max-width: 38rem;
+    }
   }
 
   @media (max-width: 620px) {
@@ -896,6 +908,10 @@ button {
     }
     .display {
       letter-spacing: -0.022em;
+    }
+    .imprint dl > div {
+      grid-template-columns: minmax(68px, auto) minmax(0, 1fr);
+      gap: 12px;
     }
   }
 

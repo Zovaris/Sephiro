@@ -60,7 +60,7 @@ export function Imprint() {
             </li>
           </ol>
 
-          <div>
+          <div className="imprint__production">
             <h3>Production</h3>
             <dl>
               {FACTS.map(([key, value]) => (
@@ -70,7 +70,7 @@ export function Imprint() {
                 </div>
               ))}
             </dl>
-            <p className="anno" style={{ marginTop: "14px" }}>
+            <p className="anno imprint__release-note">
               release verifies tag, check, test and build before publishing
             </p>
           </div>
