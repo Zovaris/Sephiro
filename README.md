@@ -35,7 +35,7 @@ Atoms, molecules, and organisms with typed props: buttons, fields, selects, menu
 The stylesheet only defines component classes and token variables. Your host app keeps its own base styles.
 
 **Semantic tokens and scoped themes**  
-Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `default`, `light`, `asterism`, and `soffy` presets; custom presets are a CSS block away.
+Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `dark`, `light`, `asterism`, `fizza`, and `soffy` presets; custom presets are a CSS block away.
 
 **One control size contract**  
 `sm` (32px), `md` (36px, default), `lg` (40px) across controls. One scale to learn.
@@ -97,10 +97,13 @@ Themed usage:
 
 | Preset | Use |
 |---|---|
-| `default` | Dark, high-contrast baseline. Fallback when no theme attribute is present. |
-| `light` | Neutral light surfaces for everyday product work. |
-| `asterism` | Indigo product surfaces for focused, spatial tools. |
-| `soffy` | Warm surfaces for friendlier product contexts. |
+| `dark` | Sephiro's neutral dark preset and the fallback when no theme attribute is present. |
+| `light` | Warm neutral light surfaces for everyday product work. |
+| `asterism` | Asterism's charcoal surfaces and signature red accent. |
+| `fizza` | Fizza's black surfaces and electric-violet accent. |
+| `soffy` | A provisional warm preset while Soffy's identity is in development. |
+
+The legacy `default` value remains an alias for `dark`.
 
 Custom presets scope to `data-sephiro-theme` and define the `--sph-*` tokens. See [`packages/ui/THEMING.md`](./packages/ui/THEMING.md).
 

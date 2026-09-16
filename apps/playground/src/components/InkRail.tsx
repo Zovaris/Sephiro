@@ -17,7 +17,7 @@ export function InkRail({ inks, ink, printing, onInkChange }: InkRailProps) {
       <div className="band__body">
         <div className="section-head">
           <div>
-            <h2 id="ink-heading">The same sheet, printed in four inks</h2>
+            <h2 id="ink-heading">The same sheet, printed in five inks</h2>
             <p>
               Choose an ink and the whole sheet reprints. Components, rules,
               focus rings and the numbers in the margin are the same objects

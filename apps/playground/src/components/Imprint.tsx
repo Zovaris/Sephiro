@@ -6,7 +6,7 @@ const FACTS: Array<[string, string]> = [
   ["stylesheet", "@zovaris/sephiro/styles.css"],
   ["peer", "react >= 18 (optional)"],
   ["tokens", "28 semantic custom properties"],
-  ["themes", "4 presets, unbounded custom"],
+  ["themes", "5 presets, unbounded custom"],
   ["licence", "MIT"],
 ];
 

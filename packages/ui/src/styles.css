@@ -32,21 +32,21 @@
 @import "./organisms/Table/style.css";
 @import "./molecules/Toolbar/style.css";
 
-:where(:root, [data-sephiro-theme="default"]) {
+:where(:root, [data-sephiro-theme="default"], [data-sephiro-theme="dark"]) {
   --sph-font-sans: var(--font-sph-sans);
-  --sph-bg: #111111;
-  --sph-surface: #191919;
-  --sph-surface-elevated: #1d1d1d;
-  --sph-raised: #242424;
-  --sph-border: #303030;
-  --sph-border-strong: #4a4a4a;
-  --sph-text: #eeeeee;
-  --sph-text-muted: #a4a4a4;
-  --sph-accent: #d71921;
-  --sph-accent-hover: #ea343c;
-  --sph-accent-pressed: #b9151c;
+  --sph-bg: #141414;
+  --sph-surface: #1c1c1c;
+  --sph-surface-elevated: #222222;
+  --sph-raised: #282828;
+  --sph-border: #343434;
+  --sph-border-strong: #525252;
+  --sph-text: #f1f1f1;
+  --sph-text-muted: #aaaaaa;
+  --sph-accent: #315fcb;
+  --sph-accent-hover: #2854bd;
+  --sph-accent-pressed: #21459d;
   --sph-accent-soft: color-mix(in srgb, var(--sph-accent) 16%, transparent);
-  --sph-accent-strong: #ff6670;
+  --sph-accent-strong: #82a8ff;
   --sph-success: #5fd29a;
   --sph-success-soft: color-mix(in srgb, var(--sph-success) 15%, transparent);
   --sph-warning: #f2bc68;
@@ -71,18 +71,18 @@
 }
 
 [data-sephiro-theme="light"] {
-  --sph-bg: #f3f3f3;
+  --sph-bg: #f5f4f2;
   --sph-surface: #ffffff;
   --sph-surface-elevated: #ffffff;
-  --sph-raised: #ebebeb;
-  --sph-border: #d6d6d6;
-  --sph-border-strong: #a9a9a9;
-  --sph-text: #171717;
-  --sph-text-muted: #5b5b5b;
-  --sph-accent: #c01820;
-  --sph-accent-hover: #a7141b;
-  --sph-accent-pressed: #8c1117;
-  --sph-accent-strong: #a7141b;
+  --sph-raised: #eceae7;
+  --sph-border: #d8d5d0;
+  --sph-border-strong: #aaa6a0;
+  --sph-text: #191817;
+  --sph-text-muted: #625f5b;
+  --sph-accent: #315fcb;
+  --sph-accent-hover: #2854bd;
+  --sph-accent-pressed: #21459d;
+  --sph-accent-strong: #244da9;
   --sph-accent-soft: color-mix(in srgb, var(--sph-accent) 12%, transparent);
   --sph-success: #14784b;
   --sph-success-soft: color-mix(in srgb, var(--sph-success) 12%, transparent);
@@ -97,21 +97,42 @@
 }
 
 [data-sephiro-theme="asterism"] {
-  --sph-bg: #10121f;
-  --sph-surface: #171a2d;
-  --sph-surface-elevated: #1d2140;
-  --sph-raised: #252b4b;
-  --sph-border: #353c64;
-  --sph-border-strong: #56619a;
-  --sph-text: #f1f3ff;
-  --sph-text-muted: #a9b2d6;
-  --sph-accent: #7c82ff;
-  --sph-accent-hover: #969aff;
-  --sph-accent-pressed: #5f66eb;
-  --sph-accent-strong: #b9bdff;
-  --sph-success: #63d8be;
-  --sph-warning: #f6c56d;
-  --sph-danger: #ff8f9b;
+  --sph-bg: #111111;
+  --sph-surface: #1c1c1c;
+  --sph-surface-elevated: #2a2a2a;
+  --sph-raised: #232323;
+  --sph-border: #2e2e2e;
+  --sph-border-strong: #3f3f3f;
+  --sph-text: #ececec;
+  --sph-text-muted: #a3a3a3;
+  --sph-accent: #d71921;
+  --sph-accent-hover: #ea343c;
+  --sph-accent-pressed: #b9151c;
+  --sph-accent-strong: #ef4444;
+  --sph-success: #28c840;
+  --sph-warning: #f2bc68;
+  --sph-danger: #ff7278;
+  --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.38);
+  color-scheme: dark;
+}
+
+[data-sephiro-theme="fizza"] {
+  --sph-bg: #000000;
+  --sph-surface: #111111;
+  --sph-surface-elevated: #1a1a1a;
+  --sph-raised: #1a1a1a;
+  --sph-border: #222222;
+  --sph-border-strong: #333333;
+  --sph-text: #e8e8e8;
+  --sph-text-muted: #999999;
+  --sph-accent: #7c3aed;
+  --sph-accent-hover: #6d28d9;
+  --sph-accent-pressed: #5b21b6;
+  --sph-accent-strong: #a78bfa;
+  --sph-success: #4a9e5c;
+  --sph-warning: #d4a843;
+  --sph-danger: #d71921;
+  --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.5);
   color-scheme: dark;
 }
 

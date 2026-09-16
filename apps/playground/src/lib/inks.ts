@@ -1,4 +1,10 @@
-export const INK_NAMES = ["default", "light", "asterism", "soffy"] as const;
+export const INK_NAMES = [
+  "dark",
+  "light",
+  "asterism",
+  "fizza",
+  "soffy",
+] as const;
 
 export type InkName = (typeof INK_NAMES)[number];
 
@@ -12,10 +18,11 @@ export type Ink = {
 };
 
 const NOTES: Record<InkName, string> = {
-  default: "Black stock, crimson register.",
-  light: "White stock, crimson register.",
-  asterism: "Indigo stock, periwinkle register.",
-  soffy: "Cream stock, terracotta register.",
+  dark: "Neutral dark stock, cobalt register.",
+  light: "Warm white stock, cobalt register.",
+  asterism: "Asterism charcoal, signature red.",
+  fizza: "Fizza black, electric violet.",
+  soffy: "Provisional cream and terracotta.",
 };
 
 const TOKENS = {
@@ -29,7 +36,7 @@ export function inkFromLocation(): InkName {
   const requested = new URLSearchParams(window.location.search).get("ink");
   return INK_NAMES.includes(requested as InkName)
     ? (requested as InkName)
-    : "default";
+    : "dark";
 }
 
 export function readInks(): Ink[] {

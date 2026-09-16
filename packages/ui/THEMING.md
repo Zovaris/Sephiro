@@ -22,12 +22,13 @@ Available presets:
 
 | Preset | Use |
 | --- | --- |
-| `default` | Sephiro's dark, high-contrast baseline (`Default / Night`). |
-| `light` | Neutral light surfaces for everyday product work. |
-| `asterism` | Indigo product surfaces for focused, spatial tools. |
-| `soffy` | Warm surfaces for friendlier product contexts. |
+| `dark` | Sephiro's neutral dark preset. |
+| `light` | Warm neutral light surfaces for everyday product work. |
+| `asterism` | Asterism's charcoal surfaces and signature red accent. |
+| `fizza` | Fizza's black surfaces and electric-violet accent. |
+| `soffy` | A provisional warm preset while Soffy's identity is in development. |
 
-`default` remains the fallback when no theme attribute is present. `light`, `asterism`, and `soffy` are opt-in presets. Project names are kept intentionally: they prove the system can carry real product identities. A community preset such as Dracula can be added later without replacing these product presets.
+Dark remains the fallback when no theme attribute is present. The legacy `default` name is retained as an alias for `dark`. Project names are kept intentionally: they prove the system can carry real product identities.
 
 ## Add a custom theme
 

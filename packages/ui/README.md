@@ -23,7 +23,7 @@ The stylesheet only defines component classes and token variables — it does no
 </main>
 ```
 
-Available presets: `default` (dark baseline), `light`, `asterism`, `soffy`. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor.
+Available presets: `dark`, `light`, `asterism`, `fizza`, and `soffy`. The legacy `default` value remains an alias for `dark`. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor.
 
 ## Sizing
 
