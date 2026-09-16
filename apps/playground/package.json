@@ -1,5 +1,5 @@
 {
-  "name": "@sephiro/playground",
+  "name": "@sthlabs/playground",
   "version": "0.3.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "@sephiro/ui": "workspace:*",
+    "@sthlabs/sephiro-ui": "workspace:*",
     "preact": "^10.26.4"
   },
   "devDependencies": {

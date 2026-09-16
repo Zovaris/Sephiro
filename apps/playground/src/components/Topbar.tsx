@@ -1,4 +1,4 @@
-import { Badge } from "@sephiro/ui";
+import { Badge } from "@sthlabs/sephiro-ui";
 import { SephiroLogo } from "./Brand";
 
 export function Topbar() {

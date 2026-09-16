@@ -8,7 +8,7 @@ import {
   Spinner,
   Table,
   Toggle,
-} from "@sephiro/ui";
+} from "@sthlabs/sephiro-ui";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
 

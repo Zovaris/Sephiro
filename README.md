@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@sephiro/ui">npm</a>
+  <a href="https://www.npmjs.com/package/@sthlabs/sephiro-ui">npm</a>
   ·
   <a href="https://github.com/sthlabs/Sephiro/releases">Releases</a>
   ·
@@ -56,17 +56,17 @@ React is an optional peer dependency (`>=18`). The playground runs everything on
 ## Get it
 
 ```bash
-bun add @sephiro/ui
+bun add @sthlabs/sephiro-ui
 ```
 
 ```tsx
-import { Button, Field, Input, Select, Toggle } from "@sephiro/ui";
-import "@sephiro/ui/styles.css";
+import { Button, Field, Input, Select, Toggle } from "@sthlabs/sephiro-ui";
+import "@sthlabs/sephiro-ui/styles.css";
 ```
 
 | | |
 |---|---|
-| **Package** | [@sephiro/ui on npm](https://www.npmjs.com/package/@sephiro/ui) |
+| **Package** | [@sthlabs/sephiro-ui on npm](https://www.npmjs.com/package/@sthlabs/sephiro-ui) |
 | **Tarballs** | [GitHub Releases](https://github.com/sthlabs/Sephiro/releases) |
 | **From source** | `bun install`, then `bun run dev` |
 
@@ -108,8 +108,8 @@ Custom presets scope to `data-sephiro-theme` and define the `--sph-*` tokens. Se
 
 ## Architecture
 
-- `packages/ui`: `@sephiro/ui` — the publishable component package. Source organized by composition level (`atoms`, `molecules`, `organisms`).
-- `apps/playground`: `@sephiro/playground` — visual catalog and theme preview (Preact + Vite).
+- `packages/ui`: `@sthlabs/sephiro-ui` — the publishable component package. Source organized by composition level (`atoms`, `molecules`, `organisms`).
+- `apps/playground`: `@sthlabs/playground` — visual catalog and theme preview (Preact + Vite).
 - Tokens live in `packages/ui/src/styles.css`; the playground's theme selector is only a preview consumer.
 
 | Command | Does |

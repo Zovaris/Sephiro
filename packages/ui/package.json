@@ -1,11 +1,11 @@
 {
-  "name": "@sephiro/ui",
+  "name": "@sthlabs/sephiro-ui",
   "version": "0.3.0",
   "description": "Reusable desktop UI primitives for React and Preact applications.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sthlabs/Sephiro.git"
+    "url": "git+https://github.com/sthlabs/Sephiro.git"
   },
   "publishConfig": {
     "access": "public"

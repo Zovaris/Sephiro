@@ -33,4 +33,4 @@ jobs:
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create "${{ github.ref_name }}" --title "${{ github.ref_name }}" --generate-notes packages/ui/sephiro-ui-*.tgz
+        run: gh release create "${{ github.ref_name }}" --title "${{ github.ref_name }}" --generate-notes packages/ui/sthlabs-sephiro-ui-*.tgz

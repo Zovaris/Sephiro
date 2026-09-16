@@ -1,4 +1,4 @@
-import { Select } from "@sephiro/ui";
+import { Select } from "@sthlabs/sephiro-ui";
 
 export type ThemeName = "default" | "light" | "asterism" | "soffy";
 

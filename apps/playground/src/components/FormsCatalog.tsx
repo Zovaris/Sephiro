@@ -5,7 +5,7 @@ import {
   RadioGroup,
   Select,
   Textarea,
-} from "@sephiro/ui";
+} from "@sthlabs/sephiro-ui";
 import { useState } from "preact/hooks";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
