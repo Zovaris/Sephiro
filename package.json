@@ -1,6 +1,6 @@
 {
   "name": "sephiro",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "A lightweight monorepo for the Sephiro UI system and visual playground.",
   "type": "module",

@@ -1,6 +1,6 @@
 {
   "name": "@zovaris/sephiro",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Reusable desktop UI primitives for React and Preact applications.",
   "license": "MIT",
   "repository": {
