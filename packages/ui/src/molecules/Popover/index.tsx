@@ -1,11 +1,5 @@
 import { cn } from "cn";
-import {
-  type KeyboardEvent,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 
 export type PopoverProps = {
   trigger: unknown;

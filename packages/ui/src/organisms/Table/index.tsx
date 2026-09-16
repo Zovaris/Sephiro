@@ -76,9 +76,11 @@ export function Table<
               <tr key={rowIndex}>
                 {columns.map((column) => (
                   <td key={column.key} data-align={column.align ?? "start"}>
-                    {(column.render
-                      ? column.render(row, rowIndex)
-                      : row[column.key]) as any}
+                    {
+                      (column.render
+                        ? column.render(row, rowIndex)
+                        : row[column.key]) as any
+                    }
                   </td>
                 ))}
               </tr>

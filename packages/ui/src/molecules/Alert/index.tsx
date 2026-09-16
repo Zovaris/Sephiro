@@ -36,7 +36,9 @@ export function Alert({
     >
       <span className="sph-alert__icon" aria-hidden="true" />
       <div className="sph-alert__body">
-        {title !== undefined && <p className="sph-alert__title">{title as any}</p>}
+        {title !== undefined && (
+          <p className="sph-alert__title">{title as any}</p>
+        )}
         {children !== undefined && (
           <div className="sph-alert__content">{children as any}</div>
         )}

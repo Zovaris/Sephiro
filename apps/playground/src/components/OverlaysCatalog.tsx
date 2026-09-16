@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks";
 import {
   Button,
   Dialog,
@@ -11,6 +10,7 @@ import {
   Tooltip,
   toast,
 } from "@sephiro/ui";
+import { useState } from "preact/hooks";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
 

@@ -27,11 +27,15 @@ export function Toolbar({
       aria-label={label}
       aria-orientation={orientation}
     >
-      {start !== undefined && <div className="sph-toolbar__start">{start as any}</div>}
+      {start !== undefined && (
+        <div className="sph-toolbar__start">{start as any}</div>
+      )}
       {children !== undefined && (
         <div className="sph-toolbar__content">{children as any}</div>
       )}
-      {end !== undefined && <div className="sph-toolbar__end">{end as any}</div>}
+      {end !== undefined && (
+        <div className="sph-toolbar__end">{end as any}</div>
+      )}
     </div>
   );
 }

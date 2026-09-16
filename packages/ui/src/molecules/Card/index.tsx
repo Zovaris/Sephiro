@@ -38,7 +38,9 @@ export function Card({
       {hasHeader && (
         <header className="sph-card__header">
           {header as any}
-          {title !== undefined && <h3 className="sph-card__title">{title as any}</h3>}
+          {title !== undefined && (
+            <h3 className="sph-card__title">{title as any}</h3>
+          )}
           {description !== undefined && (
             <p className="sph-card__description">{description as any}</p>
           )}

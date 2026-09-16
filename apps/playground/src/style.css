@@ -334,8 +334,8 @@ textarea {
 }
 
 :focus-visible:not(.sph-input):not(.sph-textarea):not(.sph-select__trigger):not(
-    .sph-button
-  ):not(.sph-icon-button) {
+  .sph-button
+):not(.sph-icon-button) {
   outline: 2px solid var(--sph-focus);
   outline-offset: 3px;
 }

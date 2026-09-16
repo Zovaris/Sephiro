@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks";
 import {
   Badge,
   Button,
@@ -12,6 +11,7 @@ import {
   Textarea,
   Toggle,
 } from "@sephiro/ui";
+import { useState } from "preact/hooks";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
 
@@ -111,9 +111,23 @@ export function AtomsCatalog() {
           api="Input / sm · md · lg"
         >
           <div className="demo-stack">
-            <Input id="atom-input-default" defaultValue="Asterism" aria-label="Workspace name" />
-            <Input id="atom-input-small" size="sm" defaultValue="Small" aria-label="Small input" />
-            <Input id="atom-input-disabled" defaultValue="Disabled" disabled aria-label="Disabled input" />
+            <Input
+              id="atom-input-default"
+              defaultValue="Asterism"
+              aria-label="Workspace name"
+            />
+            <Input
+              id="atom-input-small"
+              size="sm"
+              defaultValue="Small"
+              aria-label="Small input"
+            />
+            <Input
+              id="atom-input-disabled"
+              defaultValue="Disabled"
+              disabled
+              aria-label="Disabled input"
+            />
             <Input
               id="atom-input-invalid"
               defaultValue="http://"
@@ -169,14 +183,24 @@ export function AtomsCatalog() {
               />
             </div>
             <div className="button-row">
-              <Toggle checked onCheckedChange={() => {}} label="Small on" size="sm" />
+              <Toggle
+                checked
+                onCheckedChange={() => {}}
+                label="Small on"
+                size="sm"
+              />
               <Toggle
                 checked={false}
                 onCheckedChange={() => {}}
                 label="Large off"
                 size="lg"
               />
-              <Toggle checked={false} onCheckedChange={() => {}} label="Off" disabled />
+              <Toggle
+                checked={false}
+                onCheckedChange={() => {}}
+                label="Off"
+                disabled
+              />
             </div>
           </div>
         </Specimen>

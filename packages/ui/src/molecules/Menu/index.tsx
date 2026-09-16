@@ -1,11 +1,5 @@
 import { cn } from "cn";
-import {
-  type KeyboardEvent,
-  useEffect,
-  useId,
-  useRef,
-  useState,
-} from "react";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 
 export type MenuItem = {
   value?: string;
@@ -151,7 +145,9 @@ export function Menu({
                   <span>{item.label as any}</span>
                 </span>
                 {item.shortcut !== undefined && (
-                  <span className="sph-menu__shortcut">{item.shortcut as any}</span>
+                  <span className="sph-menu__shortcut">
+                    {item.shortcut as any}
+                  </span>
                 )}
               </button>
             ),

@@ -110,7 +110,7 @@ export function Tabs({
             role="tabpanel"
             aria-labelledby={`${generatedId}-${activeIndex}`}
           >
-            {activeItem.content ?? children as any}
+            {activeItem.content ?? (children as any)}
           </div>
         )}
     </div>

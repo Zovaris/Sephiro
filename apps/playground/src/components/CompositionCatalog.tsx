@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks";
 import {
   Badge,
   Button,
@@ -12,6 +11,7 @@ import {
   Toggle,
   Toolbar,
 } from "@sephiro/ui";
+import { useState } from "preact/hooks";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
 

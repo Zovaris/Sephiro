@@ -6,7 +6,7 @@ import { FeedbackCatalog } from "./components/FeedbackCatalog";
 import { FormsCatalog } from "./components/FormsCatalog";
 import { OverlaysCatalog } from "./components/OverlaysCatalog";
 import { StateCatalog } from "./components/StateCatalog";
-import { ThemePreview, type ThemeName } from "./components/ThemePreview";
+import { type ThemeName, ThemePreview } from "./components/ThemePreview";
 import { Topbar } from "./components/Topbar";
 
 export function App() {

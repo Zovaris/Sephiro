@@ -78,7 +78,9 @@ export function RadioGroup({
               />
               <span className="sph-radio-group__control" aria-hidden="true" />
               <span className="sph-radio-group__content">
-                <span className="sph-radio-group__label">{option.label as any}</span>
+                <span className="sph-radio-group__label">
+                  {option.label as any}
+                </span>
                 {option.description !== undefined && (
                   <span
                     id={optionDescriptionId}
