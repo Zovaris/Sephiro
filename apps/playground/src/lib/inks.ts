@@ -1,0 +1,58 @@
+export const INK_NAMES = ["default", "light", "asterism", "soffy"] as const;
+
+export type InkName = (typeof INK_NAMES)[number];
+
+export type Ink = {
+  name: InkName;
+  note: string;
+  stock: string;
+  surface: string;
+  rule: string;
+  register: string;
+};
+
+const NOTES: Record<InkName, string> = {
+  default: "Black stock, crimson register.",
+  light: "White stock, crimson register.",
+  asterism: "Indigo stock, periwinkle register.",
+  soffy: "Cream stock, terracotta register.",
+};
+
+const TOKENS = {
+  stock: "--sph-bg",
+  surface: "--sph-surface",
+  rule: "--sph-border",
+  register: "--sph-accent",
+} as const;
+
+export function inkFromLocation(): InkName {
+  const requested = new URLSearchParams(window.location.search).get("ink");
+  return INK_NAMES.includes(requested as InkName)
+    ? (requested as InkName)
+    : "default";
+}
+
+export function readInks(): Ink[] {
+  const probe = document.createElement("div");
+  probe.style.position = "absolute";
+  probe.style.visibility = "hidden";
+  probe.style.pointerEvents = "none";
+  document.body.append(probe);
+
+  const inks = INK_NAMES.map((name) => {
+    probe.dataset.sephiroTheme = name;
+    const computed = getComputedStyle(probe);
+    const read = (token: string) => computed.getPropertyValue(token).trim();
+    return {
+      name,
+      note: NOTES[name],
+      stock: read(TOKENS.stock),
+      surface: read(TOKENS.surface),
+      rule: read(TOKENS.rule),
+      register: read(TOKENS.register),
+    } satisfies Ink;
+  });
+
+  probe.remove();
+  return inks;
+}
