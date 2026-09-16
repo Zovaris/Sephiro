@@ -88,7 +88,7 @@ for (const file of VERSION_FILES) {
 
 await $`bun install --cwd ${root}`;
 
-await $`git -C ${root} add ${VERSION_FILES.join(" ")} bun.lock`;
+await $`git -C ${root} add ${VERSION_FILES} bun.lock`;
 await $`git -C ${root} commit -m ${`chore(release): ${tag}`}`;
 await $`git -C ${root} tag -a ${tag} -m ${tag}`;
 
