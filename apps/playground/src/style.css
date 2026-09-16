@@ -508,15 +508,23 @@ button {
     border: 1px solid var(--sph-border);
     border-radius: var(--sph-radius-sm);
     cursor: pointer;
-    transition: border-color 120ms var(--sph-ease-standard);
+    transition:
+      background-color 220ms var(--sph-ease-standard),
+      border-color 220ms var(--sph-ease-standard),
+      box-shadow 220ms var(--sph-ease-standard),
+      color 220ms var(--sph-ease-standard),
+      transform 220ms var(--sph-ease-emphasis);
   }
 
   .ink__chip:hover {
     border-color: var(--sph-border-strong);
+    transform: translateY(-1px);
   }
 
   .ink__chip[aria-pressed="true"] {
     border-color: var(--sph-accent);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.12);
+    transform: translateY(-2px);
   }
 
   .ink__bands {
@@ -550,16 +558,25 @@ button {
   }
 
   .ink__printed {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-3px);
     font-family: var(--font-sph-mono);
     font-size: var(--sheet-anno);
     text-transform: uppercase;
     letter-spacing: var(--sheet-anno-track);
     color: var(--sph-accent);
+    transition:
+      opacity 180ms var(--sph-ease-standard),
+      transform 220ms var(--sph-ease-emphasis),
+      visibility 0s linear 220ms;
   }
 
   .ink__chip[aria-pressed="true"] .ink__printed {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition-delay: 40ms, 40ms, 0s;
   }
 
   .section-head {
@@ -978,9 +995,15 @@ button {
       transition: none;
     }
     .ink__chip,
+    .ink__printed,
     .run,
     .run__ink {
       transition: none;
+    }
+    .ink__chip:hover,
+    .ink__chip[aria-pressed="true"],
+    .ink__printed {
+      transform: none;
     }
   }
 }
