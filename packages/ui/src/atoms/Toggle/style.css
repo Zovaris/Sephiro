@@ -1,18 +1,27 @@
 @layer components {
   .sph-toggle {
     @apply inline-flex box-border h-9 w-11 items-center justify-center border-0 bg-transparent p-0 font-sph-sans;
+    --sph-toggle-travel: 16px;
     cursor: pointer;
   }
   .sph-toggle[data-size="sm"] {
     @apply h-8 w-10;
+    --sph-toggle-travel: 12px;
   }
   .sph-toggle[data-size="lg"] {
     @apply h-10 w-12;
+    --sph-toggle-travel: 20px;
   }
   .sph-toggle__track {
     @apply relative block h-5 w-9 rounded-full bg-sph-border p-0.5;
     transition: background-color var(--sph-motion-normal)
       var(--sph-ease-standard);
+  }
+  .sph-toggle[data-size="sm"] .sph-toggle__track {
+    @apply h-4 w-7;
+  }
+  .sph-toggle[data-size="lg"] .sph-toggle__track {
+    @apply h-6 w-11;
   }
   .sph-toggle[data-state="checked"] .sph-toggle__track {
     @apply bg-sph-accent;
@@ -22,14 +31,20 @@
     box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
     transition: transform var(--sph-motion-normal) var(--sph-ease-emphasis);
   }
+  .sph-toggle[data-size="sm"] .sph-toggle__thumb {
+    @apply size-3;
+  }
+  .sph-toggle[data-size="lg"] .sph-toggle__thumb {
+    @apply size-5;
+  }
   .sph-toggle[data-state="checked"] .sph-toggle__thumb {
-    transform: translateX(16px);
+    transform: translateX(var(--sph-toggle-travel));
   }
   .sph-toggle:active:not(:disabled) .sph-toggle__thumb {
     transform: scale(0.9);
   }
   .sph-toggle[data-state="checked"]:active:not(:disabled) .sph-toggle__thumb {
-    transform: translateX(16px) scale(0.9);
+    transform: translateX(var(--sph-toggle-travel)) scale(0.9);
   }
   .sph-toggle:disabled {
     @apply opacity-50;
