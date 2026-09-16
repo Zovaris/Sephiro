@@ -1,3 +1,4 @@
+import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useEffect } from "react";
 import {
@@ -12,32 +13,24 @@ export { toast };
 
 const toastIcons = {
   success: (
-    <span
-      className="sph-toast__status-icon"
-      data-icon-state="success"
-      aria-hidden="true"
-    />
+    <span className="sph-toast__status-icon">
+      <CheckIcon size={20} />
+    </span>
   ),
   info: (
-    <span
-      className="sph-toast__status-icon"
-      data-icon-state="info"
-      aria-hidden="true"
-    />
+    <span className="sph-toast__status-icon">
+      <InfoIcon size={20} />
+    </span>
   ),
   warning: (
-    <span
-      className="sph-toast__status-icon"
-      data-icon-state="warning"
-      aria-hidden="true"
-    />
+    <span className="sph-toast__status-icon">
+      <WarningIcon size={20} />
+    </span>
   ),
   error: (
-    <span
-      className="sph-toast__status-icon"
-      data-icon-state="error"
-      aria-hidden="true"
-    />
+    <span className="sph-toast__status-icon">
+      <XIcon size={20} />
+    </span>
   ),
 };
 
@@ -106,8 +99,9 @@ export function ToastViewport({
   className,
   toastOptions,
   theme = "system",
-  position = "bottom-right",
+  position = "top-right",
   closeButton = true,
+  expand = false,
   ...props
 }: ToastViewportProps) {
   return (
@@ -118,7 +112,7 @@ export function ToastViewport({
       closeButton={closeButton}
       icons={toastIcons}
       containerAriaLabel={label}
-      expand={false}
+      expand={expand}
       className={cn("sph-toast-viewport", className)}
       toastOptions={{
         ...toastOptions,

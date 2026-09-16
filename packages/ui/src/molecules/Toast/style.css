@@ -48,64 +48,10 @@
     color: var(--sph-toast-tone, var(--sph-text-muted));
   }
   .sph-toast__status-icon {
-    @apply relative block size-5;
+    @apply flex size-5 items-center justify-center;
   }
-  .sph-toast__status-icon[data-icon-state="success"]::after {
-    content: "";
-    position: absolute;
-    left: 4px;
-    top: 6px;
-    width: 11px;
-    height: 6px;
-    border-bottom: 2.5px solid currentColor;
-    border-left: 2.5px solid currentColor;
-    transform: rotate(-45deg);
-  }
-  .sph-toast__status-icon[data-icon-state="error"]::before,
-  .sph-toast__status-icon[data-icon-state="error"]::after {
-    content: "";
-    position: absolute;
-    left: 9px;
-    top: 2px;
-    width: 2.5px;
-    height: 17px;
-    border-radius: 2px;
-    background: currentColor;
-    transform: rotate(45deg);
-  }
-  .sph-toast__status-icon[data-icon-state="error"]::after {
-    transform: rotate(-45deg);
-  }
-  .sph-toast__status-icon[data-icon-state="info"]::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 4px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: currentColor;
-    box-shadow: 0 7px 0 0 currentColor;
-  }
-  .sph-toast__status-icon[data-icon-state="warning"]::before {
-    content: "";
-    position: absolute;
-    left: 9px;
-    top: 2px;
-    width: 2px;
-    height: 15px;
-    border-radius: 2px;
-    background: currentColor;
-  }
-  .sph-toast__status-icon[data-icon-state="warning"]::after {
-    content: "";
-    position: absolute;
-    left: 8px;
-    bottom: 1px;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: currentColor;
+  .sph-toast__status-icon svg {
+    @apply block size-5;
   }
   [data-sonner-toast].sph-toast [data-content] {
     @apply flex min-w-0 flex-col gap-0.5;
