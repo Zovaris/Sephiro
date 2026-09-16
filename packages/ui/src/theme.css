@@ -1,11 +1,3 @@
-/**
- * Shared Tailwind v4 theme mappings.
- *
- * Imported by both the package stylesheet and the playground, so utilities
- * like `bg-sph-bg` resolve against the same token contract in both. The
- * preset token values (`--sph-*`) live in `styles.css`; this file only maps
- * them into Tailwind's namespaces.
- */
 @theme {
   --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --color-sph-bg: var(--sph-bg);

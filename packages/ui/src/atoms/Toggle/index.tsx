@@ -11,7 +11,6 @@ export type ToggleProps = Omit<
   onCheckedChange: (checked: boolean) => void;
   label: string;
   size?: ControlSize;
-  /** Structural so it type-checks under both JSX runtimes. */
   onClick?: (event: { preventDefault(): void }) => void;
 };
 
