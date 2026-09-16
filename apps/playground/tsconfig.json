@@ -3,7 +3,14 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../../packages/ui/src/*"],
+      "@sthlabs/sephiro-ui": ["../../packages/ui/src/index.ts"],
+      "@sthlabs/sephiro-ui/*": ["../../packages/ui/*"]
+    }
   },
   "include": ["src", "vite.config.ts"]
 }

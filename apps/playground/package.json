@@ -4,10 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "predev": "bun --cwd ../../packages/ui build",
     "dev": "vite",
     "build": "vite build",
-    "precheck": "bun --cwd ../../packages/ui build",
     "check": "tsc --noEmit"
   },
   "dependencies": {
