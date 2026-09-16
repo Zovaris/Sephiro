@@ -1,0 +1,25 @@
+/**
+ * Shared Tailwind v4 theme mappings.
+ *
+ * Imported by both the package stylesheet and the playground, so utilities
+ * like `bg-sph-bg` resolve against the same token contract in both. The
+ * preset token values (`--sph-*`) live in `styles.css`; this file only maps
+ * them into Tailwind's namespaces.
+ */
+@theme {
+  --font-sph-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-sph-bg: var(--sph-bg);
+  --color-sph-surface: var(--sph-surface);
+  --color-sph-raised: var(--sph-raised);
+  --color-sph-border: var(--sph-border);
+  --color-sph-border-strong: var(--sph-border-strong);
+  --color-sph-text: var(--sph-text);
+  --color-sph-text-muted: var(--sph-text-muted);
+  --color-sph-accent: var(--sph-accent);
+  --color-sph-accent-hover: var(--sph-accent-hover);
+  --color-sph-accent-pressed: var(--sph-accent-pressed);
+  --color-sph-accent-soft: var(--sph-accent-soft);
+  --radius-sph-sm: var(--sph-radius-sm);
+  --radius-sph-md: var(--sph-radius-md);
+  --shadow-sph-popover: var(--sph-shadow-popover);
+}
