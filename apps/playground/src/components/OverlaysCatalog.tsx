@@ -6,20 +6,16 @@ import {
   Menu,
   Popover,
   Tabs,
-  Toast,
   ToastViewport,
   Toolbar,
   Tooltip,
+  toast,
 } from "@sephiro/ui";
 import { CatalogSection } from "./CatalogSection";
 import { Specimen } from "./Specimen";
 
 export function OverlaysCatalog() {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [toastOpen, setToastOpen] = useState(false);
-  const [toastVariant, setToastVariant] = useState<
-    "neutral" | "success" | "warning" | "danger"
-  >("success");
   const [tab, setTab] = useState("overview");
 
   return (
@@ -28,7 +24,7 @@ export function OverlaysCatalog() {
       index="03"
       title="Overlays & navigation"
       description="Menus, popovers, dialogs and toasts anchored to the action that opened them."
-      count="5 specimens · 7 components"
+      count="5 specimens · 8 components"
     >
       <Specimen
         title="Tabs & toolbar"
@@ -143,51 +139,59 @@ export function OverlaysCatalog() {
 
       <Specimen
         title="Toast"
-        description="Transient confirmation in every semantic tone."
-        api="Toast + ToastViewport"
+        description="Transient floating confirmation. Unlike Alert it lives outside the layout, stacks with other toasts and dismisses itself."
+        api="toast() + ToastViewport"
         wide
       >
         <div className="button-row">
           <Button
             variant="quiet"
-            onClick={() => {
-              setToastVariant("success");
-              setToastOpen(false);
-              requestAnimationFrame(() => setToastOpen(true));
-            }}
+            onClick={() =>
+              toast.success("Workspace saved", {
+                description: "Your workspace is ready to share.",
+              })
+            }
           >
             Saved
           </Button>
           <Button
             variant="quiet"
-            onClick={() => {
-              setToastVariant("warning");
-              setToastOpen(false);
-              requestAnimationFrame(() => setToastOpen(true));
-            }}
+            onClick={() =>
+              toast.warning("Storage almost full", {
+                description: "Archive an old workspace to keep syncing.",
+              })
+            }
           >
             Warning
           </Button>
           <Button
             variant="quiet"
-            onClick={() => {
-              setToastVariant("danger");
-              setToastOpen(false);
-              requestAnimationFrame(() => setToastOpen(true));
-            }}
+            onClick={() =>
+              toast.error("Sync failed", {
+                description: "We will retry in the background.",
+              })
+            }
           >
             Error
           </Button>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              toast.success("Workspace saved", {
+                description: "Your workspace is ready to share.",
+              });
+              toast.warning("Storage almost full", {
+                description: "Archive an old workspace to keep syncing.",
+              });
+              toast.error("Sync failed", {
+                description: "We will retry in the background.",
+              });
+            }}
+          >
+            Stack three
+          </Button>
         </div>
-        {toastOpen && (
-          <Toast
-            open
-            title={toastVariant === "success" ? "Saved" : toastVariant}
-            description="Your workspace is ready to share."
-            variant={toastVariant}
-          />
-        )}
-        <ToastViewport />
+        <ToastViewport expand />
       </Specimen>
     </CatalogSection>
   );

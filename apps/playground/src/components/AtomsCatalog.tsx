@@ -169,8 +169,13 @@ export function AtomsCatalog() {
               />
             </div>
             <div className="button-row">
-              <Toggle checked onCheckedChange={() => {}} label="On" size="sm" />
-              <Toggle checked onCheckedChange={() => {}} label="On" size="lg" />
+              <Toggle checked onCheckedChange={() => {}} label="Small on" size="sm" />
+              <Toggle
+                checked={false}
+                onCheckedChange={() => {}}
+                label="Large off"
+                size="lg"
+              />
               <Toggle checked={false} onCheckedChange={() => {}} label="Off" disabled />
             </div>
           </div>

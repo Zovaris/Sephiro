@@ -26,7 +26,7 @@ export function FeedbackCatalog() {
     >
       <Specimen
         title="Alert"
-        description="Every semantic tone with optional dismiss."
+        description="Persistent inline status. Unlike Toast it stays in the layout flow, tied to the surface it describes, until resolved or dismissed."
         api="Alert / info · success · warning · danger"
         wide
       >
