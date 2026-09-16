@@ -2,7 +2,7 @@ import { cn } from "cn";
 import type { InputHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
 
-export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
   invalid?: boolean;
   size?: ControlSize;
   /** @deprecated Use `size`; comfortable maps to md and compact maps to sm. */

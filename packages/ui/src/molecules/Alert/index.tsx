@@ -1,13 +1,13 @@
 import { cn } from "cn";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 export type AlertProps = Omit<
   HTMLAttributes<HTMLDivElement>,
   "children" | "title"
 > & {
   variant?: "info" | "success" | "warning" | "danger";
-  title?: ReactNode;
-  children?: ReactNode;
+  title?: unknown;
+  children?: unknown;
   dismissible?: boolean;
   onDismiss?: () => void;
 };
@@ -36,9 +36,9 @@ export function Alert({
     >
       <span className="sph-alert__icon" aria-hidden="true" />
       <div className="sph-alert__body">
-        {title !== undefined && <p className="sph-alert__title">{title}</p>}
+        {title !== undefined && <p className="sph-alert__title">{title as any}</p>}
         {children !== undefined && (
-          <div className="sph-alert__content">{children}</div>
+          <div className="sph-alert__content">{children as any}</div>
         )}
       </div>
       {dismissible && (

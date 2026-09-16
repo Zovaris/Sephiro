@@ -1,7 +1,6 @@
 import { cn } from "cn";
 import {
   type KeyboardEvent,
-  type ReactNode,
   useEffect,
   useId,
   useRef,
@@ -10,16 +9,16 @@ import {
 
 export type MenuItem = {
   value?: string;
-  label?: ReactNode;
-  icon?: ReactNode;
-  shortcut?: ReactNode;
+  label?: unknown;
+  icon?: unknown;
+  shortcut?: unknown;
   disabled?: boolean;
   danger?: boolean;
   separator?: boolean;
 };
 
 export type MenuProps = {
-  trigger: ReactNode;
+  trigger: unknown;
   items: MenuItem[];
   onSelect?: (value: string) => void;
   label?: string;
@@ -124,7 +123,7 @@ export function Menu({
         onClick={() => setOpen((current) => !current)}
         onKeyDown={handleKeyDown}
       >
-        {trigger}
+        {trigger as any}
       </button>
       {open && (
         <div className="sph-menu__content" data-align={align} role="menu">
@@ -148,11 +147,11 @@ export function Menu({
                 onKeyDown={(event) => handleItemKeyDown(event, index)}
               >
                 <span className="sph-menu__item-label">
-                  {item.icon}
-                  <span>{item.label}</span>
+                  {item.icon as any}
+                  <span>{item.label as any}</span>
                 </span>
                 {item.shortcut !== undefined && (
-                  <span className="sph-menu__shortcut">{item.shortcut}</span>
+                  <span className="sph-menu__shortcut">{item.shortcut as any}</span>
                 )}
               </button>
             ),

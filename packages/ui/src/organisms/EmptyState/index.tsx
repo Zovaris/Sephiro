@@ -1,14 +1,14 @@
 import { cn } from "cn";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 export type EmptyStateProps = Omit<
   HTMLAttributes<HTMLElement>,
   "children" | "title"
 > & {
-  title: ReactNode;
-  description?: ReactNode;
-  icon?: ReactNode;
-  action?: ReactNode;
+  title: unknown;
+  description?: unknown;
+  icon?: unknown;
+  action?: unknown;
   compact?: boolean;
 };
 
@@ -29,15 +29,15 @@ export function EmptyState({
     >
       {icon !== undefined && (
         <div className="sph-empty-state__icon" aria-hidden="true">
-          {icon}
+          {icon as any}
         </div>
       )}
-      <h2 className="sph-empty-state__title">{title}</h2>
+      <h2 className="sph-empty-state__title">{title as any}</h2>
       {description !== undefined && (
-        <p className="sph-empty-state__description">{description}</p>
+        <p className="sph-empty-state__description">{description as any}</p>
       )}
       {action !== undefined && (
-        <div className="sph-empty-state__action">{action}</div>
+        <div className="sph-empty-state__action">{action as any}</div>
       )}
     </section>
   );

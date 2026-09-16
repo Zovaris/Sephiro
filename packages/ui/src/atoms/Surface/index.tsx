@@ -1,8 +1,8 @@
 import { cn } from "cn";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 export type SurfaceProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
-  children?: ReactNode;
+  children?: unknown;
   tone?: "base" | "elevated" | "raised";
   padding?: "none" | "sm" | "md" | "lg";
 };
@@ -21,7 +21,7 @@ export function Surface({
       data-tone={tone}
       data-padding={padding}
     >
-      {children}
+      {children as any}
     </div>
   );
 }

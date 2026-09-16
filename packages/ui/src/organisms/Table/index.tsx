@@ -1,26 +1,26 @@
 import { cn } from "cn";
-import type { ReactNode, TableHTMLAttributes } from "react";
+import type { TableHTMLAttributes } from "react";
 
 export type TableColumn<
-  Row extends Record<string, ReactNode> = Record<string, ReactNode>,
+  Row extends Record<string, unknown> = Record<string, unknown>,
 > = {
   key: string;
-  label: ReactNode;
+  label: unknown;
   align?: "start" | "center" | "end";
   width?: string;
-  render?: (row: Row, index: number) => ReactNode;
+  render?: (row: Row, index: number) => unknown;
 };
 
 export type TableProps<
-  Row extends Record<string, ReactNode> = Record<string, ReactNode>,
+  Row extends Record<string, unknown> = Record<string, unknown>,
 > = Omit<
   TableHTMLAttributes<HTMLTableElement>,
   "children" | "rows" | "className"
 > & {
   columns: TableColumn<Row>[];
   rows: Row[];
-  caption?: ReactNode;
-  emptyMessage?: ReactNode;
+  caption?: unknown;
+  emptyMessage?: unknown;
   density?: "compact" | "comfortable";
   striped?: boolean;
   stickyHeader?: boolean;
@@ -28,7 +28,7 @@ export type TableProps<
 };
 
 export function Table<
-  Row extends Record<string, ReactNode> = Record<string, ReactNode>,
+  Row extends Record<string, unknown> = Record<string, unknown>,
 >({
   columns,
   rows,
@@ -49,7 +49,7 @@ export function Table<
         data-striped={striped || undefined}
         data-sticky-header={stickyHeader || undefined}
       >
-        {caption !== undefined && <caption>{caption}</caption>}
+        {caption !== undefined && <caption>{caption as any}</caption>}
         <thead>
           <tr>
             {columns.map((column) => (
@@ -59,7 +59,7 @@ export function Table<
                 data-align={column.align ?? "start"}
                 style={{ width: column.width }}
               >
-                {column.label}
+                {column.label as any}
               </th>
             ))}
           </tr>
@@ -68,7 +68,7 @@ export function Table<
           {rows.length === 0 ? (
             <tr>
               <td className="sph-table__empty" colSpan={columns.length}>
-                {emptyMessage}
+                {emptyMessage as any}
               </td>
             </tr>
           ) : (
@@ -76,9 +76,9 @@ export function Table<
               <tr key={rowIndex}>
                 {columns.map((column) => (
                   <td key={column.key} data-align={column.align ?? "start"}>
-                    {column.render
+                    {(column.render
                       ? column.render(row, rowIndex)
-                      : row[column.key]}
+                      : row[column.key]) as any}
                   </td>
                 ))}
               </tr>

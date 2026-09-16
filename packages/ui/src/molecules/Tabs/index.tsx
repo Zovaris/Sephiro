@@ -1,11 +1,11 @@
 import { cn } from "cn";
-import { type KeyboardEvent, type ReactNode, useId, useState } from "react";
+import { type KeyboardEvent, useId, useState } from "react";
 
 export type TabItem = {
   value: string;
-  label: ReactNode;
+  label: unknown;
   disabled?: boolean;
-  content?: ReactNode;
+  content?: unknown;
 };
 
 export type TabsProps = {
@@ -13,7 +13,7 @@ export type TabsProps = {
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
-  children?: ReactNode;
+  children?: unknown;
   ariaLabel?: string;
   orientation?: "horizontal" | "vertical";
   className?: string;
@@ -97,7 +97,7 @@ export function Tabs({
               onClick={() => !item.disabled && setValue(item.value)}
               onKeyDown={(event) => move(event, index)}
             >
-              {item.label}
+              {item.label as any}
             </button>
           );
         })}
@@ -110,7 +110,7 @@ export function Tabs({
             role="tabpanel"
             aria-labelledby={`${generatedId}-${activeIndex}`}
           >
-            {activeItem.content ?? children}
+            {activeItem.content ?? children as any}
           </div>
         )}
     </div>

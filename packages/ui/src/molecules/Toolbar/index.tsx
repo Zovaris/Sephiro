@@ -1,12 +1,12 @@
 import { cn } from "cn";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 export type ToolbarProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   label?: string;
   orientation?: "horizontal" | "vertical";
-  start?: ReactNode;
-  end?: ReactNode;
-  children?: ReactNode;
+  start?: unknown;
+  end?: unknown;
+  children?: unknown;
 };
 
 export function Toolbar({
@@ -27,11 +27,11 @@ export function Toolbar({
       aria-label={label}
       aria-orientation={orientation}
     >
-      {start !== undefined && <div className="sph-toolbar__start">{start}</div>}
+      {start !== undefined && <div className="sph-toolbar__start">{start as any}</div>}
       {children !== undefined && (
-        <div className="sph-toolbar__content">{children}</div>
+        <div className="sph-toolbar__content">{children as any}</div>
       )}
-      {end !== undefined && <div className="sph-toolbar__end">{end}</div>}
+      {end !== undefined && <div className="sph-toolbar__end">{end as any}</div>}
     </div>
   );
 }

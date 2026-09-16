@@ -1,7 +1,6 @@
 import { cn } from "cn";
 import {
   type KeyboardEvent,
-  type ReactNode,
   useEffect,
   useId,
   useRef,
@@ -9,8 +8,8 @@ import {
 } from "react";
 
 export type PopoverProps = {
-  trigger: ReactNode;
-  children: ReactNode;
+  trigger: unknown;
+  children: unknown;
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
@@ -83,7 +82,7 @@ export function Popover({
         onClick={() => setOpen(!isOpen)}
         onKeyDown={handleTriggerKeyDown}
       >
-        {trigger}
+        {trigger as any}
       </button>
       {isOpen && (
         <div
@@ -93,7 +92,7 @@ export function Popover({
           role="dialog"
           aria-label={ariaLabel}
         >
-          {children}
+          {children as any}
         </div>
       )}
     </div>

@@ -1,11 +1,11 @@
 import { cn } from "cn";
-import { type ReactNode, useId } from "react";
+import { useId } from "react";
 import type { ControlSize } from "../../lib/control";
 
 export type RadioOption = {
   value: string;
-  label: ReactNode;
-  description?: ReactNode;
+  label: unknown;
+  description?: unknown;
   disabled?: boolean;
 };
 
@@ -14,8 +14,8 @@ export type RadioGroupProps = {
   options: RadioOption[];
   onValueChange: (value: string) => void;
   name: string;
-  label?: ReactNode;
-  description?: ReactNode;
+  label?: unknown;
+  description?: unknown;
   size?: ControlSize;
   orientation?: "horizontal" | "vertical";
   disabled?: boolean;
@@ -46,11 +46,11 @@ export function RadioGroup({
       aria-describedby={descriptionId}
     >
       {label !== undefined && (
-        <legend className="sph-radio-group__legend">{label}</legend>
+        <legend className="sph-radio-group__legend">{label as any}</legend>
       )}
       {description !== undefined && (
         <p id={descriptionId} className="sph-radio-group__description">
-          {description}
+          {description as any}
         </p>
       )}
       <div className="sph-radio-group__options">
@@ -78,13 +78,13 @@ export function RadioGroup({
               />
               <span className="sph-radio-group__control" aria-hidden="true" />
               <span className="sph-radio-group__content">
-                <span className="sph-radio-group__label">{option.label}</span>
+                <span className="sph-radio-group__label">{option.label as any}</span>
                 {option.description !== undefined && (
                   <span
                     id={optionDescriptionId}
                     className="sph-radio-group__option-description"
                   >
-                    {option.description}
+                    {option.description as any}
                   </span>
                 )}
               </span>

@@ -1,5 +1,5 @@
 import { cn } from "cn";
-import { type ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 import {
   type ExternalToast,
   Toaster as SonnerToaster,
@@ -44,8 +44,8 @@ const toastIcons = {
 export type ToastProps = {
   open?: boolean;
   id?: string | number;
-  title: ReactNode;
-  description?: ReactNode;
+  title: unknown;
+  description?: unknown;
   variant?: "neutral" | "success" | "warning" | "danger";
   action?: ExternalToast["action"];
   duration?: number;
@@ -70,19 +70,19 @@ export function Toast({
       id,
       action,
       closeButton,
-      description,
+      description: description as any,
       duration,
       className: cn("sph-toast", className),
       unstyled: true,
     };
     const toastId =
       variant === "success"
-        ? toast.success(title, options)
+        ? toast.success(title as any, options)
         : variant === "warning"
-          ? toast.warning(title, options)
+          ? toast.warning(title as any, options)
           : variant === "danger"
-            ? toast.error(title, options)
-            : toast(title, options);
+            ? toast.error(title as any, options)
+            : toast(title as any, options);
 
     return () => {
       toast.dismiss(toastId);

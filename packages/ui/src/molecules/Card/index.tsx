@@ -1,15 +1,15 @@
 import { cn } from "cn";
-import type { HTMLAttributes, ReactNode } from "react";
+import type { HTMLAttributes } from "react";
 
 export type CardProps = Omit<
   HTMLAttributes<HTMLElement>,
   "children" | "title"
 > & {
-  title?: ReactNode;
-  description?: ReactNode;
-  header?: ReactNode;
-  footer?: ReactNode;
-  children?: ReactNode;
+  title?: unknown;
+  description?: unknown;
+  header?: unknown;
+  footer?: unknown;
+  children?: unknown;
   interactive?: boolean;
   selected?: boolean;
 };
@@ -37,18 +37,18 @@ export function Card({
     >
       {hasHeader && (
         <header className="sph-card__header">
-          {header}
-          {title !== undefined && <h3 className="sph-card__title">{title}</h3>}
+          {header as any}
+          {title !== undefined && <h3 className="sph-card__title">{title as any}</h3>}
           {description !== undefined && (
-            <p className="sph-card__description">{description}</p>
+            <p className="sph-card__description">{description as any}</p>
           )}
         </header>
       )}
       {children !== undefined && (
-        <div className="sph-card__content">{children}</div>
+        <div className="sph-card__content">{children as any}</div>
       )}
       {footer !== undefined && (
-        <footer className="sph-card__footer">{footer}</footer>
+        <footer className="sph-card__footer">{footer as any}</footer>
       )}
     </article>
   );
