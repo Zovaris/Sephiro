@@ -1,8 +1,10 @@
 const sections = [
-  { href: "#foundations", number: "01", label: "Foundations" },
-  { href: "#patterns", number: "02", label: "Patterns" },
-  { href: "#composition", number: "03", label: "Composition" },
-  { href: "#states", number: "04", label: "States" },
+  { href: "#atoms", number: "01", label: "Atoms" },
+  { href: "#forms", number: "02", label: "Forms" },
+  { href: "#overlays", number: "03", label: "Overlays" },
+  { href: "#feedback", number: "04", label: "Feedback & data" },
+  { href: "#composition", number: "05", label: "Composition" },
+  { href: "#states", number: "06", label: "States" },
 ];
 
 export function CatalogSidebar() {

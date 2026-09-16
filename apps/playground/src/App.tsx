@@ -1,8 +1,10 @@
 import { useState } from "preact/hooks";
+import { AtomsCatalog } from "./components/AtomsCatalog";
 import { CatalogSidebar } from "./components/CatalogSidebar";
-import { FoundationCatalog } from "./components/FoundationCatalog";
-import { PatternsCatalog } from "./components/PatternsCatalog";
 import { CompositionCatalog } from "./components/CompositionCatalog";
+import { FeedbackCatalog } from "./components/FeedbackCatalog";
+import { FormsCatalog } from "./components/FormsCatalog";
+import { OverlaysCatalog } from "./components/OverlaysCatalog";
 import { StateCatalog } from "./components/StateCatalog";
 import { ThemePreview, type ThemeName } from "./components/ThemePreview";
 import { Topbar } from "./components/Topbar";
@@ -35,15 +37,17 @@ export function App() {
           </section>
           <div className="catalog-meta" aria-label="Catalog metadata">
             <span>
-              <strong>11</strong> components
+              <strong>27</strong> components
             </span>
             <span className="catalog-meta__rule" aria-hidden="true" />
             <span>Interactive examples</span>
             <span className="catalog-meta__rule" aria-hidden="true" />
             <span>Four themes</span>
           </div>
-          <FoundationCatalog />
-          <PatternsCatalog />
+          <AtomsCatalog />
+          <FormsCatalog />
+          <OverlaysCatalog />
+          <FeedbackCatalog />
           <CompositionCatalog />
           <StateCatalog />
           <footer className="page-footer">
