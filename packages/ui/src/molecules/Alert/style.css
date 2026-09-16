@@ -23,27 +23,24 @@
     border-color: color-mix(in srgb, var(--sph-danger) 34%, var(--sph-border));
   }
   .sph-alert__icon {
-    @apply relative size-4 shrink-0 self-center rounded-full;
-    background: var(--sph-accent);
+    @apply flex size-8 shrink-0 items-center justify-center rounded-sph-md self-center;
+    background: var(--sph-accent-soft, var(--sph-raised));
+    color: var(--sph-accent);
   }
-  .sph-alert__icon::after {
-    content: "";
-    position: absolute;
-    left: 7px;
-    top: 4px;
-    width: 2px;
-    height: 8px;
-    border-radius: 2px;
-    background: var(--sph-surface);
+  .sph-alert__icon svg {
+    @apply block size-4;
   }
   .sph-alert[data-variant="success"] .sph-alert__icon {
-    background: var(--sph-success);
+    background: var(--sph-success-soft);
+    color: var(--sph-success);
   }
   .sph-alert[data-variant="warning"] .sph-alert__icon {
-    background: var(--sph-warning);
+    background: var(--sph-warning-soft);
+    color: var(--sph-warning);
   }
   .sph-alert[data-variant="danger"] .sph-alert__icon {
-    background: var(--sph-danger);
+    background: var(--sph-danger-soft);
+    color: var(--sph-danger);
   }
   .sph-alert__body {
     @apply min-w-0 flex-1;

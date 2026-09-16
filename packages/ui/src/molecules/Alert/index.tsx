@@ -1,3 +1,4 @@
+import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
 
@@ -10,6 +11,13 @@ export type AlertProps = Omit<
   children?: unknown;
   dismissible?: boolean;
   onDismiss?: () => void;
+};
+
+const alertIcons = {
+  info: <InfoIcon size={16} />,
+  success: <CheckIcon size={16} />,
+  warning: <WarningIcon size={16} />,
+  danger: <XIcon size={16} />,
 };
 
 export function Alert({
@@ -34,7 +42,9 @@ export function Alert({
         role ? undefined : variant === "danger" ? "assertive" : "polite"
       }
     >
-      <span className="sph-alert__icon" aria-hidden="true" />
+      <span className="sph-alert__icon" aria-hidden="true">
+        {alertIcons[variant]}
+      </span>
       <div className="sph-alert__body">
         {title !== undefined && (
           <p className="sph-alert__title">{title as any}</p>
