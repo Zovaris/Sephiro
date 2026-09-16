@@ -57,7 +57,7 @@
     line-height: 1.45;
   }
   .sph-alert__dismiss {
-    @apply relative mt-0.5 size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted;
+    @apply relative size-6 shrink-0 rounded-sph-sm border-0 bg-transparent p-0 text-sph-text-muted my-auto;
     cursor: pointer;
   }
   .sph-alert__dismiss:hover {
