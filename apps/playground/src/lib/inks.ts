@@ -18,11 +18,11 @@ export type Ink = {
 };
 
 const NOTES: Record<InkName, string> = {
-  dark: "Neutral dark stock, cobalt register.",
-  light: "Warm white stock, cobalt register.",
+  dark: "Charcoal stock, forest register.",
+  light: "Soft cream stock, forest register.",
   asterism: "Asterism charcoal, signature red.",
   fizza: "Fizza black, electric violet.",
-  soffy: "Provisional cream and terracotta.",
+  soffy: "Soffy neutral, adaptive forest green.",
 };
 
 const TOKENS = {

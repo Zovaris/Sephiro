@@ -13,7 +13,20 @@ import { Button, Field, Input, Select, Toggle } from "@zovaris/sephiro";
 import "@zovaris/sephiro/styles.css";
 ```
 
-The stylesheet only defines component classes and token variables — it does not reset your app's base styles.
+`styles.css` is the complete, backwards-compatible bundle. It contains the
+Sephiro theme tokens and every component rule, but no reset, global Tailwind
+layer, or universal selector.
+
+Tailwind 4 consumers can also keep the two concerns explicit:
+
+```tsx
+import "@zovaris/sephiro/themes.css";
+import "@zovaris/sephiro/components.css";
+```
+
+Import only `components.css` when the host defines the `--sph-*` token contract
+itself. The published CSS is already compiled; consumers do not need to add
+Sephiro to Tailwind's source scan.
 
 ## Themed usage
 
@@ -23,7 +36,7 @@ The stylesheet only defines component classes and token variables — it does no
 </main>
 ```
 
-Available presets: `dark`, `light`, `asterism`, `fizza`, and `soffy`. The legacy `default` value remains an alias for `dark`. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor.
+Available presets: `dark`, `light`, `asterism`, `fizza`, and `soffy`. The legacy `default` value remains an alias for `dark`. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor. Dark and light share Sephiro's restrained green/neutral palette. Soffy is light by default and follows `data-theme="dark"` from its own element or an ancestor.
 
 ## Sizing
 

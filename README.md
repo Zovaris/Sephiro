@@ -22,7 +22,7 @@
 
 Sephiro is a lightweight UI monorepo for desktop applications. The package provides composable primitives, semantic tokens, and scoped themes without installing a global reset. Importing the stylesheet does not touch your app's base styles, so it sits cleanly inside Tauri, Electron, or web shells.
 
-Component styles compile with Tailwind CSS v4 `@apply`, deliberately omitting Preflight. The playground is a working Preact catalog with interactive states and theme previews.
+Component styles compile from Tailwind CSS v4 `@apply` into host-safe plain CSS. The published artifact strips Tailwind's global layers, registered properties, and universal fallbacks; it never includes Preflight. The playground is a working Preact catalog with interactive states and theme previews.
 
 ---
 
@@ -32,7 +32,7 @@ Component styles compile with Tailwind CSS v4 `@apply`, deliberately omitting Pr
 Atoms, molecules, and organisms with typed props: buttons, fields, selects, menus, dialogs, toasts, tabs, toolbars, tables, and more. Every component owns its `index.tsx`, `style.css`, and colocated test.
 
 **No global reset**  
-The stylesheet only defines component classes and token variables. Your host app keeps its own base styles.
+The complete stylesheet only defines namespaced tokens and component classes. Separate `themes.css` and `components.css` exports let host apps own either side of the contract without inheriting Tailwind globals.
 
 **Semantic tokens and scoped themes**  
 Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `dark`, `light`, `asterism`, `fizza`, and `soffy` presets; custom presets are a CSS block away.
@@ -63,6 +63,10 @@ bun add @zovaris/sephiro
 import { Button, Field, Input, Select, Toggle } from "@zovaris/sephiro";
 import "@zovaris/sephiro/styles.css";
 ```
+
+Tailwind 4 consumers may instead import `@zovaris/sephiro/themes.css` followed by
+`@zovaris/sephiro/components.css`. Both files are already compiled and require
+no content-source registration.
 
 | | |
 |---|---|
@@ -97,11 +101,11 @@ Themed usage:
 
 | Preset | Use |
 |---|---|
-| `dark` | Sephiro's neutral dark preset and the fallback when no theme attribute is present. |
-| `light` | Warm neutral light surfaces for everyday product work. |
+| `dark` | Charcoal surfaces, warm light text, and a desaturated forest-green accent. |
+| `light` | Subtle cream-gray surfaces, charcoal text, and the same green accent family. |
 | `asterism` | Asterism's charcoal surfaces and signature red accent. |
 | `fizza` | Fizza's black surfaces and electric-violet accent. |
-| `soffy` | A provisional warm preset while Soffy's identity is in development. |
+| `soffy` | Adaptive neutral surfaces and a forest-green accent; follows the consumer's `data-theme`. |
 
 The legacy `default` value remains an alias for `dark`.
 
