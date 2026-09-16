@@ -15,7 +15,7 @@
     pointer-events: none;
   }
   .sph-checkbox__box {
-    @apply size-4 rounded border border-sph-border bg-sph-surface;
+    @apply box-border size-4 rounded border border-sph-border bg-sph-surface;
     position: relative;
     flex: 0 0 auto;
     transition:

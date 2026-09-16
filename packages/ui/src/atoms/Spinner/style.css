@@ -1,6 +1,6 @@
 @layer components {
   .sph-spinner {
-    @apply inline-block shrink-0 rounded-full border-2 border-sph-border border-t-sph-accent;
+    @apply box-border inline-block shrink-0 rounded-full border-2 border-sph-border border-t-sph-accent;
     animation: sph-spin 700ms linear infinite;
   }
   .sph-spinner--sm {

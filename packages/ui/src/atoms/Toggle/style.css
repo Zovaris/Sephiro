@@ -13,7 +13,7 @@
     --sph-toggle-travel: 20px;
   }
   .sph-toggle__track {
-    @apply relative block h-5 w-9 rounded-full bg-sph-border p-0.5;
+    @apply relative box-border block h-5 w-9 rounded-full bg-sph-border-strong p-0.5;
     transition: background-color var(--sph-motion-normal)
       var(--sph-ease-standard);
   }
@@ -28,7 +28,9 @@
   }
   .sph-toggle__thumb {
     @apply block size-4 rounded-full bg-white;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--sph-text) 16%, transparent),
+      0 1px 3px rgb(0 0 0 / 0.3);
     transition: transform var(--sph-motion-normal) var(--sph-ease-emphasis);
   }
   .sph-toggle[data-size="sm"] .sph-toggle__thumb {
@@ -47,8 +49,16 @@
     transform: translateX(var(--sph-toggle-travel)) scale(0.9);
   }
   .sph-toggle:disabled {
-    @apply opacity-50;
     cursor: not-allowed;
+  }
+  .sph-toggle:disabled .sph-toggle__track {
+    background: color-mix(in srgb, var(--sph-border) 65%, var(--sph-surface));
+  }
+  .sph-toggle:disabled[data-state="checked"] .sph-toggle__track {
+    background: color-mix(in srgb, var(--sph-accent) 38%, var(--sph-surface));
+  }
+  .sph-toggle:disabled .sph-toggle__thumb {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--sph-text) 14%, transparent);
   }
   .sph-toggle:focus-visible {
     outline: 2px solid var(--sph-focus);
