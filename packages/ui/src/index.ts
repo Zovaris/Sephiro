@@ -10,6 +10,10 @@ export { Surface, type SurfaceProps } from "./atoms/Surface";
 export { Textarea, type TextareaProps } from "./atoms/Textarea";
 export { Toggle, type ToggleProps } from "./atoms/Toggle";
 export type { ControlSize } from "./lib/control";
+export type {
+  Renderable,
+  RenderableElement,
+} from "./lib/node";
 export {
   Alert,
   type AlertProps,

@@ -1,11 +1,12 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
+import { type Renderable, node } from "@/lib/node";
 
 export type BadgeProps = Omit<HTMLAttributes<HTMLSpanElement>, "children"> & {
   variant?: "neutral" | "accent" | "success" | "warning" | "danger";
   size?: ControlSize;
-  children?: unknown;
+  children?: Renderable;
 };
 
 export function Badge({
@@ -22,7 +23,7 @@ export function Badge({
       data-variant={variant}
       data-size={size}
     >
-      {children as any}
+      {node(children)}
     </span>
   );
 }

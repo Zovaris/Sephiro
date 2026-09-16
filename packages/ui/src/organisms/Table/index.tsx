@@ -1,14 +1,15 @@
 import { cn } from "cn";
 import type { TableHTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type TableColumn<
   Row extends Record<string, unknown> = Record<string, unknown>,
 > = {
   key: string;
-  label: unknown;
+  label: Renderable;
   align?: "start" | "center" | "end";
   width?: string;
-  render?: (row: Row, index: number) => unknown;
+  render?: (row: Row, index: number) => Renderable;
 };
 
 export type TableProps<
@@ -19,8 +20,9 @@ export type TableProps<
 > & {
   columns: TableColumn<Row>[];
   rows: Row[];
-  caption?: unknown;
-  emptyMessage?: unknown;
+  caption?: Renderable;
+  emptyMessage?: Renderable;
+  rowKey?: keyof Row & string;
   density?: "compact" | "comfortable";
   striped?: boolean;
   stickyHeader?: boolean;
@@ -34,6 +36,7 @@ export function Table<
   rows,
   caption,
   emptyMessage = "No results",
+  rowKey,
   density = "comfortable",
   striped = false,
   stickyHeader = false,
@@ -49,7 +52,7 @@ export function Table<
         data-striped={striped || undefined}
         data-sticky-header={stickyHeader || undefined}
       >
-        {caption !== undefined && <caption>{caption as any}</caption>}
+        {caption !== undefined && <caption>{node(caption)}</caption>}
         <thead>
           <tr>
             {columns.map((column) => (
@@ -59,7 +62,7 @@ export function Table<
                 data-align={column.align ?? "start"}
                 style={{ width: column.width }}
               >
-                {column.label as any}
+                {node(column.label)}
               </th>
             ))}
           </tr>
@@ -68,19 +71,19 @@ export function Table<
           {rows.length === 0 ? (
             <tr>
               <td className="sph-table__empty" colSpan={columns.length}>
-                {emptyMessage as any}
+                {node(emptyMessage)}
               </td>
             </tr>
           ) : (
             rows.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr key={rowKey ? String(row[rowKey]) : rowIndex}>
                 {columns.map((column) => (
                   <td key={column.key} data-align={column.align ?? "start"}>
-                    {
-                      (column.render
+                    {node(
+                      column.render
                         ? column.render(row, rowIndex)
-                        : row[column.key]) as any
-                    }
+                        : row[column.key],
+                    )}
                   </td>
                 ))}
               </tr>

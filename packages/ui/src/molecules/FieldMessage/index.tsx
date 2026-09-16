@@ -1,12 +1,13 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type FieldMessageProps = Omit<
   HTMLAttributes<HTMLParagraphElement>,
   "children"
 > & {
   variant?: "hint" | "error" | "success";
-  children?: unknown;
+  children?: Renderable;
 };
 
 export function FieldMessage({
@@ -24,7 +25,7 @@ export function FieldMessage({
       data-variant={variant}
       role={variant === "error" ? "alert" : undefined}
     >
-      {children as any}
+      {node(children)}
     </p>
   );
 }

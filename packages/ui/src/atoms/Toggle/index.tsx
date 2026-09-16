@@ -20,14 +20,16 @@ export function Toggle({
   disabled,
   onClick,
   size = "md",
+  "aria-checked": ariaChecked,
+  "aria-label": ariaLabel = label,
   ...props
 }: ToggleProps) {
   return (
     <button
       type="button"
       role="switch"
-      aria-checked={checked}
-      aria-label={label}
+      aria-checked={ariaChecked ?? checked}
+      aria-label={ariaLabel ?? label}
       disabled={disabled}
       className={cn("sph-toggle", className)}
       data-state={checked ? "checked" : "unchecked"}

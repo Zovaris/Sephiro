@@ -1,8 +1,9 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type SurfaceProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
-  children?: unknown;
+  children?: Renderable;
   tone?: "base" | "elevated" | "raised";
   padding?: "none" | "sm" | "md" | "lg";
 };
@@ -21,7 +22,7 @@ export function Surface({
       data-tone={tone}
       data-padding={padding}
     >
-      {children as any}
+      {node(children)}
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type AlertProps = Omit<
   HTMLAttributes<HTMLDivElement>,
   "children" | "title"
 > & {
   variant?: "info" | "success" | "warning" | "danger";
-  title?: unknown;
-  children?: unknown;
+  title?: Renderable;
+  children?: Renderable;
   dismissible?: boolean;
   onDismiss?: () => void;
 };
@@ -47,10 +48,10 @@ export function Alert({
       </span>
       <div className="sph-alert__body">
         {title !== undefined && (
-          <p className="sph-alert__title">{title as any}</p>
+          <p className="sph-alert__title">{node(title)}</p>
         )}
         {children !== undefined && (
-          <div className="sph-alert__content">{children as any}</div>
+          <div className="sph-alert__content">{node(children)}</div>
         )}
       </div>
       {dismissible && (

@@ -1,13 +1,14 @@
 import { cn } from "cn";
 import { useEffect, useId, useRef } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type DialogProps = {
   open: boolean;
   onClose: () => void;
-  title: unknown;
-  description?: unknown;
-  children?: unknown;
-  footer?: unknown;
+  title: Renderable;
+  description?: Renderable;
+  children?: Renderable;
+  footer?: Renderable;
   closeLabel?: string;
   closeOnOverlayClick?: boolean;
   className?: string;
@@ -86,11 +87,11 @@ export function Dialog({
         <header className="sph-dialog__header">
           <div className="sph-dialog__heading">
             <h2 id={titleId} className="sph-dialog__title">
-              {title as any}
+              {node(title)}
             </h2>
             {description !== undefined && (
               <p id={descriptionId} className="sph-dialog__description">
-                {description as any}
+                {node(description)}
               </p>
             )}
           </div>
@@ -104,10 +105,10 @@ export function Dialog({
           </button>
         </header>
         {children !== undefined && (
-          <div className="sph-dialog__content">{children as any}</div>
+          <div className="sph-dialog__content">{node(children)}</div>
         )}
         {footer !== undefined && (
-          <footer className="sph-dialog__footer">{footer as any}</footer>
+          <footer className="sph-dialog__footer">{node(footer)}</footer>
         )}
       </section>
     </div>

@@ -11,6 +11,7 @@ export function Input({
   invalid = false,
   size = "md",
   className,
+  "aria-invalid": ariaInvalid,
   ...props
 }: InputProps) {
   return (
@@ -18,7 +19,7 @@ export function Input({
       {...props}
       className={cn("sph-input", className)}
       data-size={size}
-      aria-invalid={invalid ? true : props["aria-invalid"]}
+      aria-invalid={ariaInvalid ?? (invalid || undefined)}
     />
   );
 }

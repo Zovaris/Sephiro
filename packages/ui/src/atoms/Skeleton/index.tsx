@@ -11,6 +11,7 @@ export function Skeleton({
   height,
   className,
   style,
+  "aria-label": ariaLabel,
   ...props
 }: SkeletonProps) {
   return (
@@ -18,7 +19,7 @@ export function Skeleton({
       {...props}
       className={cn("sph-skeleton", className)}
       style={{ ...style, width, height }}
-      aria-hidden={props["aria-label"] ? undefined : true}
+      aria-hidden={ariaLabel ? undefined : true}
     />
   );
 }

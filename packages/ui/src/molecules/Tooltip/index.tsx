@@ -1,9 +1,10 @@
 import { cn } from "cn";
 import { useId, useRef, useState } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type TooltipProps = {
-  content: unknown;
-  children: unknown;
+  content: Renderable;
+  children: Renderable;
   side?: "top" | "right" | "bottom" | "left";
   delay?: number;
   disabled?: boolean;
@@ -42,7 +43,7 @@ export function Tooltip({
         className="sph-tooltip__trigger"
         aria-describedby={visible ? id : undefined}
       >
-        {children as any}
+        {node(children)}
       </span>
       <span
         id={id}
@@ -52,7 +53,7 @@ export function Tooltip({
         role="tooltip"
         hidden={!visible}
       >
-        {content as any}
+        {node(content)}
       </span>
     </span>
   );

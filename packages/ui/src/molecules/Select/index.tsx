@@ -1,10 +1,11 @@
 import { cn } from "cn";
 import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 import type { ControlSize } from "../../lib/control";
+import { type Renderable, node } from "@/lib/node";
 
 export type SelectOption = {
   value: string;
-  label: unknown;
+  label: Renderable;
   disabled?: boolean;
 };
 
@@ -14,7 +15,7 @@ export type SelectProps = {
   onValueChange: (value: string) => void;
   id?: string;
   className?: string;
-  placeholder?: unknown;
+  placeholder?: Renderable;
   ariaLabel?: string;
   ariaLabelledBy?: string;
   disabled?: boolean;
@@ -130,7 +131,7 @@ export function Select({
         onKeyDown={handleKeyDown}
       >
         <span className="sph-select__value">
-          {(selected?.label ?? placeholder) as any}
+          {node(selected?.label ?? placeholder)}
         </span>
         <span className="sph-select__caret" aria-hidden="true" />
       </button>
@@ -150,7 +151,7 @@ export function Select({
               onPointerMove={() => !option.disabled && setActiveIndex(index)}
               onClick={() => choose(index)}
             >
-              <span>{option.label as any}</span>
+              <span>{node(option.label)}</span>
               {index === selectedIndex && (
                 <span className="sph-select__check" aria-hidden="true" />
               )}

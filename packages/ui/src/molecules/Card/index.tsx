@@ -1,15 +1,16 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type CardProps = Omit<
   HTMLAttributes<HTMLElement>,
   "children" | "title"
 > & {
-  title?: unknown;
-  description?: unknown;
-  header?: unknown;
-  footer?: unknown;
-  children?: unknown;
+  title?: Renderable;
+  description?: Renderable;
+  header?: Renderable;
+  footer?: Renderable;
+  children?: Renderable;
   interactive?: boolean;
   selected?: boolean;
 };
@@ -37,20 +38,20 @@ export function Card({
     >
       {hasHeader && (
         <header className="sph-card__header">
-          {header as any}
+          {node(header)}
           {title !== undefined && (
-            <h3 className="sph-card__title">{title as any}</h3>
+            <h3 className="sph-card__title">{node(title)}</h3>
           )}
           {description !== undefined && (
-            <p className="sph-card__description">{description as any}</p>
+            <p className="sph-card__description">{node(description)}</p>
           )}
         </header>
       )}
       {children !== undefined && (
-        <div className="sph-card__content">{children as any}</div>
+        <div className="sph-card__content">{node(children)}</div>
       )}
       {footer !== undefined && (
-        <footer className="sph-card__footer">{footer as any}</footer>
+        <footer className="sph-card__footer">{node(footer)}</footer>
       )}
     </article>
   );

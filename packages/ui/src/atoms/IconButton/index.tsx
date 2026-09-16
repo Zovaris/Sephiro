@@ -1,13 +1,14 @@
 import { cn } from "cn";
 import type { ButtonHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
+import { type Renderable, node } from "@/lib/node";
 import { Spinner } from "../Spinner";
 
 export type IconButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   "children"
 > & {
-  icon: unknown;
+  icon: Renderable;
   label: string;
   size?: ControlSize;
   variant?: "ghost" | "solid" | "outline";
@@ -37,7 +38,7 @@ export function IconButton({
       aria-busy={loading ? true : props["aria-busy"]}
       disabled={disabled || loading}
     >
-      {loading ? <Spinner size={size === "lg" ? "md" : "sm"} /> : (icon as any)}
+      {loading ? <Spinner size={size === "lg" ? "md" : "sm"} /> : node(icon)}
     </button>
   );
 }

@@ -1,6 +1,7 @@
 import { CheckIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useEffect } from "react";
+import { type Renderable, node } from "@/lib/node";
 import {
   type ExternalToast,
   Toaster as SonnerToaster,
@@ -37,8 +38,8 @@ const toastIcons = {
 export type ToastProps = {
   open?: boolean;
   id?: string | number;
-  title: unknown;
-  description?: unknown;
+  title: Renderable;
+  description?: Renderable;
   variant?: "neutral" | "success" | "warning" | "danger";
   action?: ExternalToast["action"];
   duration?: number;
@@ -63,24 +64,24 @@ export function Toast({
       id,
       action,
       closeButton,
-      description: description as any,
+      description: node(description),
       duration,
       className: cn("sph-toast", className),
       unstyled: true,
     };
     const toastId =
       variant === "success"
-        ? toast.success(title as any, options)
+        ? toast.success(node(title), options)
         : variant === "warning"
-          ? toast.warning(title as any, options)
+          ? toast.warning(node(title), options)
           : variant === "danger"
-            ? toast.error(title as any, options)
-            : toast(title as any, options);
+            ? toast.error(node(title), options)
+            : toast(node(title), options);
 
     return () => {
       toast.dismiss(toastId);
     };
-  }, [open]);
+  }, [open, id, action, closeButton, duration, title, description, variant]);
 
   return null;
 }

@@ -1,18 +1,19 @@
 import { cn } from "cn";
 import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type MenuItem = {
   value?: string;
-  label?: unknown;
-  icon?: unknown;
-  shortcut?: unknown;
+  label?: Renderable;
+  icon?: Renderable;
+  shortcut?: Renderable;
   disabled?: boolean;
   danger?: boolean;
   separator?: boolean;
 };
 
 export type MenuProps = {
-  trigger: unknown;
+  trigger: Renderable;
   items: MenuItem[];
   onSelect?: (value: string) => void;
   label?: string;
@@ -117,7 +118,7 @@ export function Menu({
         onClick={() => setOpen((current) => !current)}
         onKeyDown={handleKeyDown}
       >
-        {trigger as any}
+        {node(trigger)}
       </button>
       {open && (
         <div className="sph-menu__content" data-align={align} role="menu">
@@ -131,7 +132,7 @@ export function Menu({
             ) : (
               <button
                 key={item.value ?? `item-${index}`}
-                id={`${rootRef.current?.id}-${index}`}
+                id={`${menuId}-${index}`}
                 type="button"
                 role="menuitem"
                 className="sph-menu__item"
@@ -141,12 +142,12 @@ export function Menu({
                 onKeyDown={(event) => handleItemKeyDown(event, index)}
               >
                 <span className="sph-menu__item-label">
-                  {item.icon as any}
-                  <span>{item.label as any}</span>
+                  {node(item.icon)}
+                  <span>{node(item.label)}</span>
                 </span>
                 {item.shortcut !== undefined && (
                   <span className="sph-menu__shortcut">
-                    {item.shortcut as any}
+                    {node(item.shortcut)}
                   </span>
                 )}
               </button>

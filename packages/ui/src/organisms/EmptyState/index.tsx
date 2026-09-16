@@ -1,15 +1,16 @@
 import { TrayIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
+import { type Renderable, node } from "@/lib/node";
 
 export type EmptyStateProps = Omit<
   HTMLAttributes<HTMLElement>,
   "children" | "title"
 > & {
-  title: unknown;
-  description?: unknown;
-  icon?: unknown;
-  action?: unknown;
+  title: Renderable;
+  description?: Renderable;
+  icon?: Renderable;
+  action?: Renderable;
   compact?: boolean;
 };
 
@@ -31,14 +32,14 @@ export function EmptyState({
       data-compact={compact || undefined}
     >
       <div className="sph-empty-state__icon" aria-hidden="true">
-        {icon as any}
+        {node(icon)}
       </div>
-      <h2 className="sph-empty-state__title">{title as any}</h2>
+      <h2 className="sph-empty-state__title">{node(title)}</h2>
       {description !== undefined && (
-        <p className="sph-empty-state__description">{description as any}</p>
+        <p className="sph-empty-state__description">{node(description)}</p>
       )}
       {action !== undefined && (
-        <div className="sph-empty-state__action">{action as any}</div>
+        <div className="sph-empty-state__action">{node(action)}</div>
       )}
     </section>
   );

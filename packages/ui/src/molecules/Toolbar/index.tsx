@@ -1,14 +1,15 @@
 import { cn } from "cn";
 import type { HTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
+import { type Renderable, node } from "@/lib/node";
 
 export type ToolbarProps = Omit<HTMLAttributes<HTMLDivElement>, "children"> & {
   label?: string;
   orientation?: "horizontal" | "vertical";
   size?: ControlSize;
-  start?: unknown;
-  end?: unknown;
-  children?: unknown;
+  start?: Renderable;
+  end?: Renderable;
+  children?: Renderable;
 };
 
 export function Toolbar({
@@ -32,13 +33,13 @@ export function Toolbar({
       aria-orientation={orientation}
     >
       {start !== undefined && (
-        <div className="sph-toolbar__start">{start as any}</div>
+        <div className="sph-toolbar__start">{node(start)}</div>
       )}
       {children !== undefined && (
-        <div className="sph-toolbar__content">{children as any}</div>
+        <div className="sph-toolbar__content">{node(children)}</div>
       )}
       {end !== undefined && (
-        <div className="sph-toolbar__end">{end as any}</div>
+        <div className="sph-toolbar__end">{node(end)}</div>
       )}
     </div>
   );

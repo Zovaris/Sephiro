@@ -11,6 +11,7 @@ export function Textarea({
   invalid = false,
   size = "md",
   className,
+  "aria-invalid": ariaInvalid,
   ...props
 }: TextareaProps) {
   return (
@@ -18,7 +19,7 @@ export function Textarea({
       {...props}
       className={cn("sph-textarea", className)}
       data-size={size}
-      aria-invalid={invalid ? true : props["aria-invalid"]}
+      aria-invalid={ariaInvalid ?? (invalid || undefined)}
     />
   );
 }

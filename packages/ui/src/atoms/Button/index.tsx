@@ -1,6 +1,7 @@
 import { cn } from "cn";
 import type { ButtonHTMLAttributes } from "react";
 import type { ControlSize } from "../../lib/control";
+import { type Renderable, node } from "@/lib/node";
 import { Spinner } from "../Spinner";
 
 export type ButtonProps = Omit<
@@ -10,7 +11,7 @@ export type ButtonProps = Omit<
   variant?: "primary" | "secondary" | "quiet";
   size?: ControlSize;
   loading?: boolean;
-  children?: unknown;
+  children?: Renderable;
 };
 
 export function Button({
@@ -21,6 +22,7 @@ export function Button({
   className,
   type = "button",
   children,
+  "aria-busy": ariaBusy,
   ...props
 }: ButtonProps) {
   return (
@@ -31,11 +33,11 @@ export function Button({
       data-size={size}
       data-loading={loading || undefined}
       disabled={disabled || loading}
-      aria-busy={loading ? true : props["aria-busy"]}
       {...props}
+      aria-busy={ariaBusy ?? (loading || undefined)}
     >
       {loading && <Spinner size="sm" />}
-      <span className="sph-button__label">{children as any}</span>
+      <span className="sph-button__label">{node(children)}</span>
     </button>
   );
 }
