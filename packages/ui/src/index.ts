@@ -38,6 +38,7 @@ export {
   type ToastProps,
   ToastViewport,
   type ToastViewportProps,
+  toast,
 } from "./molecules/Toast";
 export { Toolbar, type ToolbarProps } from "./molecules/Toolbar";
 export { Tooltip, type TooltipProps } from "./molecules/Tooltip";
