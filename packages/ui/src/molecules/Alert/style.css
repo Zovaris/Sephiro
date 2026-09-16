@@ -23,14 +23,14 @@
     border-color: color-mix(in srgb, var(--sph-danger) 34%, var(--sph-border));
   }
   .sph-alert__icon {
-    @apply relative mt-0.5 size-4 shrink-0 rounded-full;
+    @apply relative size-4 shrink-0 self-center rounded-full;
     background: var(--sph-accent);
   }
   .sph-alert__icon::after {
     content: "";
     position: absolute;
     left: 7px;
-    top: 3px;
+    top: 4px;
     width: 2px;
     height: 8px;
     border-radius: 2px;
