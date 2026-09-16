@@ -7,6 +7,7 @@ import { FormsCatalog } from "./components/FormsCatalog";
 import { OverlaysCatalog } from "./components/OverlaysCatalog";
 import { StateCatalog } from "./components/StateCatalog";
 import { type ThemeName, ThemePreview } from "./components/ThemePreview";
+import { ThemeStudio } from "./components/ThemeStudio";
 import { Topbar } from "./components/Topbar";
 
 export function App() {
@@ -55,6 +56,7 @@ export function App() {
           <FeedbackCatalog />
           <CompositionCatalog />
           <StateCatalog />
+          <ThemeStudio />
           <footer className="page-footer">
             <span>React + Preact compatible</span>
             <span>Tailwind v4 / no Preflight</span>

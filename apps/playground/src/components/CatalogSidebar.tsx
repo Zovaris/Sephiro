@@ -7,6 +7,7 @@ const sections = [
   { href: "#feedback", number: "04", label: "Feedback & data" },
   { href: "#composition", number: "05", label: "Composition" },
   { href: "#states", number: "06", label: "States" },
+  { href: "#theme-studio", number: "07", label: "Theme studio" },
 ];
 
 export function CatalogSidebar() {
@@ -41,7 +42,9 @@ export function CatalogSidebar() {
           <a
             href={section.href}
             key={section.href}
-            className={active === section.href.slice(1) ? "is-active" : undefined}
+            className={
+              active === section.href.slice(1) ? "is-active" : undefined
+            }
             aria-current={active === section.href.slice(1) ? "true" : undefined}
           >
             <span>{section.number}</span> {section.label}
