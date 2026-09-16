@@ -231,7 +231,11 @@ button {
 
   .display em {
     font-style: normal;
-    color: var(--sph-accent);
+    color: var(--sph-bg);
+    background: var(--sph-accent);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0 0.08em 0.04em;
   }
 
   .lede {

@@ -36,13 +36,12 @@ export function SiteHead({ revision }: { revision: string }) {
       </div>
 
       <h1 className="display">
-        The details are the <em>system</em>.
+        A UI toolkit for <em>product work.</em>
       </h1>
 
       <p className="lede">
-        A compact UI kit for the parts people notice late: spacing, states,
-        focus, motion and the edges between components. One token contract, four
-        ready-made inks, React and Preact.
+        Accessible React and Preact components with consistent spacing, states,
+        focus, motion and theming. Everything is built from one token contract.
       </p>
 
       <div className="install">
