@@ -6,8 +6,8 @@ import {
   Slider,
   toast,
 } from "@sthlabs/sephiro-ui";
-import { useState } from "preact/hooks";
 import type { JSX } from "preact";
+import { useState } from "preact/hooks";
 import { CatalogSection } from "./CatalogSection";
 
 type StudioTokens = {
@@ -99,6 +99,7 @@ function presetCss(name: string, tokens: StudioTokens) {
   --sph-accent: ${tokens.accent};
   --sph-accent-soft: color-mix(in srgb, ${tokens.accent} 16%, transparent);
   --sph-focus: color-mix(in srgb, ${tokens.accent} 42%, transparent);
+  --sph-radius-xs: ${Math.max(2, tokens.radius - 2)}px;
   --sph-radius-sm: ${tokens.radius}px;
   --sph-radius-md: ${tokens.radius + 4}px;
   color-scheme: ${scheme};
@@ -159,8 +160,7 @@ export function ThemeStudio() {
     setTokens((current) => ({ ...current, ...patch }));
 
   const basePreset =
-    Object.keys(presetTokens).find((key) => presetTokens[key] === tokens) ??
-    "";
+    Object.keys(presetTokens).find((key) => presetTokens[key] === tokens) ?? "";
 
   const css = presetCss(themeName, tokens);
 
@@ -173,6 +173,7 @@ export function ThemeStudio() {
     "--sph-border": tokens.border,
     "--sph-text": tokens.text,
     "--sph-text-muted": tokens.textMuted,
+    "--sph-radius-xs": `${Math.max(2, tokens.radius - 2)}px`,
     "--sph-radius-sm": `${tokens.radius}px`,
     "--sph-radius-md": `${tokens.radius + 4}px`,
     colorScheme: isLightBackground(tokens.bg) ? "light" : "dark",

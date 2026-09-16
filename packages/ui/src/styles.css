@@ -55,6 +55,7 @@
   --sph-danger-soft: color-mix(in srgb, var(--sph-danger) 15%, transparent);
   --sph-focus: color-mix(in srgb, var(--sph-accent) 42%, transparent);
   --sph-focus-ring: color-mix(in srgb, var(--sph-accent) 16%, transparent);
+  --sph-radius-xs: 4px;
   --sph-radius-sm: 6px;
   --sph-radius-md: 10px;
   --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.38);

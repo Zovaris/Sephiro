@@ -52,7 +52,7 @@
     top: calc(100% + 4px);
   }
   .sph-select__option {
-    @apply flex w-full items-center justify-between gap-3 rounded border-0 bg-transparent px-2.5 py-2 text-sph-text-muted;
+    @apply flex w-full items-center justify-between gap-3 rounded-sph-xs border-0 bg-transparent px-2.5 py-2 text-sph-text-muted;
     cursor: pointer;
     font: 13px var(--sph-font-sans);
     text-align: left;

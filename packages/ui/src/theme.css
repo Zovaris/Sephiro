@@ -11,6 +11,7 @@
   --color-sph-accent-hover: var(--sph-accent-hover);
   --color-sph-accent-pressed: var(--sph-accent-pressed);
   --color-sph-accent-soft: var(--sph-accent-soft);
+  --radius-sph-xs: var(--sph-radius-xs);
   --radius-sph-sm: var(--sph-radius-sm);
   --radius-sph-md: var(--sph-radius-md);
   --shadow-sph-popover: var(--sph-shadow-popover);
