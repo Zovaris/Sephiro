@@ -6,7 +6,9 @@
     @apply inline-flex min-w-0;
   }
   .sph-tooltip__content {
-    @apply pointer-events-none absolute z-[140] max-w-56 rounded-sph-sm border border-sph-border bg-sph-raised px-2.5 py-1.5 text-xs text-sph-text shadow-sph-popover;
+    @apply pointer-events-none absolute z-[140] rounded-sph-sm border border-sph-border bg-sph-raised px-2.5 py-1.5 text-xs text-sph-text shadow-sph-popover;
+    width: max-content;
+    max-width: min(14rem, calc(100vw - 2rem));
     white-space: normal;
     animation: sph-tooltip-in var(--sph-motion-fast) var(--sph-ease-emphasis)
       both;
