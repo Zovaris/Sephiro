@@ -1,6 +1,18 @@
 @layer components {
   .sph-toolbar {
-    @apply flex min-w-0 items-center gap-2 rounded-sph-md border border-sph-border bg-sph-surface p-1.5 font-sph-sans;
+    @apply flex min-w-0 items-center gap-2 rounded-sph-md border border-sph-border bg-sph-surface font-sph-sans;
+  }
+  .sph-toolbar[data-size="sm"] {
+    @apply gap-1.5 px-2 py-1;
+    min-height: 2.5rem;
+  }
+  .sph-toolbar[data-size="md"] {
+    @apply gap-2 px-2.5 py-1.5;
+    min-height: 2.75rem;
+  }
+  .sph-toolbar[data-size="lg"] {
+    @apply gap-2 px-3 py-2;
+    min-height: 3rem;
   }
   .sph-toolbar[data-orientation="vertical"] {
     @apply flex-col items-stretch;
@@ -25,6 +37,24 @@
   .sph-toolbar:focus-visible {
     outline: 2px solid var(--sph-focus);
     outline-offset: 2px;
+  }
+  .sph-toolbar .sph-tabs__list {
+    border-bottom-width: 0;
+    gap: 2px;
+  }
+  .sph-toolbar .sph-tabs__tab {
+    min-height: 2rem;
+  }
+  .sph-toolbar[data-size="md"] .sph-tabs__tab {
+    min-height: 2.25rem;
+  }
+  .sph-toolbar[data-size="lg"] .sph-tabs__tab {
+    min-height: 2.5rem;
+  }
+  .sph-toolbar .sph-tabs__tab[data-selected="true"]::after {
+    bottom: 1px;
+    left: 12px;
+    right: 12px;
   }
   @media (max-width: 560px) {
     .sph-toolbar {
