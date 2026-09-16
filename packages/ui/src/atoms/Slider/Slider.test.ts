@@ -23,7 +23,9 @@ test("renders a labelled range with its progress and readout", () => {
   expect(inputId).not.toBe("");
   expect(markup).toContain(`<label class="sph-slider__label" for="${inputId}">`);
   expect(markup).toContain("Radius");
-  expect(markup).toContain(`<output class="sph-slider__value" for="${inputId}">`);
+  expect(markup).toContain(`for="${inputId}"`);
+  expect(markup).toContain('class="sph-slider__value"');
+  expect(markup).toContain('aria-hidden="true"');
   expect(markup).toContain('type="range"');
   expect(markup).toContain('min="0"');
   expect(markup).toContain('max="16"');

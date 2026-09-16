@@ -67,7 +67,11 @@ export function Slider({
           {node(label)}
         </label>
         {valueLabel !== undefined && (
-          <output className="sph-slider__value" htmlFor={inputId}>
+          <output
+            className="sph-slider__value"
+            htmlFor={inputId}
+            aria-hidden="true"
+          >
             {node(valueLabel)}
           </output>
         )}
