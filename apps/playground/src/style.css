@@ -207,6 +207,15 @@
   .specimen-grid .specimen__demo {
     @apply mt-[21px];
   }
+  .specimen--wide {
+    @apply block;
+  }
+  .specimen--wide .specimen__info p {
+    @apply max-w-[60ch];
+  }
+  .specimen--wide .specimen__demo {
+    @apply mt-[21px];
+  }
 
   .button-row,
   .badge-row {
