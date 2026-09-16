@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { AtomsCatalog } from "./components/AtomsCatalog";
 import { CatalogSidebar } from "./components/CatalogSidebar";
 import { CompositionCatalog } from "./components/CompositionCatalog";
@@ -11,6 +11,11 @@ import { Topbar } from "./components/Topbar";
 
 export function App() {
   const [theme, setTheme] = useState<ThemeName>("default");
+
+  useEffect(() => {
+    document.documentElement.dataset.sephiroTheme = theme;
+  }, [theme]);
+
   return (
     <main className="playground" data-sephiro-theme={theme} id="top">
       <Topbar />

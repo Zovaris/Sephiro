@@ -105,6 +105,12 @@
   .catalog-nav a:hover {
     @apply translate-x-[3px] text-sph-text;
   }
+  .catalog-nav a.is-active {
+    @apply translate-x-[3px] text-sph-text;
+  }
+  .catalog-nav a.is-active span {
+    @apply font-semibold;
+  }
   .sidebar__footer {
     @apply mt-auto border-t border-sph-border pt-4 pr-[22px];
   }
@@ -310,18 +316,18 @@
 
 :root {
   font-family: var(--sph-font-sans);
-  color: #eeeeee;
-  background: #111111;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--sph-bg);
 }
 
 body {
   @apply m-0 min-w-[320px];
+  color: var(--sph-text);
 }
 
 button,

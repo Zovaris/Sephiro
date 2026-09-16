@@ -1,4 +1,5 @@
 import { Badge } from "@sthlabs/sephiro-ui";
+import pkg from "@sthlabs/sephiro-ui/package.json";
 import { SephiroLogo } from "./Brand";
 
 export function Topbar() {
@@ -10,7 +11,7 @@ export function Topbar() {
         </a>
         <div className="topbar__context">
           <span>UI library</span>
-          <Badge variant="neutral">v0.2</Badge>
+          <Badge variant="neutral">v{pkg.version}</Badge>
         </div>
       </div>
     </header>
