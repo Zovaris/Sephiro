@@ -88,7 +88,8 @@ export function Slider({
         disabled={disabled}
         aria-label={ariaLabel}
         aria-valuetext={
-          ariaValueText ?? (typeof valueLabel === "string" ? valueLabel : undefined)
+          ariaValueText ??
+          (typeof valueLabel === "string" ? valueLabel : undefined)
         }
         aria-invalid={ariaInvalid ?? (invalid || undefined)}
         style={trackStyle}

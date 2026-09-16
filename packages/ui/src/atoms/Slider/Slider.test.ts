@@ -21,7 +21,9 @@ test("renders a labelled range with its progress and readout", () => {
   expect(markup).toContain('class="sph-slider w-40"');
   expect(markup).toContain('data-size="md"');
   expect(inputId).not.toBe("");
-  expect(markup).toContain(`<label class="sph-slider__label" for="${inputId}">`);
+  expect(markup).toContain(
+    `<label class="sph-slider__label" for="${inputId}">`,
+  );
   expect(markup).toContain("Radius");
   expect(markup).toContain(`for="${inputId}"`);
   expect(markup).toContain('class="sph-slider__value"');
