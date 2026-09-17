@@ -28,15 +28,9 @@
     @apply overflow-hidden text-ellipsis whitespace-nowrap;
   }
   .sph-select__caret {
-    width: 7px;
-    height: 7px;
-    border-right: 1.5px solid currentColor;
-    border-bottom: 1.5px solid currentColor;
-    transform: translateY(-2px) rotate(45deg);
-    transition: transform var(--sph-motion-fast) var(--sph-ease-standard);
-  }
-  .sph-select__trigger[aria-expanded="true"] .sph-select__caret {
-    transform: translateY(2px) rotate(225deg);
+    flex: 0 0 auto;
+    font-size: 18px;
+    transition: color var(--sph-motion-fast) var(--sph-ease-standard);
   }
   .sph-select__trigger:disabled {
     @apply opacity-50;
@@ -68,11 +62,9 @@
     cursor: not-allowed;
   }
   .sph-select__check {
-    width: 10px;
-    height: 6px;
-    border-left: 2px solid var(--sph-accent);
-    border-bottom: 2px solid var(--sph-accent);
-    transform: rotate(-45deg);
+    flex: 0 0 auto;
+    color: var(--sph-accent);
+    font-size: 18px;
   }
 
   @media (prefers-reduced-motion: reduce) {

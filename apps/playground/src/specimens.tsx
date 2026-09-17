@@ -305,6 +305,7 @@ function SelectDemo() {
     <div className="stack">
       <Select
         aria-label="Table density"
+        className="min-w-64"
         value={density}
         onValueChange={setDensity}
         options={[

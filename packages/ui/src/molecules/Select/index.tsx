@@ -1,3 +1,4 @@
+import { CaretDownIcon, CaretUpIcon, CheckIcon } from "@phosphor-icons/react";
 import { cn } from "cn";
 import { useEffect, useId, useRef, useState } from "react";
 import type { KeyboardActionEvent } from "@/lib/events.js";
@@ -134,7 +135,11 @@ export function Select({
         <span className="sph-select__value">
           {node(selected?.label ?? placeholder)}
         </span>
-        <span className="sph-select__caret" aria-hidden="true" />
+        {open ? (
+          <CaretUpIcon className="sph-select__caret" aria-hidden="true" />
+        ) : (
+          <CaretDownIcon className="sph-select__caret" aria-hidden="true" />
+        )}
       </button>
 
       {open && (
@@ -154,7 +159,7 @@ export function Select({
             >
               <span>{node(option.label)}</span>
               {index === selectedIndex && (
-                <span className="sph-select__check" aria-hidden="true" />
+                <CheckIcon className="sph-select__check" aria-hidden="true" />
               )}
             </button>
           ))}
