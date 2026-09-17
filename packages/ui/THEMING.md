@@ -26,15 +26,15 @@ Available presets:
 | `light` | Subtle cream-gray surfaces, charcoal text, and the same green accent family. |
 | `asterism` | Asterism's charcoal surfaces and signature red accent. |
 | `fizza` | Fizza's black surfaces and electric-violet accent. |
-| `soffy` | Adaptive neutral surfaces and a forest-green accent. Light by default; follows `data-theme="dark"`. |
+| `pulso` | Adaptive neutral surfaces and a forest-green accent. Light by default; follows `data-theme="dark"`. |
 
 Dark remains the token fallback when no theme attribute is present. The legacy `default` name is retained as an alias for `dark`. Set `data-sephiro-theme="dark"` or `data-sephiro-theme="light"` explicitly when native form controls should inherit the corresponding `color-scheme`. Project names are kept intentionally: they prove the system can carry real product identities.
 
-Soffy keeps its product preset while following the host's light/dark state. The
+Pulso keeps its product preset while following the host's light/dark state. The
 attributes may live on the same shell or `data-theme` may be on an ancestor:
 
 ```tsx
-<main data-sephiro-theme="soffy" data-theme={theme}>
+<main data-sephiro-theme="pulso" data-theme={theme}>
   <Button variant="primary">Continue</Button>
 </main>
 ```

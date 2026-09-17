@@ -75,13 +75,13 @@ test("dark and light presets meet their contrast contracts", () => {
   expect(light).toContain("color-scheme: light");
 });
 
-test("Soffy follows the consumer light and dark mode", () => {
+test("Pulso follows the consumer light and dark mode", () => {
   const light = themeSlice(
-    '[data-sephiro-theme="soffy"]',
-    '[data-theme="dark"][data-sephiro-theme="soffy"]',
+    '[data-sephiro-theme="pulso"]',
+    '[data-theme="dark"][data-sephiro-theme="pulso"]',
   );
   const dark = themeSlice(
-    '[data-theme="dark"][data-sephiro-theme="soffy"]',
+    '[data-theme="dark"][data-sephiro-theme="pulso"]',
     "@media (prefers-reduced-motion: reduce)",
   );
 
@@ -89,5 +89,5 @@ test("Soffy follows the consumer light and dark mode", () => {
   expectAccessiblePalette(dark);
   expect(light).toContain("color-scheme: light");
   expect(dark).toContain("color-scheme: dark");
-  expect(css).toContain('[data-theme="dark"] [data-sephiro-theme="soffy"]');
+  expect(css).toContain('[data-theme="dark"] [data-sephiro-theme="pulso"]');
 });

@@ -35,7 +35,7 @@ Atoms, molecules, and organisms with typed props: buttons, fields, selects, menu
 The complete stylesheet only defines namespaced tokens and component classes. Separate `themes.css` and `components.css` exports let host apps own either side of the contract without inheriting Tailwind globals.
 
 **Semantic tokens and scoped themes**  
-Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `dark`, `light`, `asterism`, `fizza`, and `soffy` presets; custom presets are a CSS block away.
+Components consume `var(--sph-*)` tokens, never hard-coded colors. Themes apply through `data-sephiro-theme` on any ancestor, so multiple themes can coexist on one page. Ships with `dark`, `light`, `asterism`, `fizza`, and `pulso` presets; custom presets are a CSS block away.
 
 **One control size contract**  
 `sm` (32px), `md` (36px, default), `lg` (40px) across controls. One scale to learn.
@@ -105,7 +105,7 @@ Themed usage:
 | `light` | Subtle cream-gray surfaces, charcoal text, and the same green accent family. |
 | `asterism` | Asterism's charcoal surfaces and signature red accent. |
 | `fizza` | Fizza's black surfaces and electric-violet accent. |
-| `soffy` | Adaptive neutral surfaces and a forest-green accent; follows the consumer's `data-theme`. |
+| `pulso` | Adaptive neutral surfaces and a forest-green accent; follows the consumer's `data-theme`. |
 
 The legacy `default` value remains an alias for `dark`.
 

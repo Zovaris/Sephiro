@@ -3,7 +3,7 @@ export const INK_NAMES = [
   "light",
   "asterism",
   "fizza",
-  "soffy",
+  "pulso",
 ] as const;
 
 export type InkName = (typeof INK_NAMES)[number];
@@ -22,7 +22,7 @@ const NOTES: Record<InkName, string> = {
   light: "Soft cream stock, forest register.",
   asterism: "Asterism charcoal, signature red.",
   fizza: "Fizza black, electric violet.",
-  soffy: "Soffy neutral, adaptive forest green.",
+  pulso: "Pulso neutral, adaptive forest green.",
 };
 
 const TOKENS = {
