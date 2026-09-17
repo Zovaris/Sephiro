@@ -36,32 +36,57 @@
   --sph-control-height-lg: 40px;
 }
 
+[data-sephiro-theme="default"],
+[data-sephiro-theme="dark"] {
+  --sph-bg: #211719;
+  --sph-surface: #2a1d20;
+  --sph-surface-elevated: #342428;
+  --sph-raised: #3a292e;
+  --sph-border: #513b42;
+  --sph-border-strong: #9d6475;
+  --sph-text: #f6edf0;
+  --sph-text-muted: #cbb9be;
+  --sph-accent: #b85c79;
+  --sph-accent-hover: #c96c89;
+  --sph-accent-pressed: #9f4c67;
+  --sph-accent-soft: color-mix(in srgb, var(--sph-accent) 18%, transparent);
+  --sph-accent-strong: #e39aae;
+  --sph-on-accent: #ffffff;
+  --sph-success: #78b894;
+  --sph-warning: #e0b468;
+  --sph-danger: #e47b78;
+  --sph-focus: #e39aae;
+  --sph-focus-ring: color-mix(in srgb, var(--sph-accent) 24%, transparent);
+  --sph-shadow-popover: 0 14px 36px rgb(0 0 0 / 0.38);
+  color-scheme: dark;
+}
+
 :where([data-sephiro-theme="default"], [data-sephiro-theme="dark"]) {
   color-scheme: dark;
 }
 
 [data-sephiro-theme="light"] {
-  --sph-bg: #f5f3ee;
-  --sph-surface: #fbfaf7;
+  --sph-bg: #f8f1f2;
+  --sph-surface: #fffafb;
   --sph-surface-elevated: #ffffff;
-  --sph-raised: #eaede6;
-  --sph-border: #d2d6ce;
-  --sph-border-strong: #8a9388;
-  --sph-text: #22241f;
-  --sph-text-muted: #5e645c;
-  --sph-accent: #3f6f4b;
-  --sph-accent-hover: #345f40;
-  --sph-accent-pressed: #294d34;
-  --sph-accent-strong: #315c3b;
+  --sph-raised: #f2e4e8;
+  --sph-border: #dfcbd1;
+  --sph-border-strong: #b98797;
+  --sph-text: #2b2023;
+  --sph-text-muted: #6d5b61;
+  --sph-accent: #a84f6d;
+  --sph-accent-hover: #923f5b;
+  --sph-accent-pressed: #7c334c;
+  --sph-accent-strong: #8f3f5b;
   --sph-accent-soft: color-mix(in srgb, var(--sph-accent) 13%, transparent);
   --sph-on-accent: #ffffff;
-  --sph-success: #2f7448;
+  --sph-success: #39734d;
   --sph-success-soft: color-mix(in srgb, var(--sph-success) 12%, transparent);
   --sph-warning: #805b17;
   --sph-warning-soft: color-mix(in srgb, var(--sph-warning) 12%, transparent);
   --sph-danger: #a43d3d;
   --sph-danger-soft: color-mix(in srgb, var(--sph-danger) 12%, transparent);
-  --sph-focus: #3f6f4b;
+  --sph-focus: #a84f6d;
   --sph-focus-ring: color-mix(in srgb, var(--sph-accent) 18%, transparent);
   --sph-shadow-popover: 0 14px 36px rgb(32 42 31 / 0.14);
   color-scheme: light;

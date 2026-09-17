@@ -36,7 +36,7 @@ Sephiro to Tailwind's source scan.
 </main>
 ```
 
-Available presets: `dark`, `light`, `asterism`, `fizza`, and `pulso`. The legacy `default` value remains an alias for `dark`. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor. Dark and light share Sephiro's restrained green/neutral palette. Pulso is light by default and follows `data-theme="dark"` from its own element or an ancestor.
+Available presets: `default`, `dark`, `light`, `asterism`, `fizza`, and `pulso`. The default, dark, and light presets use the pine-rose palette; Pulso remains light by default with a forest-green accent and follows `data-theme="dark"` from its own element or an ancestor. Multiple themes can coexist on one page through `data-sephiro-theme` on any ancestor.
 
 ## Sizing
 
