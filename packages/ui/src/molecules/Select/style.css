@@ -29,8 +29,8 @@
   }
   .sph-select__caret {
     flex: 0 0 auto;
-    font-size: 18px;
-    transition: color var(--sph-motion-fast) var(--sph-ease-standard);
+    font-size: 14px;
+    transition: all var(--sph-motion-fast) var(--sph-ease-standard);
   }
   .sph-select__trigger:disabled {
     @apply opacity-50;
@@ -64,7 +64,7 @@
   .sph-select__check {
     flex: 0 0 auto;
     color: var(--sph-accent);
-    font-size: 18px;
+    font-size: 14px;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -135,11 +135,11 @@ export function Select({
         <span className="sph-select__value">
           {node(selected?.label ?? placeholder)}
         </span>
-        {open ? (
-          <CaretUpIcon className="sph-select__caret" aria-hidden="true" />
-        ) : (
-          <CaretDownIcon className="sph-select__caret" aria-hidden="true" />
-        )}
+        <CaretDownIcon
+          className="sph-select__caret"
+          style={{ transform: open ? "rotate(180deg)" : undefined }}
+          aria-hidden="true"
+        />
       </button>
 
       {open && (
